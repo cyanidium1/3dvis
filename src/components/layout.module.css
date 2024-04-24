@@ -1,0 +1,51 @@
+.container {
+    max-width: 1280px;
+    padding: 16px;
+    margin: 0 auto;
+}
+
+@keyframes moveUp {
+    0% {
+        top: 0;
+        ;
+        /* Начальное смещение на 100px вниз */
+    }
+
+    100% {
+        top: -1000px
+            /* Поднимаемся вверх */
+    }
+}
+
+.absolute {
+    position: absolute;
+}
+
+.w-screen {
+    width: 100vw;
+}
+
+.h-screen {
+    height: 100vh;
+}
+
+.flex {
+    display: flex;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.splash-screen {
+    animation: moveUp 4s ease forwards;
+    /* Применяем анимацию moveUp */
+}

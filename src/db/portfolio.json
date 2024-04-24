@@ -1,0 +1,52 @@
+[
+    {
+        "title": "Kitchen with wooden fronts",
+        "description": "A contemporary living room design featuring sleek furniture and minimalist decor.",
+        "mainPhoto": "/home/portf/kitchen.jpg",
+        "additionalPhotos": [
+            "https://example.com/images/living_room_1.jpg",
+            "https://example.com/images/living_room_2.jpg",
+            "https://example.com/images/living_room_3.jpg"
+        ]
+    },
+    {
+        "title": "Bedroom in townhouse",
+        "description": "An ultra-modern bedroom design with state-of-the-art appliances and futuristic elements.",
+        "mainPhoto": "/home/portf/bedroom.png",
+        "additionalPhotos": [
+            "https://example.com/images/kitchen_1.jpg",
+            "https://example.com/images/kitchen_2.jpg",
+            "https://example.com/images/kitchen_3.jpg"
+        ]
+    },
+    {
+        "title": "Futuristic bathroom",
+        "description": "An ultra-modern bathroom design with state-of-the-art appliances and futuristic elements.",
+        "mainPhoto": "/home/portf/bathroom.jpg",
+        "additionalPhotos": [
+            "https://example.com/images/kitchen_1.jpg",
+            "https://example.com/images/kitchen_2.jpg",
+            "https://example.com/images/kitchen_3.jpg"
+        ]
+    },
+    {
+        "title": "Nice one Kitchen",
+        "description": "An ultra-modern kitchen design with state-of-the-art appliances and futuristic elements.",
+        "mainPhoto": "/home/portf/kitchen2.jpg",
+        "additionalPhotos": [
+            "https://example.com/images/kitchen_1.jpg",
+            "https://example.com/images/kitchen_2.jpg",
+            "https://example.com/images/kitchen_3.jpg"
+        ]
+    },
+    {
+        "title": "Modern cabinet",
+        "description": "An ultra-modern cabinet design with state-of-the-art appliances and futuristic elements.",
+        "mainPhoto": "/home/portf/cabinet.jpg",
+        "additionalPhotos": [
+            "https://example.com/images/kitchen_1.jpg",
+            "https://example.com/images/kitchen_2.jpg",
+            "https://example.com/images/kitchen_3.jpg"
+        ]
+    }
+]
