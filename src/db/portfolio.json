@@ -48,5 +48,15 @@
             "https://example.com/images/kitchen_2.jpg",
             "https://example.com/images/kitchen_3.jpg"
         ]
+    },
+    {
+        "title": "Modern cabinet",
+        "description": "An ultra-modern cabinet design with state-of-the-art appliances and futuristic elements.",
+        "mainPhoto": "/home/portf/cabinet.jpg",
+        "additionalPhotos": [
+            "https://example.com/images/kitchen_1.jpg",
+            "https://example.com/images/kitchen_2.jpg",
+            "https://example.com/images/kitchen_3.jpg"
+        ]
     }
 ]

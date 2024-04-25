@@ -1,14 +1,18 @@
+import Carousel from "@/components/carousel";
+import Loader from "@/components/loader";
+import Navbar from "@/components/navbar";
+import Head from "next/head";
 
-import Layout from "@/components/layout";
-
-export default function Services() {
+export default function Home() {
     return (
-        <Layout>
-            <main>
-                <p className="playFairFont text-5xl">
-                    Portfolio
-                </p>
-            </main>
-        </Layout>
+        <>
+            <Head>
+                <title>Services</title>
+            </Head>
+            <Loader />
+            <Navbar />
+
+            <Carousel />
+        </>
     );
 }

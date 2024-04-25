@@ -1,15 +1,16 @@
 import Carousel from "@/components/carousel";
-import Header from "@/components/header";
+import Loader from "@/components/loader";
+import Navbar from "@/components/navbar";
 import Head from "next/head";
 
 export default function Home() {
     return (
         <>
             <Head>
-                <title>Services</title>
+                <title>Portfolio</title>
             </Head>
-
-            <Header isPortfolio={true} />
+            <Loader />
+            <Navbar />
 
             <Carousel />
         </>

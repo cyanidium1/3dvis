@@ -2,9 +2,9 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-o
 import React from "react";
 import { useRouter } from "next/router";
 
-import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Button } from "@nextui-org/react";
+import { Navbar, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarMenu, Link, Button } from "@nextui-org/react";
 
-export default function Navigation(props) {
+export default function Navigation() {
 
     const router = useRouter()
     const isActive = (href) => router.pathname == href
@@ -19,45 +19,39 @@ export default function Navigation(props) {
 
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
-    const menuItems = [
-        "Profile",
-        "Dashboard",
-        "Activity",
-        "Analytics",
-        "System",
-        "Deployments",
-        "My Settings",
-        "Team Settings",
-        "Help & Feedback",
-        "Log Out",
-    ];
-
     return (
-        <Navbar onMenuOpenChange={setIsMenuOpen}>
+        <Navbar className="flex justify-between items-center max-w-[1280px] mx-auto" onMenuOpenChange={setIsMenuOpen}>
 
-
-            <NavbarContent justify="end">
+            <NavbarContent >
+                <NavbarBrand>
+                    <p className="font-bold text-inherit text-3xl">3DGrapher.PRO</p>
+                </NavbarBrand>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
                     className="sm:hidden"
                 />
+
             </NavbarContent>
 
             <NavbarMenu className="flex flex-col items-center">
                 <Link href="/">
-                    <p className={isActive('/') ? 'draw-underline text-5xl mt-4' : 'hover:text-light-brown duration-200 text-5xl mt-4'}>Home</p>
+                    <p className={isActive('/') ? 'underlined text-5xl mt-4' : 'draw-underline duration-200 text-5xl mt-4'}>Home</p>
                 </Link>
 
                 <Link href='/portfolio'>
-                    <p className={isActive('/portfolio') ? 'draw-underline  text-5xl mt-4' : 'hover:text-light-brown duration-200 text-5xl mt-4'}>Portfolio</p>
+                    <p className={isActive('/portfolio') ? 'underlined text-5xl mt-4' : 'draw-underline duration-200 text-5xl mt-4'}>Portfolio</p>
                 </Link>
 
                 <Link href='/services'>
-                    <p className={isActive('/services') ? 'draw-underline  text-5xl mt-4' : 'hover:text-light-brown duration-200 text-5xl mt-4'}>Services</p>
+                    <p className={isActive('/services') ? 'underlined text-5xl mt-4' : 'draw-underline duration-200 text-5xl mt-4'}>Services</p>
                 </Link>
 
                 <Link href='/about'>
-                    <p className={isActive('/about') ? 'draw-underline  text-5xl mt-4' : 'hover:text-light-brown duration-200 text-5xl mt-4'}>About</p>
+                    <p className={isActive('/about') ? 'underlined text-5xl mt-4' : 'draw-underline duration-200 text-5xl mt-4'}>About</p>
+                </Link>
+
+                <Link href='/contact'>
+                    <p className={isActive('/contact') ? 'underlined text-5xl mt-4' : 'draw-underline duration-200 text-5xl mt-4'}>Contact</p>
                 </Link>
 
                 <Dropdown>
@@ -69,7 +63,7 @@ export default function Navigation(props) {
                         </Button>
                     </DropdownTrigger>
                     <DropdownMenu
-                        className="bg-white"
+                        className="bg-white opacity-65"
                         aria-label="Single selection example"
                         variant="flat"
                         disallowEmptySelection
@@ -87,19 +81,23 @@ export default function Navigation(props) {
             <NavbarContent className="hidden sm:flex gap-10">
 
                 <Link href="/">
-                    <p className={isActive('/') ? 'draw-underline text-2xl' : 'hover:text-light-brown duration-200 text-2xl'}>Home</p>
+                    <p className={isActive('/') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>Home</p>
                 </Link>
 
                 <Link href='/portfolio'>
-                    <p className={isActive('/portfolio') ? 'draw-underline text-2xl' : 'hover:text-light-brown duration-200 text-2xl'}>Portfolio</p>
+                    <p className={isActive('/portfolio') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>Portfolio</p>
                 </Link>
 
                 <Link href='/services'>
-                    <p className={isActive('/services') ? 'draw-underline text-2xl' : 'hover:text-light-brown duration-200 text-2xl'}>Services</p>
+                    <p className={isActive('/services') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>Services</p>
                 </Link>
 
                 <Link href='/about'>
-                    <p className={isActive('/about') ? 'draw-underline text-2xl' : 'hover:text-light-brown duration-200 text-2xl'}>About</p>
+                    <p className={isActive('/about') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>About</p>
+                </Link>
+
+                <Link href='/contact'>
+                    <p className={isActive('/contact') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>Contact</p>
                 </Link>
 
                 <Dropdown>
@@ -125,6 +123,7 @@ export default function Navigation(props) {
                 </Dropdown>
 
             </NavbarContent>
+
         </Navbar>
     );
 }

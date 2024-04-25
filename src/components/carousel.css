@@ -49,7 +49,7 @@ body {
         will-change: transform, opacity;
     }
 
-    img {
+    .carousel-photo {
         position: relative;
         width: 100%;
         height: 100%;
@@ -148,7 +148,7 @@ body {
     display: flex;
     gap: 0.5rem;
     position: absolute;
-    bottom: 2rem;
+    bottom: 1rem;
     left: 50%;
     transform: translateX(-50%);
     z-index: 5;
