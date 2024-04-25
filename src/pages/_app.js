@@ -4,6 +4,7 @@ import '../styles/global.css';
 import '../components/carousel.css';
 import '../components/loader.css';
 import '../components/slider.css';
+import '../components/3DCloud/3DCloud.css'
 
 import { NextUIProvider } from "@nextui-org/react";
 
