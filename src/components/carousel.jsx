@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import './carousel.css';
+// import './carousel.css';
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import db from '../db/portfolio.json';
 

@@ -1,4 +1,4 @@
-import './slider.css'
+// import './slider.css'
 
 export default function Slider() {
     return <div class="slides">
