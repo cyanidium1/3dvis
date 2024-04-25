@@ -1,4 +1,4 @@
-import './3DCloud.css'
+// import './3DCloud.css'
 
 const tags = [
     '3D Modeling',
