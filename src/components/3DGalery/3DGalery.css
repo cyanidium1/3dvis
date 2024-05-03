@@ -1,10 +1,11 @@
 :root {
     --size: 800px;
+    --size2: 800px;
 }
 
 .perspective {
     z-index: -10;
-    perspective: 500px;
+    perspective: 400px;
     perspective-origin: center;
     display: grid;
     place-items: center;
@@ -12,6 +13,7 @@
     width: 100vw;
     overflow: hidden;
     position: fixed;
+
 }
 
 .img-cylinder {
@@ -29,6 +31,7 @@
 }
 
 .image {
+    width: 50px;
     position: absolute;
     left: 50%;
     transform-origin: center;
@@ -38,7 +41,7 @@
     /* transform:
         rotateY(calc(var(--i) * 18deg)) translateZ(calc(var(--size) * -3.3)) translateY(-20%); */
     transform:
-        rotateY(calc(var(--i) * 18deg)) translateZ(calc(var(--size) * -3.3)) translateY(-20%);
+        rotateY(calc(var(--i) * 36deg)) translateZ(calc(var(--size2) * -1.58)) translateY(-20%);
     /* added negetive translate Z to make backface into frontface and make it hidden*/
     transition: all .2s ease;
     width: var(--size);

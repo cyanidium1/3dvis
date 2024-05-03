@@ -7,7 +7,7 @@ export default function DGalery() {
 
             {[...Array(3)].map((_, indexMain) => (
                 <div className={`img-cylinder top-[${indexMain * 820}px]`} style={{ top: `${indexMain * 820}px` }}>
-                    {[...Array(20)].map((_, index) => (
+                    {[...Array(12)].map((_, index) => (
                         <div
                             key={index + indexMain * 20}
                             className="image"
