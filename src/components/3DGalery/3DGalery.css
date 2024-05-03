@@ -1,3 +1,5 @@
+/* disabled for optimization */
+
 :root {
     --size: 800px;
     --size2: 800px;
@@ -41,11 +43,13 @@
     /* transform:
         rotateY(calc(var(--i) * 18deg)) translateZ(calc(var(--size) * -3.3)) translateY(-20%); */
     transform:
-        rotateY(calc(var(--i) * 36deg)) translateZ(calc(var(--size2) * -1.58)) translateY(-20%);
+        rotateY(calc(var(--i) * 36deg)) translateZ(-1264px) translateY(-20%);
     /* added negetive translate Z to make backface into frontface and make it hidden*/
     transition: all .2s ease;
-    width: var(--size);
-    height: var(--size);
+    /* width: var(--size);
+    height: var(--size); */
+    width: 800px;
+    height: 800px;
     background-image: var(--url);
     background-size: cover;
     background-attachment: fixed;
@@ -54,11 +58,11 @@
 }
 
 @keyframes animate {
-    0% {
-        rotate: y 0deg;
+    from {
+        transform: rotateY(0);
     }
 
-    100% {
-        rotate: y 360deg;
+    to {
+        transform: rotateY(360deg);
     }
 }
