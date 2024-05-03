@@ -1,10 +1,13 @@
 .backdropL {
+    overflow: hidden;
     animation: backdropL 3.5s ease;
     /* animation-delay: ; */
-    position: absolute;
+    position: fixed;
     height: 100vh;
-    width: 100vw;
-    background: #e5d9cf;
+    width: 100%;
+    box-sizing: border-box;
+    background: black;
+    color: beige;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +27,7 @@
     content: "";
     width: 80px;
     aspect-ratio: 1;
-    box-shadow: 0 0 0 5px inset #4c4037;
+    box-shadow: 0 0 0 5px inset #f1ccae;
     animation: l5 2s normal;
     transform: scaleX(var(--s, 1)) translate(calc(50% + 2.5px)) scale(2)
 }
@@ -35,7 +38,7 @@
 
 .loader-text {
     font-family: "Manrope", sans-serif;
-    color: #4c4037;
+    color: #f1ccae;
     opacity: 0;
     animation: fadeIn 0.5s ease forwards;
     animation-delay: 1.3s;

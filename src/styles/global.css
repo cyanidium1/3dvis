@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+@import "~react-image-gallery/styles/css/image-gallery.css";
 
 html,
 body {
-
-    color: #4c4037;
-    background-color: #f9f1ec;
+    color: #f1ccae;
+    /* background-color: #f9f1ec; */
     padding: 0;
     margin: 0;
     font-family:
@@ -107,4 +107,25 @@ body {
 
 .btn:hover::after {
     top: 0;
+}
+
+.square {
+    /* width: 200px;
+    height: 200px; */
+    background: #e62a52;
+    border-radius: 8px;
+}
+
+.square-animation {
+    animation: wipe-enter 2s 1
+}
+
+@keyframes wipe-enter {
+    0% {
+        transform: scale(0, .025)
+    }
+
+    50% {
+        transform: scale(1, .025)
+    }
 }

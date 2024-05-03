@@ -17,10 +17,6 @@
     }
 }
 
-.absolute {
-    position: absolute;
-}
-
 .w-screen {
     width: 100vw;
 }

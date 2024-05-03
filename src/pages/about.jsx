@@ -1,6 +1,6 @@
 import Cloud from "@/components/3DCloud/3DCloud";
 import Layout from "@/components/layout";
-import Slider from "@/components/slider";
+import Slider from "@/components/Slider/slider";
 import { Accordion, AccordionItem } from "@nextui-org/react";
 import Head from "next/head";
 

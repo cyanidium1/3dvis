@@ -2,6 +2,7 @@ import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-o
 import React from "react";
 import { useRouter } from "next/router";
 
+import { FaCube } from "react-icons/fa";
 import { Navbar, NavbarBrand, NavbarContent, NavbarMenuToggle, NavbarMenu, Link, Button } from "@nextui-org/react";
 
 export default function Navigation() {
@@ -20,11 +21,14 @@ export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
-        <Navbar className="flex justify-between items-center max-w-[1280px] mx-auto" onMenuOpenChange={setIsMenuOpen}>
+        <Navbar className="flex justify-between items-center max-w-[1280px] mx-auto absolute" onMenuOpenChange={setIsMenuOpen}>
 
-            <NavbarContent >
-                <NavbarBrand>
-                    <p className="font-bold text-inherit text-3xl">3DGrapher.PRO</p>
+            <NavbarContent className="">
+                <NavbarBrand className="flex items-center space-x-2">
+                    <Link href="/">
+                        <FaCube size={27} />
+                        <p className="text-inherit text-3xl ml-2">3DGrapher.PRO</p>
+                    </Link>
                 </NavbarBrand>
                 <NavbarMenuToggle
                     aria-label={isMenuOpen ? "Close menu" : "Open menu"}
@@ -81,7 +85,7 @@ export default function Navigation() {
             <NavbarContent className="hidden sm:flex gap-10">
 
                 <Link href="/">
-                    <p className={isActive('/') ? 'underlined text-2xl' : 'draw-underline duration-200 text-2xl'}>Home</p>
+                    <p className={isActive('/') ? 'underlined text-2xl ' : 'draw-underline duration-200 text-2xl'}>Home</p>
                 </Link>
 
                 <Link href='/portfolio'>

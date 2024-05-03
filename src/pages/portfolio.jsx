@@ -1,4 +1,4 @@
-import Carousel from "@/components/carousel";
+import Carousel from "@/components/Carousel/carousel";
 import Loader from "@/components/loader";
 import Navbar from "@/components/navbar";
 import Head from "next/head";
@@ -10,7 +10,9 @@ export default function Home() {
                 <title>Portfolio</title>
             </Head>
             <Loader />
-            <Navbar />
+            <div>
+                <Navbar />
+            </div>
 
             <Carousel />
         </>
