@@ -4,7 +4,7 @@
 
 .perspective {
     z-index: -10;
-    perspective: 700px;
+    perspective: 500px;
     perspective-origin: center;
     display: grid;
     place-items: center;
@@ -35,6 +35,8 @@
     transform-style: preserve-3d;
     border-radius: 10px;
     translate: -50%;
+    /* transform:
+        rotateY(calc(var(--i) * 18deg)) translateZ(calc(var(--size) * -3.3)) translateY(-20%); */
     transform:
         rotateY(calc(var(--i) * 18deg)) translateZ(calc(var(--size) * -3.3)) translateY(-20%);
     /* added negetive translate Z to make backface into frontface and make it hidden*/

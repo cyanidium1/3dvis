@@ -7,11 +7,11 @@ export default function DGalery() {
 
             {[...Array(3)].map((_, indexMain) => (
                 <div className={`img-cylinder top-[${indexMain * 820}px]`} style={{ top: `${indexMain * 820}px` }}>
-                    {[...Array(21)].map((_, index) => (
+                    {[...Array(20)].map((_, index) => (
                         <div
-                            key={index + indexMain * 21}
+                            key={index + indexMain * 20}
                             className="image"
-                            style={{ '--i': index + indexMain + 1, '--url': `url('https://picsum.photos/200?v=${index + indexMain * 21}')` }}
+                            style={{ '--i': index + indexMain + 1, '--url': `url('https://picsum.photos/200?v=${index + indexMain * 20}')` }}
                         ></div>
                     ))}
                 </div>

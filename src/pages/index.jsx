@@ -86,7 +86,7 @@ export default function Home() {
                 <section className="h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
                     <Container>
                         <div className="w-full">
-                            <div className="md:w-2/3 mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
+                            <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
                                 <h2 className="playFairFont text-5xl md:text-8xl my-1 md:my-0 text-white">3D Grapher</h2>
                                 <p className="font-extralight text-xs md:text-2xl uppercase tracking-widest flex items-center text-white my-4">Interior Design. <br /> Visualizing Dreams. <br /> Creating art.</p>
                                 <div className='md:flex md:space-x-2 space-y-2 md:space-y-0'>
