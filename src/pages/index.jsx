@@ -98,7 +98,7 @@ export default function Home() {
 
                     </Container>
                 </section>
-
+                {/* 
                 <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
                     <Container>
                         <div className="md:flex md:space-x-10">
@@ -200,9 +200,9 @@ export default function Home() {
                             </Link>
                         </div>
                     </Container>
-                </section>
+                </section> */}
             </main>
-            <Footer />
+            {/* <Footer /> */}
         </Layout>
     );
 }
