@@ -1,3 +1,6 @@
+// cms
+import { performRequest } from '../lib/datocms';
+
 // next & react components
 import Layout from "@/components/layout";
 import Head from "next/head";
@@ -17,9 +20,20 @@ import Footer from "@/components/footer";
 import ReactImageGallery from "react-image-gallery";
 import Link from "next/link";
 
-
+// cms
+const PAGE_CONTENT_QUERY = `
+  query Home {
+    homepage {
+      title
+      description {
+        value
+      }
+    }
+  }`;
 
 export default function Home() {
+
+    // const { data: { homepage } } = await performRequest({ query: PAGE_CONTENT_QUERY });
 
     const images = [
         {
@@ -98,7 +112,7 @@ export default function Home() {
 
                     </Container>
                 </section>
-                {/* 
+
                 <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
                     <Container>
                         <div className="md:flex md:space-x-10">
@@ -200,9 +214,9 @@ export default function Home() {
                             </Link>
                         </div>
                     </Container>
-                </section> */}
+                </section>
             </main>
-            {/* <Footer /> */}
+            <Footer />
         </Layout>
     );
 }

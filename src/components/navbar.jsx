@@ -21,7 +21,7 @@ export default function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
     return (
-        <Navbar className="flex justify-between items-center max-w-[1280px] mx-auto absolute" onMenuOpenChange={setIsMenuOpen}>
+        <Navbar className="flex justify-between items-center max-w-[1280px] mx-auto absolute" maxWidth="xl" onMenuOpenChange={setIsMenuOpen}>
 
             <NavbarContent className="">
                 <NavbarBrand className="flex items-center space-x-2">

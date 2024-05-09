@@ -4,11 +4,6 @@
     --speed: 500ms;
 }
 
-/* body {
-    height: 100vh;
-    overflow: hidden;
-} */
-
 .animBox {
     /* height: 100vh; */
     background: #202227;
@@ -172,19 +167,6 @@
 }
 
 @media (width > 650px) and (width < 900px) {
-    /* .content {
-        & .title {
-            font-size: 1rem;
-        }
-
-        & .description {
-            font-size: 0.7rem;
-        }
-
-        & button {
-            font-size: 0.7rem;
-        }
-    } */
 
     .item {
         width: 160px;

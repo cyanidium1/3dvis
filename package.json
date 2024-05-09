@@ -9,10 +9,13 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@next/env": "^14.2.3",
     "@nextui-org/input": "^2.1.21",
     "@nextui-org/react": "^2.3.5",
     "@nextui-org/system": "^2.1.2",
     "@nextui-org/theme": "^2.2.2",
+    "axios": "^1.6.8",
+    "dotenv": "^16.4.5",
     "formik": "^2.4.6",
     "framer-motion": "^11.1.7",
     "next": "14.2.2",
