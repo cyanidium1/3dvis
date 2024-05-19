@@ -3,14 +3,20 @@ import Container from "@/components/container";
 import Layout from "@/components/layout";
 import Slider from "@/components/Slider/slider";
 import {
+  Accordion,
+  AccordionButton,
+  AccordionIcon,
+  AccordionItem,
+  AccordionPanel,
   Box,
   Flex,
+  Grid,
   Img,
   ListItem,
   Text,
   UnorderedList,
 } from "@chakra-ui/react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
+
 import Head from "next/head";
 import Designer from "../../public/images/about/hero.jpg";
 import {
@@ -19,7 +25,29 @@ import {
   FaLinkedinIn,
   FaInstagram,
   FaFacebookF,
+  FaPlus,
 } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { LuPlus } from "react-icons/lu";
+
+const dataFAQ = [
+  {
+    title: "How many years of experience do your firm has?",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
+  },
+  {
+    title: "How big is your team of architects?",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
+  },
+  {
+    title: "Does your firm have a project minimum?",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
+  },
+  {
+    title: "Can I cancel my project at any time?",
+    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
+  },
+];
 
 export default function Home() {
   const stylingSocials = {
@@ -137,35 +165,152 @@ export default function Home() {
               </Flex>
             </Flex>
           </Flex>
+
+          <Flex
+            py={"128px"}
+            justifyContent={"space-around"}
+            alignItems={"center"}
+          >
+            <Flex flex={"50%"} flexDir={"column"} maxW={"512px"}>
+              <Text
+                fontFamily={"Playfair Display"}
+                fontSize={"64px"}
+                color={"#4c4037"}
+              >
+                We have impactful results
+              </Text>
+              <Text
+                fontSize="16px"
+                fontFamily="Manrope"
+                color="#957f72"
+                lineHeight="32px"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                Suspendisse varius enim in eros elementum tristique. Duis
+                cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                commodo diam
+              </Text>
+            </Flex>
+            <Flex wrap="wrap" gap="60px" maxW={"387px"}>
+              <Flex flexDir="column" w="calc(50% - 35px)">
+                <Text fontSize="48px" color={"#4c4037"}>
+                  150+
+                </Text>
+                <Text
+                  fontSize="18px"
+                  fontFamily="Manrope"
+                  color="#957f72"
+                  lineHeight="32px"
+                  whiteSpace={"nowrap"}
+                >
+                  Successful Projects
+                </Text>
+              </Flex>
+
+              <Flex flexDir="column" w="calc(50% - 35px)">
+                <Text fontSize="48px" color={"#4c4037"}>
+                  20+
+                </Text>
+                <Text
+                  fontSize="18px"
+                  fontFamily="Manrope"
+                  color="#957f72"
+                  lineHeight="32px"
+                  whiteSpace={"nowrap"}
+                >
+                  Award Winnings
+                </Text>
+              </Flex>
+
+              <Flex flexDir="column" w="calc(50% - 35px)">
+                <Text fontSize="48px" color={"#4c4037"}>
+                  99%
+                </Text>
+                <Text
+                  fontSize="18px"
+                  fontFamily="Manrope"
+                  color="#957f72"
+                  lineHeight="32px"
+                  whiteSpace={"nowrap"}
+                >
+                  Satisfaction rate
+                </Text>
+              </Flex>
+
+              <Flex flexDir="column" w="calc(50% - 35px)">
+                <Text fontSize="48px" color={"#4c4037"}>
+                  15+
+                </Text>
+                <Text
+                  fontSize="18px"
+                  fontFamily="Manrope"
+                  color="#957f72"
+                  lineHeight="32px"
+                  whiteSpace={"nowrap"}
+                >
+                  Years Of Experience
+                </Text>
+              </Flex>
+            </Flex>
+          </Flex>
+          <Text
+            fontFamily={"Playfair Display"}
+            fontSize={"86px"}
+            color={"#4c4037"}
+          >
+            Have any questions?
+          </Text>
+          <Accordion allowMultiple w={"100%"} p={"0px"} maxW={"1024px"}>
+            {dataFAQ.map((faq, index) => (
+              <AccordionItem key={index}>
+                {({ isExpanded }) => (
+                  <>
+                    <h2>
+                      <AccordionButton w={"100%"}>
+                        <Flex
+                          fontFamily={"Manrope"}
+                          fontSize={"1.25rem"}
+                          lineHeight={1.4}
+                          color="#4c4037"
+                          borderBottom={"2px solid #e5d9cf"}
+                          justifyContent={"flex-start"}
+                          w={"100%"}
+                          p={"80px 16px  "}
+                          fontWeight={600}
+                        >
+                          {faq.title}
+                        </Flex>
+                        <Flex
+                          alignItems={"center"}
+                          justifyContent={"center"}
+                          w={"72px"}
+                          h={"72px"}
+                          border="1px solid #e5d9cf"
+                        >
+                          {isExpanded ? (
+                            <IoClose size="36px" color="#957f72" />
+                          ) : (
+                            <LuPlus size="36px" color="#957f72" />
+                          )}
+                        </Flex>
+                      </AccordionButton>
+                    </h2>
+                    <AccordionPanel
+                      maxW={"768px"}
+                      fontFamily={"Manrope"}
+                      fontSize={"1rem"}
+                      color="#957f72"
+                      p={"32px 40px 40px"}
+                    >
+                      {faq.desc}
+                    </AccordionPanel>
+                  </>
+                )}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </Box>
-
-      {/* <Head>
-                <title>Main page</title>
-            </Head>
-            <main>
-                <p className="playFairFont text-5xl">
-                    About
-                </p>
-
-                <Accordion variant="light">
-                    <AccordionItem key="1" aria-label="Accordion 1" title="Accordion 1">
-                        information
-                    </AccordionItem>
-                    <AccordionItem key="2" aria-label="Accordion 2" title="Accordion 2">
-                        information
-                    </AccordionItem>
-                    <AccordionItem key="3" aria-label="Accordion 3" title="Accordion 3">
-                        information
-                    </AccordionItem>
-                </Accordion>
-
-               
-                <div className="flex justify-center overflow-hidden">
-                    <Cloud />
-                </div>
-
-            </main> */}
     </Layout>
   );
 }
