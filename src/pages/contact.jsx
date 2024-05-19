@@ -1,4 +1,5 @@
 import Container from "@/components/container";
+import Footer from "@/components/footer";
 import Layout from "@/components/layout";
 import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
 import { useState } from "react";
@@ -189,6 +190,7 @@ export default function Services() {
           </Flex>
         </Container>
       </Flex>
+      <Footer />
     </Layout>
   );
 }
