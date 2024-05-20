@@ -109,15 +109,7 @@ export default function Services() {
 
           <Flex
             as={"form"}
-            p={"80px 96px"}
-            w={"100%"}
-            h={"auto"}
-            bgColor={"white"}
-            flexDirection={"column"}
-            justifyContent={"center"}
-            alignItems={"center"}
-            border={"1px solid #e6e6e6"}
-            gap={"50px"}
+            className="p-5 sm:p-[80px] md:p-[96px] w-full h-auto bg-white flex-col justify-center items-center border border-gray-300 gap-12"
             onSubmit={handleSubmit}
           >
             <Input

@@ -61,18 +61,12 @@ export default function Home() {
   };
 
   return (
-    <Layout>
+    <>
       <Box pos={"relative"} bgColor={"#f9f1ec"}>
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
-          <div className="w-full max-w-[1280px] mx-auto px-4 md:px-0 ">
-            <Box
-              bgColor={"rgba(249, 241, 236, 0.7)"}
-              p="16px 24px"
-              pos={"absolute"}
-              top={"100px"}
-              left={"340px"}
-            >
+          <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
+            <Box className="absolute top-[100px] left-2 md:left-[80px] xl:left-[200px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
               <Text
                 color={"#4c4037"}
                 fontSize={"36px"}
@@ -84,16 +78,24 @@ export default function Home() {
           </div>
         </div>
         <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
-          <Flex flexWrap={"nowrap"} gap={"40px"} justifyContent={"center"}>
-            <Img alt="author" src={Designer.src} maxW={"608px"} />
-            <Flex flexDir={"column"} gap={"20px"}>
+          {/* <Flex gap={"40px"} justifyContent={"center"} boxSizing="border-box"> */}
+          <div className="flex flex-col xl:flex-row gap-20 p-2 ">
+            <Img
+              alt="author"
+              src={Designer.src}
+              maxW={"608px"}
+              w={"100%"}
+              objectFit={"contain"}
+              className="mx-auto xl:mx-0"
+            />
+            <Flex flexDir={"column"} gap={"20px"} p={"20px"}>
               <Text
-                fontFamily={"Playfair Display"}
-                fontSize={"86px"}
-                color={"#4c4037"}
+                className="font-playfair font-bold text-[#4c4037] whitespace-normal 
+             lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
               >
                 Helena Karaliok
               </Text>
+
               <Text as="cite" color="#957f72" fontSize={"20px"}>
                 Interior Designer
               </Text>
@@ -131,7 +133,7 @@ export default function Home() {
                   experimenting with a mix of materials, textures, and colors.
                 </ListItem>
                 <ListItem
-                  fontSize="16px"
+                  fontSize={"16px"}
                   fontFamily="Manrope"
                   color="#957f72"
                   lineHeight="32px"
@@ -164,100 +166,90 @@ export default function Home() {
                 </div>
               </Flex>
             </Flex>
+          </div>
+
+          <Flex className="flex flex-col justify-center items-center py-[80px] lg:py-[128px]">
+            <div className="w-full flex flex-col xl:flex-row gap-20 items-center justify-center">
+              <Flex flex={"50%"} flexDir={"column"} maxW={"512px"}>
+                <Text className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037]">
+                  We have impactful results
+                </Text>
+                <Text
+                  fontSize={"16px"}
+                  fontFamily="Manrope"
+                  color="#957f72"
+                  lineHeight="32px"
+                >
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Suspendisse varius enim in eros elementum tristique. Duis
+                  cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
+                  commodo diam
+                </Text>
+              </Flex>
+              <Flex wrap="wrap" gap="60px" maxW={"387px"}>
+                <Flex flexDir="column" w="calc(50% - 35px)">
+                  <Text fontSize="48px" color={"#4c4037"}>
+                    150+
+                  </Text>
+                  <Text
+                    fontSize="18px"
+                    fontFamily="Manrope"
+                    color="#957f72"
+                    lineHeight="32px"
+                    whiteSpace={"nowrap"}
+                  >
+                    Successful Projects
+                  </Text>
+                </Flex>
+
+                <Flex flexDir="column" w="calc(50% - 35px)">
+                  <Text fontSize="48px" color={"#4c4037"}>
+                    20+
+                  </Text>
+                  <Text
+                    fontSize="18px"
+                    fontFamily="Manrope"
+                    color="#957f72"
+                    lineHeight="32px"
+                    whiteSpace={"nowrap"}
+                  >
+                    Award Winnings
+                  </Text>
+                </Flex>
+
+                <Flex flexDir="column" w="calc(50% - 35px)">
+                  <Text fontSize="48px" color={"#4c4037"}>
+                    99%
+                  </Text>
+                  <Text
+                    fontSize="18px"
+                    fontFamily="Manrope"
+                    color="#957f72"
+                    lineHeight="32px"
+                    whiteSpace={"nowrap"}
+                  >
+                    Satisfaction rate
+                  </Text>
+                </Flex>
+
+                <Flex flexDir="column" w="calc(50% - 35px)">
+                  <Text fontSize="48px" color={"#4c4037"}>
+                    15+
+                  </Text>
+                  <Text
+                    fontSize="18px"
+                    fontFamily="Manrope"
+                    color="#957f72"
+                    lineHeight="32px"
+                    whiteSpace={"nowrap"}
+                  >
+                    Years Of Experience
+                  </Text>
+                </Flex>
+              </Flex>
+            </div>
           </Flex>
-
-          <Flex
-            py={"128px"}
-            justifyContent={"space-around"}
-            alignItems={"center"}
-          >
-            <Flex flex={"50%"} flexDir={"column"} maxW={"512px"}>
-              <Text
-                fontFamily={"Playfair Display"}
-                fontSize={"64px"}
-                color={"#4c4037"}
-              >
-                We have impactful results
-              </Text>
-              <Text
-                fontSize="16px"
-                fontFamily="Manrope"
-                color="#957f72"
-                lineHeight="32px"
-              >
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Suspendisse varius enim in eros elementum tristique. Duis
-                cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                commodo diam
-              </Text>
-            </Flex>
-            <Flex wrap="wrap" gap="60px" maxW={"387px"}>
-              <Flex flexDir="column" w="calc(50% - 35px)">
-                <Text fontSize="48px" color={"#4c4037"}>
-                  150+
-                </Text>
-                <Text
-                  fontSize="18px"
-                  fontFamily="Manrope"
-                  color="#957f72"
-                  lineHeight="32px"
-                  whiteSpace={"nowrap"}
-                >
-                  Successful Projects
-                </Text>
-              </Flex>
-
-              <Flex flexDir="column" w="calc(50% - 35px)">
-                <Text fontSize="48px" color={"#4c4037"}>
-                  20+
-                </Text>
-                <Text
-                  fontSize="18px"
-                  fontFamily="Manrope"
-                  color="#957f72"
-                  lineHeight="32px"
-                  whiteSpace={"nowrap"}
-                >
-                  Award Winnings
-                </Text>
-              </Flex>
-
-              <Flex flexDir="column" w="calc(50% - 35px)">
-                <Text fontSize="48px" color={"#4c4037"}>
-                  99%
-                </Text>
-                <Text
-                  fontSize="18px"
-                  fontFamily="Manrope"
-                  color="#957f72"
-                  lineHeight="32px"
-                  whiteSpace={"nowrap"}
-                >
-                  Satisfaction rate
-                </Text>
-              </Flex>
-
-              <Flex flexDir="column" w="calc(50% - 35px)">
-                <Text fontSize="48px" color={"#4c4037"}>
-                  15+
-                </Text>
-                <Text
-                  fontSize="18px"
-                  fontFamily="Manrope"
-                  color="#957f72"
-                  lineHeight="32px"
-                  whiteSpace={"nowrap"}
-                >
-                  Years Of Experience
-                </Text>
-              </Flex>
-            </Flex>
-          </Flex>
-          <Text
-            fontFamily={"Playfair Display"}
-            fontSize={"86px"}
-            color={"#4c4037"}
-          >
+          <Text className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037]">
             Have any questions?
           </Text>
           <Accordion allowMultiple w={"100%"} p={"0px"} maxW={"1024px"}>
@@ -269,13 +261,14 @@ export default function Home() {
                       <AccordionButton w={"100%"}>
                         <Flex
                           fontFamily={"Manrope"}
-                          fontSize={"1.25rem"}
+                          fontSize={["16px", "18px", "20px"]}
+                          className="text-[16px] sm:text-[18px]8lg:text-[20px] py-[60px] lg:py-[80px]px-[8px] lg:px-[16px]"
+                          textAlign={"start"}
                           lineHeight={1.4}
                           color="#4c4037"
                           borderBottom={"2px solid #e5d9cf"}
                           justifyContent={"flex-start"}
                           w={"100%"}
-                          p={"80px 16px  "}
                           fontWeight={600}
                         >
                           {faq.title}
@@ -283,8 +276,7 @@ export default function Home() {
                         <Flex
                           alignItems={"center"}
                           justifyContent={"center"}
-                          w={"72px"}
-                          h={"72px"}
+                          className="w-[56px] lg:w-[72px] h-[56px] lg:h-[72px]"
                           border="1px solid #e5d9cf"
                         >
                           {isExpanded ? (
@@ -311,6 +303,6 @@ export default function Home() {
           </Accordion>
         </div>
       </Box>
-    </Layout>
+    </>
   );
 }
