@@ -61,7 +61,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <Layout>
       <Box pos={"relative"} bgColor={"#f9f1ec"}>
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
@@ -303,6 +303,6 @@ export default function Home() {
           </Accordion>
         </div>
       </Box>
-    </>
+    </Layout>
   );
 }
