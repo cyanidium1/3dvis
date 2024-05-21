@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^2.8.2",
     "@next/env": "^14.2.3",
     "@nextui-org/input": "^2.1.21",
     "@nextui-org/react": "^2.3.5",
