@@ -58,6 +58,10 @@ export default function Home() {
     border: "1px solid #957f72",
     justifyContent: "center",
     alignItems: "center",
+    _hover: {
+      color: "#4c4037",
+      border: "1px solid #4c4037",
+    },
   };
 
   return (
@@ -66,10 +70,10 @@ export default function Home() {
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
-            <Box className="absolute top-[100px] left-2 md:left-[80px] xl:left-[200px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
+            <Box className="absolute top-[100px] left-2 md:left-[80px] xl:left-[130px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
               <Text
                 color={"#4c4037"}
-                fontSize={"36px"}
+                className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
                 fontFamily={"Playfair Display"}
               >
                 About Us
@@ -89,6 +93,7 @@ export default function Home() {
             />
             <Flex flexDir={"column"} gap={"20px"} p={"20px"}>
               <Text
+                fontFamily={"Playfair Display"}
                 className="font-playfair font-bold text-[#4c4037] whitespace-normal 
              lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
               >
@@ -146,19 +151,49 @@ export default function Home() {
               <Flex justifyContent={"flex-end"} flexDir={"column"} gap={"8px"}>
                 <div className="mt-9  md:mt-0 ">
                   <Flex gap={"10px"}>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaFacebookF />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaTwitter />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaYoutube />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaLinkedinIn />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaInstagram />
                     </Flex>
                   </Flex>
@@ -167,8 +202,8 @@ export default function Home() {
             </Flex>
           </div>
 
-          <Flex className="flex flex-col justify-center items-center py-[80px] lg:py-[128px]">
-            <div className="w-full flex flex-col xl:flex-row gap-20 items-center justify-center">
+          <Flex className="flex flex-col justify-between py-[80px] lg:py-[128px]">
+            <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
               <Flex flex={"50%"} flexDir={"column"} maxW={"512px"}>
                 <Text className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037]">
                   We have impactful results
@@ -251,13 +286,16 @@ export default function Home() {
           <Text className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037]">
             Have any questions?
           </Text>
-          <Accordion allowMultiple w={"100%"} p={"0px"} maxW={"1024px"}>
+          <Accordion allowMultiple w={"100%"} p={"0px"}>
             {dataFAQ.map((faq, index) => (
               <AccordionItem key={index}>
                 {({ isExpanded }) => (
                   <>
                     <h2>
-                      <AccordionButton w={"100%"}>
+                      <AccordionButton
+                        w={"100%"}
+                        borderBottom={"2px solid #e5d9cf"}
+                      >
                         <Flex
                           fontFamily={"Manrope"}
                           fontSize={["16px", "18px", "20px"]}
@@ -265,7 +303,6 @@ export default function Home() {
                           textAlign={"start"}
                           lineHeight={1.4}
                           color="#4c4037"
-                          borderBottom={"2px solid #e5d9cf"}
                           justifyContent={"flex-start"}
                           w={"100%"}
                           fontWeight={600}

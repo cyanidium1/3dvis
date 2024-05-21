@@ -40,6 +40,11 @@ export default function Services() {
     border: "1px solid #957f72",
     justifyContent: "center",
     alignItems: "center",
+    cursor: "pointer",
+    _hover: {
+      color: "#4c4037",
+      border: "1px solid #4c4037",
+    },
   };
 
   return (
@@ -48,12 +53,12 @@ export default function Services() {
         <Container>
           <Flex
             py={"96px"}
-            justifyContent={"center"}
+            justifyContent={"space-between"}
             alignItems={"center"}
             h={"100%"}
             w={"100%"}
           >
-            <div className="flex flex-col md:flex-row  ">
+            <div className="flex flex-col md:flex-row justify-between w-full">
               <Flex flexDir={"column"}>
                 <Flex gap={"8px"} alignItems={"center"}>
                   <Text className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
@@ -86,19 +91,49 @@ export default function Services() {
                     Follow us:
                   </Text>
                   <Flex gap={"10px"}>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.facebook.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaFacebookF />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.twitter.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaTwitter />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.youtube.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaYoutube />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.linkedin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaLinkedinIn />
                     </Flex>
-                    <Flex {...stylingSocials}>
+                    <Flex
+                      {...stylingSocials}
+                      as="a"
+                      href="https://www.instagram.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FaInstagram />
                     </Flex>
                   </Flex>
