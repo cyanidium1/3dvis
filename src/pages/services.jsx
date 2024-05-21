@@ -11,7 +11,7 @@ import CustomFurniture_3 from "../../public/images/3.jpg";
 
 export default function Home() {
   return (
-    <>
+    <Layout>
       <Flex bgColor={"#f9f1ec"} justify={"center"} alignItems={"center"}>
         <Container>
           <Flex flexDir={"column"} className=" py-[80px] lg:py-[128px]">
@@ -222,14 +222,8 @@ export default function Home() {
               </div>
             </Container>
           </Flex>
-          {/* <Image
-                      width={520}
-                      height={520}
-                      src={CustomFurniture.src}
-                      alt="Custom Furniture"
-                    /> */}
         </Container>
       </Flex>
-    </>
+    </Layout>
   );
 }
