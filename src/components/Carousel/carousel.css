@@ -85,6 +85,91 @@
         opacity: 0;
         transition-delay: calc(var(--speed) * 0.6);
     }
+
+    /* сгенеренные  */
+    &:nth-child(7) {
+        left: calc(50% + calc(var(--width) * 4) + calc(var(--gap) * 4));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 0.8);
+    }
+
+    &:nth-child(8) {
+        left: calc(50% + calc(var(--width) * 5) + calc(var(--gap) * 5));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 1);
+    }
+
+    &:nth-child(9) {
+        left: calc(50% + calc(var(--width) * 6) + calc(var(--gap) * 6));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 1.2);
+    }
+
+    &:nth-child(10) {
+        left: calc(50% + calc(var(--width) * 7) + calc(var(--gap) * 7));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 1.4);
+    }
+
+    &:nth-child(11) {
+        left: calc(50% + calc(var(--width) * 8) + calc(var(--gap) * 8));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 1.6);
+    }
+
+    &:nth-child(12) {
+        left: calc(50% + calc(var(--width) * 9) + calc(var(--gap) * 9));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 1.8);
+    }
+
+    &:nth-child(13) {
+        left: calc(50% + calc(var(--width) * 10) + calc(var(--gap) * 10));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 2);
+    }
+
+    &:nth-child(14) {
+        left: calc(50% + calc(var(--width) * 11) + calc(var(--gap) * 11));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 2.2);
+    }
+
+    &:nth-child(15) {
+        left: calc(50% + calc(var(--width) * 12) + calc(var(--gap) * 12));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 2.4);
+    }
+
+    &:nth-child(16) {
+        left: calc(50% + calc(var(--width) * 13) + calc(var(--gap) * 13));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 2.6);
+    }
+
+    &:nth-child(17) {
+        left: calc(50% + calc(var(--width) * 14) + calc(var(--gap) * 14));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 2.8);
+    }
+
+    &:nth-child(18) {
+        left: calc(50% + calc(var(--width) * 15) + calc(var(--gap) * 15));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 3);
+    }
+
+    &:nth-child(19) {
+        left: calc(50% + calc(var(--width) * 16) + calc(var(--gap) * 16));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 3.2);
+    }
+
+    &:nth-child(20) {
+        left: calc(50% + calc(var(--width) * 17) + calc(var(--gap) * 17));
+        opacity: 0;
+        transition-delay: calc(var(--speed) * 3.4);
+    }
 }
 
 .content {

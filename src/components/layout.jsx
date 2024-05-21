@@ -7,7 +7,7 @@ export default function Layout({ children }) {
 
     return (
         <div>
-            <Loader />
+            {/* <Loader /> */}
             <div className='block'>
                 <Navbar />
             </div>
