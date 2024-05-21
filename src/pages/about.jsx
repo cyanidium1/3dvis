@@ -78,7 +78,6 @@ export default function Home() {
           </div>
         </div>
         <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
-          {/* <Flex gap={"40px"} justifyContent={"center"} boxSizing="border-box"> */}
           <div className="flex flex-col xl:flex-row gap-20 p-2 ">
             <Img
               alt="author"
