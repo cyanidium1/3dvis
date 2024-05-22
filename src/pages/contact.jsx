@@ -1,7 +1,7 @@
 import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Layout from "@/components/layout";
-import { Box, Button, Flex, Input, Text, Textarea } from "@chakra-ui/react";
+
 import { useState } from "react";
 
 import {
@@ -49,174 +49,139 @@ export default function Services() {
 
   return (
     <Layout>
-      <Flex bgColor={"#f9f1ec"} justify={"center"} alignItems={"center"}>
+      <div className="bg-[#f9f1ec] justify-center items-center">
         <Container>
-          <Flex
-            py={"96px"}
-            justifyContent={"space-between"}
-            alignItems={"center"}
-            h={"100%"}
-            w={"100%"}
-          >
+          <div className="py-[96px] justify-between items-center h-[100%] w-[100%]">
             <div className="flex flex-col md:flex-row justify-between w-full">
-              <Flex flexDir={"column"}>
-                <Flex gap={"8px"} alignItems={"center"}>
-                  <Text className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
+              <div className="flex flex-col">
+                <div className="flex gap-[8px] items-center">
+                  <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
                     &mdash;
-                  </Text>
-                  <Text className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
+                  </p>
+                  <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
                     Get in touch
-                  </Text>
-                </Flex>
+                  </p>
+                </div>
 
-                <Text
-                  fontSize={"18px"}
-                  color="#957f72"
-                  fontWeight={300}
-                  maxW={"512px"}
-                  mt={"20px"}
-                >
+                <p className="text-[#957f72] font-light text-[18px] max-w-[512px] mt-[20px]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   Suspendisse varius enim in eros elementum tristique. Duis
                   cursus, mi quis viverra ornare.
-                </Text>
-              </Flex>
-              <Flex justifyContent={"flex-end"} flexDir={"column"} gap={"8px"}>
+                </p>
+              </div>
+              <div className="justify-end flex flex-col gap-[8px]">
                 <div className="mt-5  md:mt-0 ">
-                  <Text
-                    alignSelf={"flex-start"}
-                    color={"#957f72"}
-                    fontSize={"16px"}
-                  >
-                    Follow us:
-                  </Text>
-                  <Flex gap={"10px"}>
-                    <Flex
-                      {...stylingSocials}
-                      as="a"
+                  <p className="text-[#957f72] text-[16px]">Follow us:</p>
+                  <div className="flex gap-[8px] mt-[18px]">
+                    <a
+                      style={{
+                        border: "1px solid #957f72",
+                        borderRadius: "50%",
+                      }}
+                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.facebook.com/grafinia3dpl"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaFacebookF />
-                    </Flex>
-                    <Flex
-                      {...stylingSocials}
-                      as="a"
+                    </a>
+                    <a
+                      style={{
+                        border: "1px solid #957f72",
+                        borderRadius: "50%",
+                      }}
+                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaTwitter />
-                    </Flex>
-                    <Flex
-                      {...stylingSocials}
-                      as="a"
+                    </a>
+                    <a
+                      style={{
+                        border: "1px solid #957f72",
+                        borderRadius: "50%",
+                      }}
+                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.youtube.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaYoutube />
-                    </Flex>
-                    <Flex
-                      {...stylingSocials}
-                      as="a"
+                    </a>
+                    <a
+                      style={{
+                        border: "1px solid #957f72",
+                        borderRadius: "50%",
+                      }}
+                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaLinkedinIn />
-                    </Flex>
-                    <Flex
-                      {...stylingSocials}
-                      as="a"
+                    </a>
+                    <a
+                      style={{
+                        border: "1px solid #957f72",
+                        borderRadius: "50%",
+                      }}
+                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.instagram.com/grafinia.3d"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <FaInstagram />
-                    </Flex>
-                  </Flex>
+                    </a>
+                  </div>
                 </div>
-              </Flex>
+              </div>
             </div>
-          </Flex>
+          </div>
 
-          <Flex
-            as={"form"}
-            className="p-5 sm:p-[80px] md:p-[96px] w-full h-auto bg-white flex-col justify-center items-center border border-gray-300 gap-12"
+          <form
+            class="p-5 sm:p-20 md:p-24 w-full h-auto bg-white flex flex-col justify-center items-center border border-gray-300 gap-12"
             onSubmit={handleSubmit}
           >
-            <Input
-              p={"16px 32px"}
-              border={"1px solid #e6e6e6"}
-              w={"100%"}
+            <input
+              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
+              type="text"
               placeholder="Full Name"
-              _placeholder={{ fontSize: "18px" }}
-              fontSize={"18px"}
-              color={" #b6a497"}
-              _hover={{ border: "1px solid #b6a497" }}
-              _focus={{ border: "1px solid #b6a497" }}
               name="fullName"
               onChange={handleInputChange}
-              required
             />
-            <Input
-              p={"16px 32px"}
-              border={"1px solid #e6e6e6"}
-              w={"100%"}
+            <input
+              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497]"
+              type="email"
               placeholder="Email Address"
-              _placeholder={{ fontSize: "18px" }}
-              fontSize={"18px"}
-              color={" #b6a497"}
-              _hover={{ border: "1px solid #b6a497" }}
-              _focus={{ border: "1px solid #b6a497" }}
               name="emailAddress"
               onChange={handleInputChange}
             />
-            <Input
-              p={"16px 32px"}
-              required
-              border={"1px solid #e6e6e6"}
-              w={"100%"}
+            <input
+              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
+              type="tel"
               placeholder="Phone Number"
-              _placeholder={{ fontSize: "18px" }}
-              fontSize={"18px"}
-              color={" #b6a497"}
-              _hover={{ border: "1px solid #b6a497" }}
-              _focus={{ border: "1px solid #b6a497" }}
               name="phoneNumber"
               onChange={handleInputChange}
               value={formData.phoneNumber}
             />
-            <Textarea
+            <textarea
+              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] min-h-[176px]"
               placeholder="Message..."
-              minH="176px"
-              p={"16px 32px"}
-              border={"1px solid #e6e6e6"}
-              w={"100%"}
-              _placeholder={{ fontSize: "18px" }}
-              fontSize={"18px"}
-              color={" #b6a497"}
-              _hover={{ border: "1px solid #b6a497" }}
-              _focus={{ border: "1px solid #b6a497" }}
               name="message"
               onChange={handleInputChange}
-            />
-            <Flex mr="auto" color={"white"}>
-              <Button
-                maxW={"90px"}
-                h={"48px"}
-                bgColor={"#4c4037"}
-                p="16px 24px"
+            ></textarea>
+            <div class="ml-auto">
+              <button
                 type="submit"
+                className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
               >
                 Send
-              </Button>
-            </Flex>
-          </Flex>
+              </button>
+            </div>
+          </form>
         </Container>
-      </Flex>
+      </div>
       <Footer />
     </Layout>
   );

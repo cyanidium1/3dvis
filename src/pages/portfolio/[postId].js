@@ -160,7 +160,7 @@ const Post = () => {
                       },
                     }}
                   >
-                    {/* {isLightboxOpen && (
+                    {isLightboxOpen && (
                       <Lightbox
                         mainSrc={transformedGallery[currentImageIndex].src}
                         nextSrc={
@@ -194,7 +194,7 @@ const Post = () => {
                           )
                         }
                       />
-                    )} */}
+                    )}
                   </Modal>
                 </div>
               </div>

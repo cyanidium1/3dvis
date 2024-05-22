@@ -29,6 +29,7 @@ import {
 } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { LuPlus } from "react-icons/lu";
+import { Image } from "@nextui-org/react";
 
 const dataFAQ = [
   {
@@ -66,55 +67,50 @@ export default function Home() {
 
   return (
     <Layout>
-      <Box pos={"relative"} bgColor={"#f9f1ec"}>
+      <div pos={"relative"} bgColor={"#f9f1ec"}>
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
-            <Box className="absolute top-[100px] left-2 md:left-[80px] xl:left-[130px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
-              <Text
-                color={"#4c4037"}
-                className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
-                fontFamily={"Playfair Display"}
+            <div className="absolute top-[100px] left-2 md:left-[80px] xl:left-[130px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
+              <p
+                className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] text-[#4c4037]"
+                style={{ fontFamily: "Playfair Display" }}
               >
                 About Us
-              </Text>
-            </Box>
+              </p>
+            </div>
           </div>
         </div>
         <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
           <div className="flex flex-col xl:flex-row gap-20 p-2 ">
-            <Img
+            <Image
               alt="author"
               src={Designer.src}
-              maxW={"608px"}
-              w={"100%"}
-              objectFit={"contain"}
-              className="mx-auto xl:mx-0"
+              className="mx-auto xl:mx-0 object-contain w-[375px] lg:w-[608px]"
+              style={{ maxWidth: "608px" }}
             />
-            <Flex flexDir={"column"} gap={"20px"} p={"20px"}>
-              <Text
-                fontFamily={"Playfair Display"}
+            <div className="flex flex-col gap-[20px] p-[20px]">
+              <p
                 className="font-playfair font-bold text-[#4c4037] whitespace-normal 
              lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
+                style={{ fontFamily: "Playfair Display" }}
               >
                 Helena Karaliok
-              </Text>
+              </p>
 
-              <Text as="cite" color="#957f72" fontSize={"20px"}>
+              <p className="italic text-[#957f72] text-[20px]">
                 Interior Designer
-              </Text>
-              <Text
-                fontSize="16px"
-                fontFamily="Manrope"
-                color="#957f72"
-                lineHeight="32px"
+              </p>
+              <p
+                className="text-[16px text-[#957f72] leading-[32px]"
+                style={{ fontFamily: "Manrope" }}
               >
                 With every new project, I strive not only to create a beautiful
                 and cozy interior, but also to reflect the individuality of the
                 client to the fullest, materializing their notions of comfort
                 and functionality. It's important to me that the design is not
                 only visually appealing but also practical for everyday life.
-              </Text>
+              </p>
               <UnorderedList color="#957f72">
                 My approach to work:
                 <ListItem
@@ -199,7 +195,7 @@ export default function Home() {
                   </Flex>
                 </div>
               </Flex>
-            </Flex>
+            </div>
           </div>
 
           <Flex className="flex flex-col justify-between py-[80px] lg:py-[128px]">
@@ -338,7 +334,7 @@ export default function Home() {
             ))}
           </Accordion>
         </div>
-      </Box>
+      </div>
     </Layout>
   );
 }
