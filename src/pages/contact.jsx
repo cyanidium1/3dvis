@@ -94,7 +94,7 @@ export default function Services() {
                     <Flex
                       {...stylingSocials}
                       as="a"
-                      href="https://www.facebook.com"
+                      href="https://www.facebook.com/grafinia3dpl"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -130,7 +130,7 @@ export default function Services() {
                     <Flex
                       {...stylingSocials}
                       as="a"
-                      href="https://www.instagram.com"
+                      href="https://www.instagram.com/grafinia.3d"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

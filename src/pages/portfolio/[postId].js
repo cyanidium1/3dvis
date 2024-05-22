@@ -14,6 +14,7 @@ import Modal from "react-modal";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import Image from "next/image";
+import Footer from "@/components/footer";
 Modal.setAppElement("#__next");
 
 const Post = () => {
@@ -86,7 +87,7 @@ const Post = () => {
 
     // thumbnail: item.url
   }));
-
+  const theme = "dark";
   return (
     <Layout>
       <div className="bg-black">
@@ -202,6 +203,7 @@ const Post = () => {
         </div>
         {/* </Container> */}
       </div>
+      <Footer theme={theme} />
     </Layout>
   );
 };
