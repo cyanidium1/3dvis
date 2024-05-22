@@ -8,6 +8,7 @@ import Head from "next/head";
 import CustomFurniture from "../../public/images/1.jpg";
 import CustomFurniture_2 from "../../public/images/2.jpg";
 import CustomFurniture_3 from "../../public/images/3.jpg";
+import Footer from "@/components/footer";
 
 export default function Home() {
   return (
@@ -223,7 +224,8 @@ export default function Home() {
             </Container>
           </Flex>
         </Container>
-      </Flex>
+      </Flex>{" "}
+      <Footer />
     </Layout>
   );
 }

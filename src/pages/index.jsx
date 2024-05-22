@@ -31,10 +31,32 @@ const PAGE_CONTENT_QUERY = `
     }
   }`;
 
+import Modal from "react-modal";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
+import { useState } from "react";
+Modal.setAppElement("#__next");
 export default function Home() {
   // const { data: { homepage } } = await performRequest({ query: PAGE_CONTENT_QUERY });
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  const images = [
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const handleImageClick = (image, index) => {
+    console.log(image?.image?.original);
+    setSelectedImage(image);
+    setIsLightboxOpen(true);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedImage(null);
+  };
+
+  const images2 = [
     {
       original: "https://picsum.photos/id/1018/1000/600/",
       thumbnail: "https://picsum.photos/id/1018/250/150/",
@@ -68,7 +90,9 @@ export default function Home() {
       thumbnail: "https://picsum.photos/id/1019/250/150/",
     },
   ];
-
+  const images = images2.map((item) => ({
+    src: item.original,
+  }));
   const services = [
     {
       title: "3D Visualization",
@@ -89,7 +113,7 @@ export default function Home() {
       image: "/images/portfolio/cabinet.jpg",
     },
   ];
-
+  const theme = "dark";
   return (
     <Layout>
       <Head>
@@ -124,7 +148,7 @@ export default function Home() {
 
         <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
           <Container>
-            <div className="md:flex md:space-x-10">
+            <div className="md:flex md:space-x-10 px-[24px]">
               <div className="h-full flex flex-col justify-between">
                 <p className="mt-20 font-extralight text-lg uppercase tracking-widest flex items-center">
                   <SiApache className="mr-2" /> Who am i
@@ -166,7 +190,7 @@ export default function Home() {
           </Container>
         </section>
 
-        <section className="bg-black">
+        <section className="bg-black px-[24px]">
           <Container>
             <div className="">
               <p className="mt-20 font-extralight text-lg uppercase tracking-widest flex items-center">
@@ -180,14 +204,20 @@ export default function Home() {
             <div className="md:flex justify-between space-y-8 md:space-y-0">
               {services.map((data, index) => (
                 <div className="w-fit md:mx-2" key={index}>
-                  <Image
+                  {/* <Image
                     className="w-full"
                     src={data.image}
                     height={400}
                     width={400}
                     alt={`Image ${index + 1}`}
+                  /> */}
+
+                  <img
+                    alt={`Image ${index + 1}`}
+                    src={data.image}
+                    className="cursor-pointer object-cover w-full max-w-[370px] max-h-[500px]"
                   />
-                  <div className="flex items-start justify-between my-2">
+                  <div className="flex items-start justify-between my-2 ">
                     <p className="my-3 font-extralight text-lg uppercase tracking-widest flex items-center">
                       0{index + 1}.
                     </p>
@@ -195,7 +225,9 @@ export default function Home() {
                       {data.title}
                     </h3>
                   </div>
-                  <p className="font-extralight">{data.description}</p>
+                  <p className="font-extralight max-w-[370px]">
+                    {data.description}
+                  </p>
                   <div className="mt-4 flex justify-center">
                     <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 ">
                       Read more
@@ -207,7 +239,7 @@ export default function Home() {
           </Container>
         </section>
 
-        <section className="bg-black">
+        <section className="bg-black px-[24px]">
           <Container>
             <div className="md:flex md:space-x-4">
               <div className=" md:w-2/5">
@@ -232,7 +264,20 @@ export default function Home() {
                   </Link>
                 </div>
               </div>
-              <ReactImageGallery items={images} />
+
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 my-8">
+                {images.map((image, index) => (
+                  <img
+                    key={image.src + index}
+                    src={image.src}
+                    alt="Gallery item"
+                    onClick={() => handleImageClick({ image, index })}
+                    className="cursor-pointer object-cover w-full"
+                    style={{ maxWidth: "200px", height: "100%" }}
+                  />
+                ))}
+              </div>
+              {/* <ReactImageGallery items={images} /> */}
               <Link
                 className="block md:hidden  hover:text-white duration-300 btn justify-center bg-brown text-white text-center uppercase px-6 py-4 mt-4"
                 href="/portfolio"
@@ -243,7 +288,55 @@ export default function Home() {
           </Container>
         </section>
       </main>
-      <Footer />
+      <Footer theme={theme} />
+
+      <Modal
+        isOpen={isModalOpen}
+        onRequestClose={closeModal}
+        contentLabel="Image Modal"
+        style={{
+          content: {
+            maxWidth: "30px",
+            margin: "500px",
+            padding: "10px",
+            overflow: "hidden",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+          overlay: {
+            backgroundColor: "rgba(0, 0, 0, 0.75)",
+            zIndex: 1000,
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          },
+        }}
+      >
+        {isLightboxOpen && (
+          <Lightbox
+            mainSrc={images[currentImageIndex].src}
+            nextSrc={images[(currentImageIndex + 1) % images.length].src}
+            prevSrc={
+              images[(currentImageIndex + images.length - 1) % images.length]
+                .src
+            }
+            onCloseRequest={() => {
+              setIsModalOpen(false);
+              setIsLightboxOpen(false);
+            }}
+            onMovePrevRequest={() =>
+              setCurrentImageIndex(
+                (currentImageIndex + images.length - 1) % images.length
+              )
+            }
+            onMoveNextRequest={() =>
+              setCurrentImageIndex((currentImageIndex + 1) % images.length)
+            }
+          />
+        )}
+      </Modal>
     </Layout>
   );
 }
