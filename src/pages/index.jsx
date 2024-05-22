@@ -346,7 +346,7 @@ export default function Home() {
           },
         }}
       >
-        {isLightboxOpen && (
+        {/* {isLightboxOpen && (
           <Lightbox
             mainSrc={images[currentImageIndex].src}
             nextSrc={images[(currentImageIndex + 1) % images.length].src}
@@ -367,7 +367,7 @@ export default function Home() {
               setCurrentImageIndex((currentImageIndex + 1) % images.length)
             }
           />
-        )}
+        )} */}
       </Modal>
     </Layout>
   );

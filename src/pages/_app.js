@@ -13,10 +13,10 @@ import { ChakraProvider, theme } from "@chakra-ui/react";
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-      {" "}
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      {/* {" "}
+      <ChakraProvider theme={theme}> */}
+      <Component {...pageProps} />
+      {/* </ChakraProvider> */}
     </NextUIProvider>
   );
 }
