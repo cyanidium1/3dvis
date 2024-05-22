@@ -34,7 +34,7 @@ const PAGE_CONTENT_QUERY = `
 import Modal from "react-modal";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 Modal.setAppElement("#__next");
 export default function Home() {
   // const { data: { homepage } } = await performRequest({ query: PAGE_CONTENT_QUERY });
@@ -114,6 +114,38 @@ export default function Home() {
     },
   ];
   const theme = "dark";
+
+  const PAGE_CONTENT_QUERY = `
+  query {
+    allPortfolioposts {
+        id
+        title
+        description
+        gallery {
+          url
+          id
+        }
+        coverImage {url}
+        slug
+        
+      }
+  }
+`;
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const { data } = await performRequest({ query: PAGE_CONTENT_QUERY });
+        console.log(data, "data");
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, []);
+
   return (
     <Layout>
       <Head>
