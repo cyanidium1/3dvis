@@ -1,6 +1,8 @@
 import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Layout from "@/components/layout";
+import { performRequest } from "@/lib/datocms";
+import { useEffect } from "react";
 
 import { useState } from "react";
 
@@ -13,12 +15,52 @@ import {
 } from "react-icons/fa";
 
 export default function Services() {
+  const [pageContent, setPageContent] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
     emailAddress: "",
     phoneNumber: "",
     message: "",
   });
+  // ----------------------------
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+                        query {
+                          allContacts {
+                            label(locale: en, fallbackLocales: en)
+                            placeholderEmail(fallbackLocales: en, locale: en)
+                            message
+                            placeholderName(fallbackLocales: en, locale: en)
+                            placeholderPhone(fallbackLocales: en, locale: en)
+                            socialText(fallbackLocales: en, locale: en)
+                            btn(fallbackLocales: en, locale: en)
+                            _locales
+                            header
+                          }
+                        }
+                    `;
+        const { data } = await performRequest({ query: query });
+        if (data.allContacts) {
+          // console.log(data);
+          setPageContent(data?.allContacts[0]);
+        } else {
+          console.error("Post not found");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // setLoading(false);
+      }
+    }
+
+    fetchData();
+    // }
+  }, []);
+
+  // ---------------------------------
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -32,20 +74,9 @@ export default function Services() {
     console.log(formData);
   };
 
-  const stylingSocials = {
-    w: "36px",
-    h: "36px",
-    borderRadius: "50%",
-    color: "#957f72",
-    border: "1px solid #957f72",
-    justifyContent: "center",
-    alignItems: "center",
-    cursor: "pointer",
-    _hover: {
-      color: "#4c4037",
-      border: "1px solid #4c4037",
-    },
-  };
+  // if (!pageContent) {
+  //   return <div>Loading...</div>;
+  // }
 
   return (
     <Layout>
@@ -59,19 +90,19 @@ export default function Services() {
                     &mdash;
                   </p>
                   <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
-                    Get in touch
+                    {pageContent?.header}
                   </p>
                 </div>
 
                 <p className="text-[#957f72] font-light text-[18px] max-w-[512px] mt-[20px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros elementum tristique. Duis
-                  cursus, mi quis viverra ornare.
+                  {pageContent?.label}
                 </p>
               </div>
               <div className="justify-end flex flex-col gap-[8px]">
                 <div className="mt-5  md:mt-0 ">
-                  <p className="text-[#957f72] text-[16px]">Follow us:</p>
+                  <p className="text-[#957f72] text-[16px]">
+                    {pageContent?.socialText}
+                  </p>
                   <div className="flex gap-[8px] mt-[18px]">
                     <a
                       style={{
@@ -146,28 +177,28 @@ export default function Services() {
             <input
               className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
               type="text"
-              placeholder="Full Name"
+              placeholder={pageContent?.placeholderName}
               name="fullName"
               onChange={handleInputChange}
             />
             <input
               className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497]"
               type="email"
-              placeholder="Email Address"
+              placeholder={pageContent?.placeholderEmail}
               name="emailAddress"
               onChange={handleInputChange}
             />
             <input
               className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
               type="tel"
-              placeholder="Phone Number"
+              placeholder={pageContent?.placeholderPhone}
               name="phoneNumber"
               onChange={handleInputChange}
               value={formData.phoneNumber}
             />
             <textarea
               className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] min-h-[176px]"
-              placeholder="Message..."
+              placeholder={pageContent?.message}
               name="message"
               onChange={handleInputChange}
             ></textarea>
@@ -176,7 +207,7 @@ export default function Services() {
                 type="submit"
                 className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
               >
-                Send
+                {pageContent?.btn}
               </button>
             </div>
           </form>

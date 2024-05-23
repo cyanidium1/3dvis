@@ -13,29 +13,9 @@ import { IoClose } from "react-icons/io5";
 import { LuPlus } from "react-icons/lu";
 import { Accordion, AccordionItem, Image } from "@nextui-org/react";
 import { useState } from "react";
+import { useEffect } from "react";
+import { performRequest } from "@/lib/datocms";
 
-const dataFAQ = [
-  {
-    key: "1",
-    title: "How many years of experience do your firm has?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
-  },
-  {
-    key: "2",
-    title: "How big is your team of architects?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
-  },
-  {
-    key: "3",
-    title: "Does your firm have a project minimum?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
-  },
-  {
-    key: "4",
-    title: "Can I cancel my project at any time?",
-    desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique. Duis cursus, mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam libero vitae erat. Aenean faucibus nibh et justo cursus id rutrum lorem imperdiet.",
-  },
-];
 const socialMediaLinks = [
   {
     href: "https://www.facebook.com/grafinia3dpl",
@@ -55,33 +35,101 @@ const socialMediaLinks = [
   },
 ];
 export default function Home() {
-  const [expanded, setExpanded] = useState();
-  const stylingSocials = {
-    w: "36px",
-    h: "36px",
-    borderRadius: "50%",
-    color: "#957f72",
-    border: "1px solid #957f72",
-    justifyContent: "center",
-    alignItems: "center",
-    _hover: {
-      color: "#4c4037",
-      border: "1px solid #4c4037",
-    },
-  };
+  const [pageContent, setPageContent] = useState(null);
+  // -------------------------------
 
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+                      query {
+                        allAbouts {
+                          answerFaq1(fallbackLocales: en, locale: en)
+                          answerFaq1Copy2(fallbackLocales: en, locale: en)
+                          answerFaq1Copy3(fallbackLocales: en, locale: en)
+                          answerFaq1Copy4(fallbackLocales: en, locale: en)
+                          description(fallbackLocales: en, locale: en)
+                          avatar {
+                            _createdAt
+                            alt(fallbackLocales: en, locale: en)
+                            author
+                            filename
+                            url
+                          }
+                          header(fallbackLocales: en, locale: en)
+                          headerFaq(fallbackLocales: en, locale: en)
+                          headerResults(fallbackLocales: en, locale: en)
+                          label(fallbackLocales: en, locale: en)
+                          labelResult1(fallbackLocales: en, locale: en)
+                          labelResult1Copy1(fallbackLocales: en, locale: en)
+                          labelResult1Copy2(fallbackLocales: en, locale: en)
+                          labelResult1Copy3(fallbackLocales: en, locale: en)
+                          questionFaq1(fallbackLocales: en, locale: en)
+                          questionFaq1Copy1(fallbackLocales: en, locale: en)
+                          questionFaq1Copy2(fallbackLocales: en, locale: en)
+                          questionFaq1Copy3(fallbackLocales: en, locale: en)
+                          subtitle(fallbackLocales: en, locale: en)
+                          descriptionResults(fallbackLocales: en, locale: en)
+                          descriptionCopy1(fallbackLocales: en, locale: en)
+                          descriptionCopy2(fallbackLocales: en, locale: en)
+                          descriptionCopy3(fallbackLocales: en, locale: en)
+                        }
+                      }
+                  `;
+        const { data } = await performRequest({ query: query });
+        console.log(data, "data");
+        if (data) {
+          setPageContent(data?.allAbouts?.[0]);
+        } else {
+          console.error("Post not found");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        // setLoading(false);
+      }
+    }
+
+    fetchData();
+    // }
+  }, []);
+  console.log(pageContent);
+  // -------------------------------
+
+  const dataFAQ = [
+    {
+      key: "1",
+      title: pageContent?.questionFaq1,
+      desc: pageContent?.answerFaq1,
+    },
+    {
+      key: "2",
+      title: pageContent?.questionFaq1Copy1,
+      desc: pageContent?.answerFaq1Copy2,
+    },
+    {
+      key: "3",
+      title: pageContent?.questionFaq1Copy2,
+      desc: pageContent?.answerFaq1Copy3,
+    },
+    {
+      key: "4",
+      title: pageContent?.questionFaq1Copy3,
+      desc: pageContent?.answerFaq1Copy4,
+    },
+  ];
   return (
     <Layout>
       <div pos={"relative"} bg={"#f9f1ec"}>
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
-          {/* <Slider /> */}
+          <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
             <div className="absolute top-[100px] left-2 md:left-[80px] xl:left-[130px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
               <p
                 className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] text-[#4c4037]"
                 style={{ fontFamily: "Playfair Display" }}
               >
-                About Us
+                {pageContent?.label}
               </p>
             </div>
           </div>
@@ -100,37 +148,28 @@ export default function Home() {
              lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
                 style={{ fontFamily: "Playfair Display" }}
               >
-                Helena Karaliok
+                {pageContent?.header}
               </p>
 
               <p className="italic text-[#957f72] text-[20px]">
-                Interior Designer
+                {pageContent?.subtitle}
               </p>
               <p
                 className="text-[16px text-[#957f72] leading-[32px]"
                 style={{ fontFamily: "Manrope" }}
               >
-                With every new project, I strive not only to create a beautiful
-                and cozy interior, but also to reflect the individuality of the
-                client to the fullest, materializing their notions of comfort
-                and functionality. It's important to me that the design is not
-                only visually appealing but also practical for everyday life.
+                {pageContent?.description}
               </p>
               <div className="text-[#957f72]">
                 <ul>
-                  <li className="text-lg font-manrope leading-8">
-                    Client Understanding: Direct communication with the client
-                    informs a design that meets their unique desires and
-                    lifestyle.
+                  <li className="text-lg font-manrope leading-8mt-2">
+                    {pageContent?.descriptionCopy1}
                   </li>
-                  <li className="text-lg font-manrope leading-8">
-                    Creative Exploration: I explore creativity without limits,
-                    experimenting with a mix of materials, textures, and colors.
+                  <li className="text-lg font-manrope leading-8 mt-2">
+                    {pageContent?.descriptionCopy2}
                   </li>
-                  <li className="text-lg font-manrope leading-8">
-                    Tech-Forward Design: Leveraging 3D modeling and virtual
-                    reality, I offer clients a preview of their future spaces in
-                    advance.
+                  <li className="text-lg font-manrope leading-8 mt-2">
+                    {pageContent?.descriptionCopy3}
                   </li>
                 </ul>
               </div>
@@ -156,13 +195,10 @@ export default function Home() {
             <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
               <div className="flex flex-col w-1/2 max-w-[512px]">
                 <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037]">
-                  We have impactful results
+                  {pageContent?.headerResults}
                 </h2>
                 <p className="text-[16px] font-manrope text-[#957f72] leading-[32px]">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse varius enim in eros elementum tristique. Duis
-                  cursus, mi quis viverra ornare, eros dolor interdum nulla, ut
-                  commodo diam
+                  {pageContent?.descriptionResults}
                 </p>
               </div>
 
@@ -170,35 +206,35 @@ export default function Home() {
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">150+</span>
                   <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
-                    Successful Projects
+                    {pageContent?.labelResult1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">20+</span>
                   <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
-                    Award Winnings
+                    {pageContent?.labelResult1Copy1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">99%</span>
                   <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
-                    Satisfaction rate
+                    {pageContent?.labelResult1Copy2}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">15+</span>
                   <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
-                    Years Of Experience
+                    {pageContent?.labelResult1Copy3}
                   </span>
                 </div>
               </div>
             </div>
           </div>
           <p className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037]">
-            Have any questions?
+            {pageContent?.headerFaq}
           </p>
           <Accordion>
             {dataFAQ.map((faq) => {
@@ -214,6 +250,7 @@ export default function Home() {
                       <LuPlus size="36px" color="#957f72" />
                     )
                   }
+                  style={{ borderBottom: "1px solid #957f72" }}
                   className="text-[16px] sm:text-[18px] lg:text-[20px] py-[60px] lg:py-[80px] px-[8px] lg:px-[16px] text-left align-text-top text-[#4c4037] justify-start w-full font-manrope font-semibold"
                 >
                   <div className="max-w-[768px] text-[1rem] text-[#957f72] pt-[32px] pb-[40px] px-[40px]">
