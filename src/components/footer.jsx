@@ -42,7 +42,7 @@ function Footer({ theme }) {
     <footer
       className={`${
         theme === "dark" ? "bg-black " : "bg-[#f9f1ec]  text-[#4c4037]"
-      } py-6 center px-6`}
+      } py-6 center px-[40px]`}
     >
       <Container>
         <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between">

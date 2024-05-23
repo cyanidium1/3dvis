@@ -49,7 +49,7 @@ export default function Services() {
 
   return (
     <Layout>
-      <div className="bg-[#f9f1ec] justify-center items-center">
+      <div className="bg-[#f9f1ec] justify-center items-center px-[40px]">
         <Container>
           <div className="py-[96px] justify-between items-center h-[100%] w-[100%]">
             <div className="flex flex-col md:flex-row justify-between w-full">
