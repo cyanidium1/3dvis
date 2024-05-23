@@ -116,18 +116,18 @@ export default function Home() {
                 and functionality. It's important to me that the design is not
                 only visually appealing but also practical for everyday life.
               </p>
-              <div class="text-[#957f72]">
+              <div className="text-[#957f72]">
                 <ul>
-                  <li class="text-lg font-manrope leading-8">
+                  <li className="text-lg font-manrope leading-8">
                     Client Understanding: Direct communication with the client
                     informs a design that meets their unique desires and
                     lifestyle.
                   </li>
-                  <li class="text-lg font-manrope leading-8">
+                  <li className="text-lg font-manrope leading-8">
                     Creative Exploration: I explore creativity without limits,
                     experimenting with a mix of materials, textures, and colors.
                   </li>
-                  <li class="text-lg font-manrope leading-8">
+                  <li className="text-lg font-manrope leading-8">
                     Tech-Forward Design: Leveraging 3D modeling and virtual
                     reality, I offer clients a preview of their future spaces in
                     advance.
