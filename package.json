@@ -14,6 +14,7 @@
     "@nextui-org/react": "^2.3.5",
     "@nextui-org/system": "^2.1.2",
     "@nextui-org/theme": "^2.2.2",
+    "autoprefixer": "^10.4.19",
     "axios": "^1.6.8",
     "dotenv": "^16.4.5",
     "formik": "^2.4.6",
