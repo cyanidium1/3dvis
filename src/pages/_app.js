@@ -8,15 +8,11 @@ import "../components/3DCloud/3DCloud.css";
 import "../components/3DGalery/3DGalery.css";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { ChakraProvider, theme } from "@chakra-ui/react";
 
 export default function App({ Component, pageProps }) {
   return (
     <NextUIProvider>
-      {/* {" "}
-      <ChakraProvider theme={theme}> */}
       <Component {...pageProps} />
-      {/* </ChakraProvider> */}
     </NextUIProvider>
   );
 }
