@@ -140,25 +140,25 @@ export default function Services() {
           </div>
 
           <form
-            class="p-5 sm:p-20 md:p-24 w-full h-auto bg-white flex flex-col justify-center items-center border border-gray-300 gap-12"
+            className="p-5 sm:p-20 md:p-24 w-full h-auto bg-white flex flex-col justify-center items-center border border-gray-300 gap-12"
             onSubmit={handleSubmit}
           >
             <input
-              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
+              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
               type="text"
               placeholder="Full Name"
               name="fullName"
               onChange={handleInputChange}
             />
             <input
-              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497]"
+              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497]"
               type="email"
               placeholder="Email Address"
               name="emailAddress"
               onChange={handleInputChange}
             />
             <input
-              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
+              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
               type="tel"
               placeholder="Phone Number"
               name="phoneNumber"
@@ -166,12 +166,12 @@ export default function Services() {
               value={formData.phoneNumber}
             />
             <textarea
-              class="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] min-h-[176px]"
+              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] min-h-[176px]"
               placeholder="Message..."
               name="message"
               onChange={handleInputChange}
             ></textarea>
-            <div class="ml-auto">
+            <div className="ml-auto">
               <button
                 type="submit"
                 className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
