@@ -11,8 +11,8 @@ import ReactImageGallery from "react-image-gallery";
 import PhotoAlbum from "react-photo-album";
 import { Gallery } from "react-grid-gallery";
 import Modal from "react-modal";
-// import Lightbox from "react-image-lightbox";
-// import "react-image-lightbox/style.css";
+import Lightbox from "react-image-lightbox";
+import "react-image-lightbox/style.css";
 import Image from "next/image";
 import Footer from "@/components/footer";
 Modal.setAppElement("#__next");
@@ -160,7 +160,7 @@ const Post = () => {
                       },
                     }}
                   >
-                    {/* {isLightboxOpen && (
+                    {isLightboxOpen && (
                       <Lightbox
                         mainSrc={transformedGallery[currentImageIndex].src}
                         nextSrc={
@@ -194,7 +194,7 @@ const Post = () => {
                           )
                         }
                       />
-                    )} */}
+                    )}
                   </Modal>
                 </div>
               </div>
