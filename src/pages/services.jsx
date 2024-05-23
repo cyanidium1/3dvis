@@ -3,51 +3,42 @@ import Container from "@/components/container";
 import Layout from "@/components/layout";
 import Loader from "@/components/loader";
 import Navbar from "@/components/navbar";
-import { Box, Flex, Img, Text } from "@chakra-ui/react";
+
 import Head from "next/head";
 import CustomFurniture from "../../public/images/1.jpg";
 import CustomFurniture_2 from "../../public/images/2.jpg";
 import CustomFurniture_3 from "../../public/images/3.jpg";
 import Footer from "@/components/footer";
+import { Image } from "@nextui-org/react";
 
 export default function Home() {
   return (
     <Layout>
-      <Flex bgColor={"#f9f1ec"} justify={"center"} alignItems={"center"}>
+      <div className="bg-[#f9f1ec] flex justify-center items-center">
         <Container>
-          <Flex flexDir={"column"} className=" py-[80px] lg:py-[128px]">
-            <Flex
-              gap={"8px"}
-              alignItems={"center"}
-              className="justify-center md:justify-start"
-            >
-              <Text className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
+          <div className="flex flex-col py-[80px] lg:py-[128px]">
+            <div className="flex items-center gap-[8px] justify-center md:justify-start">
+              <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
                 &mdash;
-              </Text>
-              <Text className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
+              </p>
+              <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
                 Services
-              </Text>
-            </Flex>
+              </p>
+            </div>
 
-            <Text
-              fontSize={"18px"}
-              color="#957f72"
-              fontWeight={300}
-              maxW={"512px"}
-              mt={"20px"}
-            >
+            <p className="text-[18px] text-[#957f72] font-light max-w-[512px] mt-[24px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Suspendisse varius enim in eros elementum tristique. Duis cursus,
               mi quis viverra ornare, eros dolor interdum nulla, ut commodo diam
               libero vitae erat.
-            </Text>
-          </Flex>
-          <Flex bgColor={"#f9f1ec"} justify={"center"} alignItems={"center"}>
+            </p>
+          </div>
+          <div className="bg-[#f9f1ec] justify-center items-center">
             <Container>
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
                   <div className="col-span-1 ">
-                    <Img
+                    <Image
                       alt="author"
                       src={CustomFurniture.src}
                       maxW={"502px"}
@@ -106,7 +97,7 @@ export default function Home() {
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
                   <div className="col-span-1 ">
-                    <Img
+                    <Image
                       alt="author"
                       src={CustomFurniture_2.src}
                       maxW={"502px"}
@@ -165,7 +156,7 @@ export default function Home() {
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
                   <div className="col-span-1 ">
-                    <Img
+                    <Image
                       alt="author"
                       src={CustomFurniture_3.src}
                       maxW={"502px"}
@@ -222,9 +213,9 @@ export default function Home() {
                 </div>
               </div>
             </Container>
-          </Flex>
+          </div>
         </Container>
-      </Flex>{" "}
+      </div>{" "}
       <Footer />
     </Layout>
   );
