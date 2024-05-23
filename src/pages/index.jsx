@@ -32,8 +32,8 @@ const PAGE_CONTENT_QUERY = `
   }`;
 
 import Modal from "react-modal";
-import Lightbox from "react-image-lightbox";
-import "react-image-lightbox/style.css";
+// import Lightbox from "react-image-lightbox";
+// import "react-image-lightbox/style.css";
 import { useEffect, useState } from "react";
 Modal.setAppElement("#__next");
 export default function Home() {
