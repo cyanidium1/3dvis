@@ -2,7 +2,9 @@ import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Layout from "@/components/layout";
 import { performRequest } from "@/lib/datocms";
-import { useEffect } from "react";
+import stylesWithCssVar from "@/utils/motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 import { useState } from "react";
 
@@ -15,6 +17,23 @@ import {
 } from "react-icons/fa";
 
 export default function Services() {
+  const targetRef = useRef(null);
+  const container = useRef(null);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end end"],
+  });
+
+  const opacitySection = useTransform(scrollYProgress, [0.1, 0.5], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.7]);
+
+  const opacityBorder = useTransform(
+    scrollYProgress,
+    [0.7, 0.71, 0.72],
+    [1, 1, 0]
+  );
+
   const [pageContent, setPageContent] = useState(null);
   const [formData, setFormData] = useState({
     fullName: "",
@@ -44,7 +63,6 @@ export default function Services() {
                     `;
         const { data } = await performRequest({ query: query });
         if (data.allContacts) {
-          // console.log(data);
           setPageContent(data?.allContacts[0]);
         } else {
           console.error("Post not found");
@@ -52,7 +70,6 @@ export default function Services() {
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
-        // setLoading(false);
       }
     }
 
@@ -74,25 +91,52 @@ export default function Services() {
     console.log(formData);
   };
 
-  // if (!pageContent) {
-  //   return <div>Loading...</div>;
-  // }
-
   return (
     <Layout>
-      <div className="bg-[#f9f1ec] justify-center items-center px-[40px]">
+      <div
+        className="bg-[#f9f1ec] justify-center items-center px-[40px]"
+        ref={container}
+      >
         <Container>
           <div className="py-[96px] justify-between items-center h-[100%] w-[100%]">
             <div className="flex flex-col md:flex-row justify-between w-full">
               <div className="flex flex-col">
-                <div className="flex gap-[8px] items-center">
-                  <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
+                <motion.section
+                  style={stylesWithCssVar({
+                    opacity: opacitySection,
+                    "--scale": scale,
+                    "--opacity-border": opacityBorder,
+                  })}
+                  ref={targetRef}
+                  className="flex gap-[8px] items-center"
+                >
+                  <motion.p
+                    className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]"
+                    initial={{ x: -500, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 50,
+                      damping: 20,
+                      duration: 3,
+                    }}
+                  >
                     &mdash;
-                  </p>
-                  <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
+                  </motion.p>
+                  <motion.p
+                    className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]"
+                    initial={{ x: -500, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 50,
+                      damping: 20,
+                      duration: 3,
+                    }}
+                  >
                     {pageContent?.header}
-                  </p>
-                </div>
+                  </motion.p>
+                </motion.section>
 
                 <p className="text-[#957f72] font-light text-[18px] max-w-[512px] mt-[20px]">
                   {pageContent?.label}
@@ -109,7 +153,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.facebook.com/grafinia3dpl"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -121,7 +165,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -133,7 +177,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.youtube.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -145,7 +189,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -157,7 +201,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.instagram.com/grafinia.3d"
                       target="_blank"
                       rel="noopener noreferrer"

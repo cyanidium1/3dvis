@@ -182,7 +182,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{ border: "1px solid #f1ccae", borderRadius: "50%" }}
-                    className="w-[36px] h-[36px] flex justify-center items-center hover:text-[#4c4037] duration-300"
+                    className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#4c4037] duration-300"
                   >
                     {link.icon}
                   </a>

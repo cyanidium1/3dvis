@@ -5,13 +5,32 @@ import { FaInstagram } from "react-icons/fa";
 import { FaBehance } from "react-icons/fa";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
-
+import { motion, useScroll, useTransform } from "framer-motion";
 import { NavbarBrand, Link, Image } from "@nextui-org/react";
 import CustomFurniture from "../../public/images/1.jpg";
 import CustomFurniture_2 from "../../public/images/2.jpg";
 import CustomFurniture_3 from "../../public/images/3.jpg";
+import { useRef } from "react";
+import stylesWithCssVar from "@/utils/motion";
 
 function Footer({ theme }) {
+  const targetRef = useRef(null);
+  const container = useRef(null);
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end end"],
+  });
+
+  const opacitySection = useTransform(scrollYProgress, [0.1, 0.5], [0, 1]);
+  const scale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.7]);
+
+  const opacityBorder = useTransform(
+    scrollYProgress,
+    [0.7, 0.71, 0.72],
+    [1, 1, 0]
+  );
+
   const socialMediaLinks = [
     {
       href: "https://www.facebook.com/grafinia3dpl",
@@ -71,8 +90,8 @@ function Footer({ theme }) {
                   href={link.href}
                   target="_blank"
                   rel="noreferrer"
-                  style={{ border: "1px solid #f1ccae", borderRadius: "50%" }}
-                  className="w-[36px] h-[36px] flex justify-center items-center hover:text-white duration-300"
+                  className="hover-effect w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae] duration-300"
+                  style={{ border: "1px solid #4c4037", borderRadius: "50%" }}
                 >
                   {link.icon}
                 </a>
@@ -86,17 +105,27 @@ function Footer({ theme }) {
             >
               Pages
             </p>
-            <div className="flex flex-row md:flex-col gap-[10px] md:gap-[20px]">
-              {navigationLinks.map((link, index) => (
-                <Link
-                  key={index}
-                  className="hover:text-white duration-300"
-                  href={link.href}
+            <motion.section
+              style={stylesWithCssVar({
+                opacity: opacitySection,
+                "--scale": scale,
+                "--opacity-border": opacityBorder,
+              })}
+              ref={targetRef}
+              className="flex flex-row md:flex-col gap-[10px] md:gap-[20px]"
+            >
+              {navigationLinks.map((link) => (
+                <motion.div
+                  key={link.id}
+                  whileHover={{ scale: 1.1 }}
+                  className="link-container duration-300"
                 >
-                  <p>{link.name}</p>
-                </Link>
+                  <Link href={link.href} passHref>
+                    <div>{link.name}</div>
+                  </Link>
+                </motion.div>
               ))}
-            </div>
+            </motion.section>
           </div>
           <div>
             <p
