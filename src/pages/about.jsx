@@ -15,6 +15,7 @@ import { Accordion, AccordionItem, Image } from "@nextui-org/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import { performRequest } from "@/lib/datocms";
+import Footer from "@/components/footer";
 
 const socialMediaLinks = [
   {
@@ -120,7 +121,7 @@ export default function Home() {
   ];
   return (
     <Layout>
-      <div pos={"relative"} bg={"#f9f1ec"}>
+      <div className="bg-[#f9f1ec]">
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
@@ -262,6 +263,7 @@ export default function Home() {
           </Accordion>
         </div>
       </div>
+      <Footer />
     </Layout>
   );
 }
