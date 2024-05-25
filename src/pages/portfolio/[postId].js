@@ -92,6 +92,16 @@ const Post = () => {
     <Layout>
       <div className="bg-black">
         {/* <Container> */}
+        <div className="block md:hidden">
+          <img
+            key={post.coverImage.url}
+            src={post.coverImage.url}
+            alt="Gallery item"
+            className="cursor-pointer object-cover w-full"
+            style={{ maxWidth: "auto", height: "auto" }}
+          />
+        </div>
+
         <div className="flex w-full">
           <div
             style={{ backgroundImage: `url(${post.coverImage.url})` }}
@@ -110,7 +120,7 @@ const Post = () => {
                   onClick={() => {
                     router.push("/portfolio");
                   }}
-                  className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
+                  className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 mt-12 md:mt-12 lg:my-6"
                 >
                   Back
                 </button>
@@ -142,8 +152,8 @@ const Post = () => {
                     contentLabel="Image Modal"
                     style={{
                       content: {
-                        maxWidth: "400px",
-                        margin: "auto",
+                        maxWidth: "30px",
+                        margin: "500px",
                         padding: "10px",
                         overflow: "hidden",
                         display: "flex",
