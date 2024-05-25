@@ -50,6 +50,7 @@ export default function Home() {
                       w={"100%"}
                       objectFit={"cover"}
                       className="mx-auto xl:mx-0"
+                      style={{ minWidth: "239px" }}
                     />
                   </div>
 
@@ -109,6 +110,7 @@ export default function Home() {
                       w={"100%"}
                       objectFit={"cover"}
                       className="mx-auto xl:mx-0"
+                      style={{ minWidth: "239px" }}
                     />
                   </div>
 
@@ -168,6 +170,7 @@ export default function Home() {
                       w={"100%"}
                       objectFit={"cover"}
                       className="mx-auto xl:mx-0"
+                      style={{ minWidth: "239px" }}
                     />
                   </div>
 
