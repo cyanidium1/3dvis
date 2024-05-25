@@ -1,6 +1,6 @@
 // cms
 import { performRequest } from "../lib/datocms";
-
+import { useRouter } from "next/router";
 // next & react components
 import Layout from "@/components/layout";
 import Head from "next/head";
@@ -37,6 +37,7 @@ import "react-image-lightbox/style.css";
 import { useEffect, useState } from "react";
 Modal.setAppElement("#__next");
 export default function Home() {
+  const router = useRouter();
   // const { data: { homepage } } = await performRequest({ query: PAGE_CONTENT_QUERY });
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -254,7 +255,12 @@ export default function Home() {
                     {data.description}
                   </p>
                   <div className="mt-4 flex justify-center">
-                    <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 ">
+                    <button
+                      className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 "
+                      onClick={() => {
+                        router.push("/services");
+                      }}
+                    >
                       Read more
                     </button>
                   </div>
