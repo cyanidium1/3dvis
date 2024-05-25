@@ -94,7 +94,7 @@ export default function Services() {
   return (
     <Layout>
       <div
-        className="bg-[#f9f1ec] justify-center items-center px-[40px]"
+        className="bg-[#f9f1ec] justify-center items-center px-2"
         ref={container}
       >
         <Container>

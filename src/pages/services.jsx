@@ -1,34 +1,59 @@
-import Carousel from "@/components/Carousel/carousel";
 import Container from "@/components/container";
 import Layout from "@/components/layout";
-import Loader from "@/components/loader";
-import Navbar from "@/components/navbar";
 
-import Head from "next/head";
+import Footer from "@/components/footer";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { motion } from "framer-motion";
+import { useEffect, useRef } from "react";
 import CustomFurniture from "../../public/images/1.jpg";
 import CustomFurniture_2 from "../../public/images/2.jpg";
 import CustomFurniture_3 from "../../public/images/3.jpg";
-import Footer from "@/components/footer";
-import { Image } from "@nextui-org/react";
 
 export default function Home() {
+  const targetRef = useRef(null);
+  useEffect(() => {
+    AOS.init({
+      duration: 2000,
+    });
+  }, []);
+
   return (
     <Layout>
       <div className="bg-[#f9f1ec] flex justify-center items-center">
         <Container>
           <div className="flex flex-col py-[80px] lg:py-[128px]">
-            <div
-              className="flex items-center gap-[8px] justify-center md:justify-start"
-              style={{ fontFamily: "Playfair Display" }}
+            <motion.section
+              ref={targetRef}
+              className="flex gap-[8px] items-center"
             >
-              <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
+              <motion.p
+                className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]"
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
                 &mdash;
-              </p>
-              <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
+              </motion.p>
+              <motion.p
+                className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]"
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
                 Services
-              </p>
-            </div>
-
+              </motion.p>
+            </motion.section>
             <p className="text-[18px] text-[#957f72] font-light max-w-[512px] mt-[24px]">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Suspendisse varius enim in eros elementum tristique. Duis cursus,
@@ -40,17 +65,13 @@ export default function Home() {
             <Container>
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
-                  <div className="col-span-1 ">
-                    <Image
+                  <div className="col-span-1 " data-aos="fade-up">
+                    <img
                       alt="author"
-                      src={CustomFurniture.src}
-                      maxW={"502px"}
-                      maxH={"502px"}
-                      minW={"239px"}
-                      w={"100%"}
-                      objectFit={"cover"}
-                      className="mx-auto xl:mx-0"
+                      src={CustomFurniture_2.src}
+                      className="mx-auto xl:mx-0 object-cover w-[100%] min-w-[239px] max-h-[502px] max-w-[502px]"
                       style={{ minWidth: "239px" }}
+                      data-aos="slide-up"
                     />
                   </div>
 
@@ -100,17 +121,13 @@ export default function Home() {
               </div>
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
-                  <div className="col-span-1 ">
-                    <Image
+                  <div className="col-span-1 " data-aos="fade-up">
+                    <img
                       alt="author"
-                      src={CustomFurniture_2.src}
-                      maxW={"502px"}
-                      maxH={"502px"}
-                      minW={"239px"}
-                      w={"100%"}
-                      objectFit={"cover"}
-                      className="mx-auto xl:mx-0"
+                      src={CustomFurniture.src}
+                      className="mx-auto xl:mx-0 object-cover w-[100%] min-w-[239px] max-h-[502px] max-w-[502px]"
                       style={{ minWidth: "239px" }}
+                      data-aos="slide-up"
                     />
                   </div>
 
@@ -160,17 +177,13 @@ export default function Home() {
               </div>
               <div className="container mx-auto p-4 lg:mb-[128px]">
                 <div className="grid grid-cols-[2fr_30px_2fr] md:grid-cols-[2fr_85px_2fr] items-stretch">
-                  <div className="col-span-1 ">
-                    <Image
+                  <div className="col-span-1 " data-aos="fade-up">
+                    <img
                       alt="author"
                       src={CustomFurniture_3.src}
-                      maxW={"502px"}
-                      maxH={"502px"}
-                      minW={"239px"}
-                      w={"100%"}
-                      objectFit={"cover"}
-                      className="mx-auto xl:mx-0"
+                      className="mx-auto xl:mx-0 object-cover w-[100%] min-w-[239px] max-h-[502px] max-w-[502px]"
                       style={{ minWidth: "239px" }}
+                      data-aos="slide-up"
                     />
                   </div>
 
