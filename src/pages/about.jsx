@@ -124,16 +124,7 @@ export default function Home() {
       <div className="bg-[#f9f1ec]">
         <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
           <Slider />
-          <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 ">
-            <div className="absolute top-[100px] left-2 md:left-[80px] xl:left-[130px] bg-[rgba(249,241,236,0.7)] p-[16px_24px]">
-              {/* <p
-                className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] text-[#4c4037]"
-                style={{ fontFamily: "Playfair Display" }}
-              >
-                {pageContent?.label}
-              </p> */}
-            </div>
-          </div>
+          <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 "></div>
         </div>
 
         <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
@@ -154,7 +145,7 @@ export default function Home() {
             <Image
               alt="author"
               src={Designer.src}
-              className="mx-auto xl:mx-0 object-contain w-[375px] lg:w-[608px]"
+              className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px]"
               style={{ maxWidth: "608px" }}
             />
             <div className="flex flex-col gap-[20px] p-[20px]">

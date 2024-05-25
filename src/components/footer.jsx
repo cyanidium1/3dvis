@@ -112,7 +112,7 @@ function Footer({ theme }) {
                 "--opacity-border": opacityBorder,
               })}
               ref={targetRef}
-              className="flex flex-row md:flex-col gap-[10px] md:gap-[20px]"
+              className="flex flex-row flex-wrap md:flex-col gap-[10px] md:gap-[20px]"
             >
               {navigationLinks.map((link) => (
                 <motion.div
