@@ -17,7 +17,10 @@ export default function Home() {
       <div className="bg-[#f9f1ec] flex justify-center items-center">
         <Container>
           <div className="flex flex-col py-[80px] lg:py-[128px]">
-            <div className="flex items-center gap-[8px] justify-center md:justify-start">
+            <div
+              className="flex items-center gap-[8px] justify-center md:justify-start"
+              style={{ fontFamily: "Playfair Display" }}
+            >
               <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
                 &mdash;
               </p>
