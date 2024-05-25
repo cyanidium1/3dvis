@@ -45,8 +45,9 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageClick = (image, index) => {
-    console.log(image?.image?.original);
+    console.log(image?.src);
     setSelectedImage(image);
+    setCurrentImageIndex(index);
     setIsLightboxOpen(true);
     setIsModalOpen(true);
   };
@@ -236,14 +237,6 @@ export default function Home() {
             <div className="md:flex justify-between space-y-8 md:space-y-0">
               {services.map((data, index) => (
                 <div className="w-fit md:mx-2" key={index}>
-                  {/* <Image
-                    className="w-full"
-                    src={data.image}
-                    height={400}
-                    width={400}
-                    alt={`Image ${index + 1}`}
-                  /> */}
-
                   <img
                     alt={`Image ${index + 1}`}
                     src={data.image}
@@ -303,7 +296,7 @@ export default function Home() {
                     key={image.src + index}
                     src={image.src}
                     alt="Gallery item"
-                    onClick={() => handleImageClick({ image, index })}
+                    onClick={() => handleImageClick(image, index)}
                     className="cursor-pointer object-cover w-full"
                     style={{ maxWidth: "200px", height: "100%" }}
                   />
