@@ -200,7 +200,12 @@ export default function Home() {
                   You can read more about my journey as a CG Artist below.
                 </p>
                 <div className="space-x-4 mt-4 md:mb-0 hidden md:block ">
-                  <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 ">
+                  <button
+                    className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 "
+                    onClick={() => {
+                      router.push("/contact");
+                    }}
+                  >
                     get in touch
                   </button>
                   <button
