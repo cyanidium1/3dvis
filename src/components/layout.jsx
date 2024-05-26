@@ -16,11 +16,71 @@ export default function Layout({ children }) {
     setContactsData,
     aboutData,
     setAboutData,
+    servicesData,
+    setServicesData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+  // ------------------------------------ services
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+        query allServices($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+          allServices {                   
+                          btn(fallbackLocales: $fallbackLocales, locale: $locale)
+                          btn2(fallbackLocales: $fallbackLocales, locale: $locale)
+                          btn3(fallbackLocales: $fallbackLocales, locale: $locale)
+                          desc(fallbackLocales: $fallbackLocales, locale: $locale)
+                          desc2(fallbackLocales: $fallbackLocales, locale: $locale)
+                          desc3(fallbackLocales: $fallbackLocales, locale: $locale)
+                          description(fallbackLocales: $fallbackLocales, locale: $locale)
+                          header(fallbackLocales: $fallbackLocales, locale: $locale)
+                          horizontalTitle2(fallbackLocales: $fallbackLocales, locale: $locale)
+                          horizontalTitle(fallbackLocales: $fallbackLocales, locale: $locale)
+                          horizontalTitle3(fallbackLocales: $fallbackLocales, locale: $locale)
+                          img {
+                            alt(fallbackLocales: $fallbackLocales, locale: $locale)
+                            url
+                            title(fallbackLocales: $fallbackLocales, locale: $locale)
+                            size
+                          }
+                          img2 {
+                            alt(fallbackLocales: en, locale: en)
+                            size
+                            url
+                            title(fallbackLocales: $fallbackLocales, locale: $locale)
+                          }
+                          img3 {
+                            alt(fallbackLocales: $fallbackLocales, locale: $locale)
+                            url
+                            title(fallbackLocales: $fallbackLocales, locale: $locale)
+                          }
+                          title(fallbackLocales: $fallbackLocales, locale: $locale)
+                          title2(fallbackLocales: $fallbackLocales, locale: $locale)
+                          title3(fallbackLocales: $fallbackLocales, locale: $locale)
+                        }
+                      }
+                  `;
+        const selectedLocale = Array.from(selectedKeys)[0];
+
+        const variables = {
+          locale: selectedLocale,
+          fallbackLocales: ["en"],
+        };
+        await performRequest({ query, variables }).then((response) => {
+          setServicesData(response?.data?.allServices[0]);
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [selectedKeys]);
+
   // -----------------------------about us
   useEffect(() => {
     async function fetchData() {

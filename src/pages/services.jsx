@@ -5,13 +5,11 @@ import Footer from "@/components/footer";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import CustomFurniture from "../../public/images/1.jpg";
-import CustomFurniture_2 from "../../public/images/2.jpg";
-import CustomFurniture_3 from "../../public/images/3.jpg";
-import { performRequest } from "@/lib/datocms";
+import { useContext, useEffect, useRef, useState } from "react";
+import { SelectedKeysContext } from "./_app";
 
 export default function Home() {
+  const { servicesData } = useContext(SelectedKeysContext);
   const [pageContent, setPageContent] = useState(null);
   const targetRef = useRef(null);
   useEffect(() => {
@@ -20,120 +18,12 @@ export default function Home() {
     });
   }, []);
   // ---------------------------------------------------
-
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-                      query {
-                        allServices(fallbackLocales: en, locale: en) {
-                          _allBtn2Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allBtnLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allBtn3Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allDesc2Locales(fallbackLocales: en, markdown: false) {
-                            locale
-                            value
-                          }
-                          _allDesc3Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allDescLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allDescriptionLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allHeaderLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allHorizontalTitle3Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allHorizontalTitle2Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allHorizontalTitleLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allTitle2Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allTitle3Locales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          _allTitleLocales(fallbackLocales: en) {
-                            locale
-                            value
-                          }
-                          btn(fallbackLocales: en, locale: en)
-                          btn2(locale: en, fallbackLocales: en)
-                          btn3(fallbackLocales: en, locale: en)
-                          desc(fallbackLocales: en, locale: en)
-                          desc2(locale: en, fallbackLocales: en)
-                          desc3(fallbackLocales: en, locale: en)
-                          description(fallbackLocales: en, locale: en)
-                          header(fallbackLocales: en, locale: en)
-                          horizontalTitle2(fallbackLocales: en, locale: en)
-                          horizontalTitle(fallbackLocales: en, locale: en)
-                          horizontalTitle3(fallbackLocales: en, locale: en)
-                          img {
-                            alt(locale: en, fallbackLocales: en)
-                            url
-                            title
-                            size
-                          }
-                          img2 {
-                            alt(fallbackLocales: en, locale: en)
-                            size
-                            url
-                            title
-                          }
-                          img3 {
-                            alt(fallbackLocales: en, locale: en)
-                            url
-                            title
-                          }
-                          title(fallbackLocales: en, locale: en)
-                          title2(fallbackLocales: en, locale: en)
-                          title3(fallbackLocales: en, locale: en)
-                        }
-                      }
-                  `;
-        const { data } = await performRequest({ query: query });
-
-        if (data.allServices) {
-          setPageContent(data?.allServices[0]);
-        } else {
-          console.error("Post not found");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-      }
+    if (servicesData) {
+      setPageContent(servicesData);
     }
+  }, [servicesData]);
 
-    fetchData();
-    // }
-  }, []);
-  console.log(pageContent);
   // -------------------------------------------------------
   return (
     <Layout>
