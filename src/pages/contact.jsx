@@ -4,7 +4,7 @@ import Layout from "@/components/layout";
 import { performRequest } from "@/lib/datocms";
 import stylesWithCssVar from "@/utils/motion";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 
 import { useState } from "react";
 
@@ -15,8 +15,11 @@ import {
   FaInstagram,
   FaFacebookF,
 } from "react-icons/fa";
+import { SelectedKeysContext } from "./_app";
 
 export default function Services() {
+  const { contactsData } = useContext(SelectedKeysContext);
+
   const targetRef = useRef(null);
   const container = useRef(null);
   const ref = useRef(null);
@@ -42,40 +45,11 @@ export default function Services() {
     message: "",
   });
   // ----------------------------
-
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-                        query {
-                          allContacts {
-                            label(locale: en, fallbackLocales: en)
-                            placeholderEmail(fallbackLocales: en, locale: en)
-                            message
-                            placeholderName(fallbackLocales: en, locale: en)
-                            placeholderPhone(fallbackLocales: en, locale: en)
-                            socialText(fallbackLocales: en, locale: en)
-                            btn(fallbackLocales: en, locale: en)
-                            _locales
-                            header
-                          }
-                        }
-                    `;
-        const { data } = await performRequest({ query: query });
-        if (data.allContacts) {
-          setPageContent(data?.allContacts[0]);
-        } else {
-          console.error("Post not found");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-      }
+    if (contactsData) {
+      setPageContent(contactsData?.allContacts[0]);
     }
-
-    fetchData();
-    // }
-  }, []);
+  }, [contactsData]);
 
   // ---------------------------------
 

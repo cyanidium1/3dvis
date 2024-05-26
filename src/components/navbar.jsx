@@ -4,7 +4,7 @@ import {
   DropdownMenu,
   DropdownItem,
 } from "@nextui-org/react";
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { FaCube } from "react-icons/fa";
@@ -17,18 +17,31 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
+import { SelectedKeysContext } from "@/pages/_app";
 
 export default function Navigation() {
+  const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
+
+  console.log(selectedKeys, "selectedKeys");
+
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
+  // const [selectedKeys, setSelectedKeys] = useState(null);
 
-  console.log(router.pathname);
+  // useEffect(() => {
+  //   if (typeof window !== "undefined") {
+  //     setSelectedKeys(localStorage.getItem("locale") ?? "en");
+  //   }
+  // }, []);
 
-  const [selectedKeys, setSelectedKeys] = React.useState(new Set(["EN"]));
-  const selectedValue = React.useMemo(
-    () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-    [selectedKeys]
-  );
+  // const [selectedKeys, setSelectedKeys] = React.useState(new Set(["en"]));
+  // const selectedValue = React.useMemo(
+  //   () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
+  //   [selectedKeys]
+  // );
+  useEffect(() => {
+    localStorage.setItem("locale", selectedKeys?.currentKey);
+  }, [selectedKeys]);
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -111,11 +124,11 @@ export default function Navigation() {
             Contact
           </p>
         </Link>
-
+        {console.log(selectedKeys, "__________")}
         <Dropdown>
           <DropdownTrigger>
             <Button className="capitalize text-3xl mt-4 w-fit">
-              {selectedValue}
+              {selectedKeys}
             </Button>
           </DropdownTrigger>
           <DropdownMenu
@@ -127,13 +140,13 @@ export default function Navigation() {
             selectedKeys={selectedKeys}
             onSelectionChange={setSelectedKeys}
           >
-            <DropdownItem className="text-2xl" key="EN">
+            <DropdownItem className="text-2xl" key="en">
               English
             </DropdownItem>
-            <DropdownItem className="text-2xl" key="PL">
+            <DropdownItem className="text-2xl" key="pl">
               Polska
             </DropdownItem>
-            <DropdownItem className="text-2xl" key="РУ">
+            <DropdownItem className="text-2xl" key="ru">
               Русский
             </DropdownItem>
           </DropdownMenu>
@@ -203,7 +216,7 @@ export default function Navigation() {
 
         <Dropdown>
           <DropdownTrigger>
-            <Button className="capitalize text-2xl">{selectedValue}</Button>
+            <Button className="capitalize text-2xl">{selectedKeys}</Button>
           </DropdownTrigger>
           <DropdownMenu
             aria-label="Single selection example"
@@ -214,13 +227,13 @@ export default function Navigation() {
             onSelectionChange={setSelectedKeys}
             className="bg-[white] bg-opacity-50 "
           >
-            <DropdownItem className="text-[#4c4037]" key="EN">
+            <DropdownItem className="text-[#4c4037]" key="en">
               English
             </DropdownItem>
-            <DropdownItem className="text-[#4c4037]" key="PL">
+            <DropdownItem className="text-[#4c4037]" key="pl">
               Polska
             </DropdownItem>
-            <DropdownItem className="text-[#4c4037]" key="РУ">
+            <DropdownItem className="text-[#4c4037]" key="ru">
               Русский
             </DropdownItem>
           </DropdownMenu>

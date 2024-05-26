@@ -1,10 +1,9 @@
 import Navbar from "./navbar";
 
-
-export default function Header({ isPortfolio }) {
-    return (
-        <header>
-            <Navbar />
-        </header>
-    );
+export default function Header() {
+  return (
+    <header>
+      <Navbar />
+    </header>
+  );
 }
