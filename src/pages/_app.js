@@ -15,15 +15,26 @@ export const SelectedKeysContext = createContext({
   setSelectedKeys: () => {},
   contactsData: null,
   setContactsData: () => {},
+  aboutData: null,
+  setAboutData: () => {},
 });
 
 export default function App({ Component, pageProps }) {
   const [selectedKeys, setSelectedKeys] = useState(new Set(["ru"]));
   const [contactsData, setContactsData] = useState(null);
+
+  const [aboutData, setAboutData] = useState(null);
   return (
     <NextUIProvider>
       <SelectedKeysContext.Provider
-        value={{ selectedKeys, setSelectedKeys, contactsData, setContactsData }}
+        value={{
+          selectedKeys,
+          setSelectedKeys,
+          contactsData,
+          setContactsData,
+          aboutData,
+          setAboutData,
+        }}
       >
         <Component {...pageProps} />
       </SelectedKeysContext.Provider>

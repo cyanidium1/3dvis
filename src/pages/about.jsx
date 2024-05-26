@@ -12,10 +12,11 @@ import { FaTiktok } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { LuPlus } from "react-icons/lu";
 import { Accordion, AccordionItem, Image } from "@nextui-org/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useEffect } from "react";
 import { performRequest } from "@/lib/datocms";
 import Footer from "@/components/footer";
+import { SelectedKeysContext } from "./_app";
 
 const socialMediaLinks = [
   {
@@ -36,66 +37,15 @@ const socialMediaLinks = [
   },
 ];
 export default function Home() {
+  const { aboutData } = useContext(SelectedKeysContext);
   const [pageContent, setPageContent] = useState(null);
   // -------------------------------
-
   useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-                      query {
-                        allAbouts {
-                          answerFaq1(fallbackLocales: en, locale: en)
-                          answerFaq1Copy2(fallbackLocales: en, locale: en)
-                          answerFaq1Copy3(fallbackLocales: en, locale: en)
-                          answerFaq1Copy4(fallbackLocales: en, locale: en)
-                          description(fallbackLocales: en, locale: en)
-                          avatar {
-                            _createdAt
-                            alt(fallbackLocales: en, locale: en)
-                            author
-                            filename
-                            url
-                          }
-                          header(fallbackLocales: en, locale: en)
-                          headerFaq(fallbackLocales: en, locale: en)
-                          headerResults(fallbackLocales: en, locale: en)
-                          label(fallbackLocales: en, locale: en)
-                          labelResult1(fallbackLocales: en, locale: en)
-                          labelResult1Copy1(fallbackLocales: en, locale: en)
-                          labelResult1Copy2(fallbackLocales: en, locale: en)
-                          labelResult1Copy3(fallbackLocales: en, locale: en)
-                          questionFaq1(fallbackLocales: en, locale: en)
-                          questionFaq1Copy1(fallbackLocales: en, locale: en)
-                          questionFaq1Copy2(fallbackLocales: en, locale: en)
-                          questionFaq1Copy3(fallbackLocales: en, locale: en)
-                          subtitle(fallbackLocales: en, locale: en)
-                          descriptionResults(fallbackLocales: en, locale: en)
-                          descriptionCopy1(fallbackLocales: en, locale: en)
-                          descriptionCopy2(fallbackLocales: en, locale: en)
-                          descriptionCopy3(fallbackLocales: en, locale: en)
-                        }
-                      }
-                  `;
-        const { data } = await performRequest({ query: query });
-        console.log(data, "data");
-        if (data) {
-          setPageContent(data?.allAbouts?.[0]);
-        } else {
-          console.error("Post not found");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        // setLoading(false);
-      }
+    console.log(aboutData, "aboutData");
+    if (aboutData) {
+      setPageContent(aboutData);
     }
-
-    fetchData();
-    // }
-  }, []);
-  console.log(pageContent);
-  // -------------------------------
+  }, [aboutData]);
 
   const dataFAQ = [
     {
