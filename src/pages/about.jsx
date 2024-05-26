@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <Layout>
       <div className="bg-[#f9f1ec]">
-        <div className="w-full mx-auto px-4 md:px-0 py-4 sm:py-16">
+        <div className="w-full mx-auto md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 "></div>
         </div>

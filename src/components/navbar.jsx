@@ -22,26 +22,8 @@ import { SelectedKeysContext } from "@/pages/_app";
 export default function Navigation() {
   const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
 
-  console.log(selectedKeys, "selectedKeys");
-
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
-  // const [selectedKeys, setSelectedKeys] = useState(null);
-
-  // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     setSelectedKeys(localStorage.getItem("locale") ?? "en");
-  //   }
-  // }, []);
-
-  // const [selectedKeys, setSelectedKeys] = React.useState(new Set(["en"]));
-  // const selectedValue = React.useMemo(
-  //   () => Array.from(selectedKeys).join(", ").replaceAll("_", " "),
-  //   [selectedKeys]
-  // );
-  useEffect(() => {
-    localStorage.setItem("locale", selectedKeys?.currentKey);
-  }, [selectedKeys]);
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
@@ -60,11 +42,11 @@ export default function Navigation() {
         </NavbarBrand>
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="lg:hidden"
         />
       </NavbarContent>
 
-      <NavbarMenu className="flex flex-col items-center">
+      <NavbarMenu className="flex flex-col items-center ">
         <Link href="/">
           <p
             className={
@@ -124,7 +106,7 @@ export default function Navigation() {
             Contact
           </p>
         </Link>
-        {console.log(selectedKeys, "__________")}
+
         <Dropdown>
           <DropdownTrigger>
             <Button className="capitalize text-3xl mt-4 w-fit">
@@ -153,7 +135,7 @@ export default function Navigation() {
         </Dropdown>
       </NavbarMenu>
 
-      <NavbarContent className="hidden sm:flex gap-10">
+      <NavbarContent className="hidden lg:flex gap-10">
         <Link href="/">
           <p
             className={
