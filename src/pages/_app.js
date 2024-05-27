@@ -27,6 +27,8 @@ export const SelectedKeysContext = createContext({
   setHomePageData: () => {},
   headerData: null,
   setHeaderData: () => {},
+  footerData: null,
+  setFooterData: () => {},
 });
 
 export default function App({ Component, pageProps }) {
@@ -37,8 +39,10 @@ export default function App({ Component, pageProps }) {
   const [onePostsData, setOnePostData] = useState(null);
   const [homePageData, setHomePageData] = useState(null);
   const [headerData, setHeaderData] = useState(null);
+  const [footerData, setFooterData] = useState(null);
 
   const [aboutData, setAboutData] = useState(null);
+
   return (
     <NextUIProvider>
       <SelectedKeysContext.Provider
@@ -59,6 +63,8 @@ export default function App({ Component, pageProps }) {
           setHomePageData,
           headerData,
           setHeaderData,
+          footerData,
+          setFooterData,
         }}
       >
         <Component {...pageProps} />

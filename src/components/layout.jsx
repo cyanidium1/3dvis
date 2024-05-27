@@ -27,11 +27,68 @@ export default function Layout({ children }) {
     setHomePageData,
     headerData,
     setHeaderData,
+    footerData,
+    setFooterData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+  // ------------------- footer
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+          query footer($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+            footer(fallbackLocales: $fallbackLocales, locale: $locale)  {
+              description
+              img1 {
+                alt
+                url
+              }
+              img2 {
+                alt
+                url
+              }
+              img3 {
+                alt
+                url
+              }
+              img4 {
+                alt
+                url
+              }
+              link1
+              link2
+              link3
+              link4
+              link5
+              title
+              title2
+            }
+          }
+        `;
+
+        const selectedLocale = Array.from(selectedKeys)[0];
+
+        const variables = {
+          locale: selectedLocale,
+          fallbackLocales: ["en"],
+        };
+
+        await performRequest({ query, variables }).then((response) => {
+          setFooterData(response?.data);
+          // console.log(response?.data, "+++++++++++++++");
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [selectedKeys]);
+
   // ------------------- header
 
   useEffect(() => {

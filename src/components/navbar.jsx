@@ -34,7 +34,7 @@ export default function Navigation({ headerData }) {
       setPageContent(headerData?.header);
     }
   }, [headerData]);
-  console.log(pageContent, "pageContent");
+
   // ---------------------------------
   return (
     <Navbar
