@@ -19,6 +19,7 @@ import {
 } from "@nextui-org/react";
 import { SelectedKeysContext } from "@/pages/_app";
 import Layout from "./layout";
+import ThemeToggle from "./themeToggle";
 
 export default function Navigation({ headerData }) {
   const [pageContent, setPageContent] = useState(null);
@@ -204,7 +205,7 @@ export default function Navigation({ headerData }) {
             {pageContent?.link4}
           </p>
         </Link>
-
+        {/* <ThemeToggle /> */}
         <Dropdown>
           <DropdownTrigger>
             <Button className="capitalize text-2xl">{selectedKeys}</Button>

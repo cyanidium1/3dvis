@@ -47,7 +47,7 @@ export default function Services() {
   // ----------------------------
   useEffect(() => {
     if (contactsData) {
-      setPageContent(contactsData?.allContacts[0]);
+      setPageContent(contactsData?.allContacts?.[0]);
     }
   }, [contactsData]);
 
@@ -73,6 +73,11 @@ export default function Services() {
       >
         <Container>
           <div className="py-[96px] justify-between items-center h-[100%] w-[100%]">
+            <div class="bg-white dark:bg-gray-800 text-black dark:text-white">
+              <p class="dark:text-gray-300">
+                Этот текст изменит цвет в темном режиме
+              </p>
+            </div>
             <div className="flex flex-col md:flex-row justify-between w-full">
               <div className="flex flex-col">
                 <motion.section
