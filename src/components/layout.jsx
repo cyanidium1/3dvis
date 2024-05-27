@@ -23,11 +23,88 @@ export default function Layout({ children }) {
     setPostsData,
     onePostsData,
     setOnePostData,
+    homePageData,
+    setHomePageData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+  // -------------------------homePage
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+          query homepage($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+            homepage(locale: $locale, fallbackLocales: $fallbackLocales) {
+              btn1WhoI
+              btn2Who1
+              btnPortfolio
+              btnSectionPortfolio
+              btnServices
+              btonContacts
+              descPortfolio
+              descServices
+              descServices2
+              descServices3
+              descWhoI
+              description
+              header
+              headerPortfolio
+              headerServices
+              imgServices {
+                alt
+                url
+              }
+              imgServices2 {
+                alt
+                url
+              }
+              imgServices3 {
+                alt
+                url
+              }
+              subtitlePortfolio
+              subtitleServices
+              subtitleWhiI
+              titleServices
+              titleServices2
+              titleServices3
+              titleWhoI
+              galleryPortfolio {
+                alt
+                url
+              }
+              avatar {
+                alt
+                url
+              }
+            }
+          }
+        `;
+        const selectedLocale = Array.from(selectedKeys)[0] || "en";
+
+        const variables = {
+          locale: selectedLocale,
+          fallbackLocales: ["en"],
+        };
+
+        const { data } = await performRequest({ query, variables });
+
+        if (data && data.homepage) {
+          setHomePageData(data.homepage);
+        } else {
+          console.error("Data not found");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [selectedKeys]);
+
   // ----------------------post id
   const router = useRouter();
   const { postId } = router.query;
