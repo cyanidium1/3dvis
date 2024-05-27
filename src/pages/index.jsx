@@ -65,7 +65,6 @@ export default function Home() {
       setPageContent(homePageData);
     }
   }, [homePageData]);
-  console.log(pageContent, "pageContent");
 
   const images2 = [
     {

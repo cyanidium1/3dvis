@@ -18,15 +18,24 @@ import {
   Button,
 } from "@nextui-org/react";
 import { SelectedKeysContext } from "@/pages/_app";
+import Layout from "./layout";
 
-export default function Navigation() {
+export default function Navigation({ headerData }) {
+  const [pageContent, setPageContent] = useState(null);
   const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
 
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
 
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
+  // ----------------------------
+  useEffect(() => {
+    if (headerData) {
+      setPageContent(headerData?.header);
+    }
+  }, [headerData]);
+  console.log(pageContent, "pageContent");
+  // ---------------------------------
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute"
@@ -55,7 +64,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            Home
+            {pageContent?.link1}
           </p>
         </Link>
 
@@ -67,7 +76,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            Portfolio
+            {pageContent?.link2}
           </p>
         </Link>
 
@@ -79,7 +88,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            Services
+            {pageContent?.link3}
           </p>
         </Link>
 
@@ -91,7 +100,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            About
+            {pageContent?.link4}
           </p>
         </Link>
 
@@ -103,7 +112,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            Contact
+            {pageContent?.link5}
           </p>
         </Link>
 
@@ -135,7 +144,7 @@ export default function Navigation() {
         </Dropdown>
       </NavbarMenu>
 
-      <NavbarContent className="hidden lg:flex gap-10">
+      <NavbarContent className="hidden lg:flex gap-[20px]">
         <Link href="/">
           <p
             className={
@@ -144,7 +153,7 @@ export default function Navigation() {
                 : "draw-underline duration-200 text-2xl"
             }
           >
-            Home
+            {pageContent?.link0}
           </p>
         </Link>
 
@@ -153,10 +162,10 @@ export default function Navigation() {
             className={
               isActive("/portfolio")
                 ? "underlined text-2xl"
-                : "draw-underline duration-200 text-2xl"
+                : "draw-underline duration-200 text-2xl text-nowrap"
             }
           >
-            Portfolio
+            {pageContent?.link1}
           </p>
         </Link>
 
@@ -165,10 +174,10 @@ export default function Navigation() {
             className={
               isActive("/services")
                 ? "underlined text-2xl"
-                : "draw-underline duration-200 text-2xl"
+                : "draw-underline duration-200 text-2xl text-nowrap"
             }
           >
-            Services
+            {pageContent?.link2}
           </p>
         </Link>
 
@@ -177,10 +186,10 @@ export default function Navigation() {
             className={
               isActive("/about")
                 ? "underlined text-2xl"
-                : "draw-underline duration-200 text-2xl"
+                : "draw-underline duration-200 text-2xl text-nowrap"
             }
           >
-            About
+            {pageContent?.link3}
           </p>
         </Link>
 
@@ -189,10 +198,10 @@ export default function Navigation() {
             className={
               isActive("/contact")
                 ? "underlined text-2xl"
-                : "draw-underline duration-200 text-2xl"
+                : "draw-underline duration-200 text-2xl text-nowrap"
             }
           >
-            Contact
+            {pageContent?.link4}
           </p>
         </Link>
 

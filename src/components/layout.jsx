@@ -25,11 +25,49 @@ export default function Layout({ children }) {
     setOnePostData,
     homePageData,
     setHomePageData,
+    headerData,
+    setHeaderData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+  // ------------------- header
+
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+          query header($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+            header(fallbackLocales: $fallbackLocales, locale: $locale) {
+              link1
+              link2
+              link3
+              link4
+              link5
+            }
+          }
+        `;
+
+        const selectedLocale = Array.from(selectedKeys)[0];
+
+        const variables = {
+          locale: selectedLocale,
+          fallbackLocales: ["en"],
+        };
+
+        await performRequest({ query, variables }).then((response) => {
+          setHeaderData(response?.data);
+          // console.log(response?.data, "+++++++++++++++");
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [selectedKeys]);
+
   // -------------------------homePage
 
   useEffect(() => {
@@ -344,7 +382,7 @@ export default function Layout({ children }) {
   return (
     <div>
       <div className="block">
-        <Navbar />
+        <Navbar headerData={headerData} />
       </div>
 
       {children}

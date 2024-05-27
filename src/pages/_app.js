@@ -25,6 +25,8 @@ export const SelectedKeysContext = createContext({
   setOnePostDataData: () => {},
   homePageData: null,
   setHomePageData: () => {},
+  headerData: null,
+  setHeaderData: () => {},
 });
 
 export default function App({ Component, pageProps }) {
@@ -34,6 +36,7 @@ export default function App({ Component, pageProps }) {
   const [postsData, setPostsData] = useState(null);
   const [onePostsData, setOnePostData] = useState(null);
   const [homePageData, setHomePageData] = useState(null);
+  const [headerData, setHeaderData] = useState(null);
 
   const [aboutData, setAboutData] = useState(null);
   return (
@@ -54,6 +57,8 @@ export default function App({ Component, pageProps }) {
           setOnePostData,
           homePageData,
           setHomePageData,
+          headerData,
+          setHeaderData,
         }}
       >
         <Component {...pageProps} />
