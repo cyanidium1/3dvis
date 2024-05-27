@@ -10,7 +10,8 @@ import { SelectedKeysContext } from "./_app";
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [portfolioPosts, setPortfolioPosts] = useState([]);
-  const { postsData } = useContext(SelectedKeysContext);
+  const { postsData, headerData, setHeaderData } =
+    useContext(SelectedKeysContext);
 
   useEffect(() => {
     if (postsData) {
@@ -27,7 +28,7 @@ export default function Home() {
 
         <Loader />
 
-        <Navbar />
+        <Navbar headerData={headerData} />
         <Carousel portfolioPosts={portfolioPosts} />
       </Layout>
     </>
