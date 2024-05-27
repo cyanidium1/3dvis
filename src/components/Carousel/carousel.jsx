@@ -2,10 +2,12 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 // import './carousel.css';
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import Layout from "../layout";
+import { useRouter } from "next/navigation";
 
 const Carousel = ({ portfolioPosts }) => {
-  console.log(portfolioPosts);
-
+  // console.log(portfolioPosts);
+  const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
 
@@ -53,11 +55,18 @@ const Carousel = ({ portfolioPosts }) => {
                 <p className="font-extralight text-xs md:text-lg uppercase tracking-widest flex items-center">
                   {truncateDescription(el.description)}
                 </p>
-                <Link href={`/portfolio/${el.slug}`}>
+
+                {/* <Link href={`/portfolio/${el.slug}`}> */}
+                <button
+                  onClick={() => {
+                    router.push(`/portfolio/${el.slug}`);
+                  }}
+                >
                   <p className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 text-xs w-full md:w-fit">
                     Read more
                   </p>
-                </Link>
+                </button>
+                {/* </Link> */}
               </div>
             </div>
           ))}

@@ -3,10 +3,11 @@ import Footer from "./footer";
 import styles from "./layout.module.css";
 import Loader from "./loader";
 import Navbar from "./navbar";
+import { useRouter } from "next/router";
 
-import { createContext } from "react";
 import { performRequest } from "@/lib/datocms";
 import { SelectedKeysContext } from "@/pages/_app";
+import { useParams } from "next/navigation";
 
 export default function Layout({ children }) {
   const {
@@ -18,11 +19,97 @@ export default function Layout({ children }) {
     setAboutData,
     servicesData,
     setServicesData,
+    postsData,
+    setPostsData,
+    onePostsData,
+    setOnePostData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
+  // ----------------------post id
+  const router = useRouter();
+  const { postId } = router.query;
+
+  useEffect(() => {
+    if (postId !== undefined) {
+      async function fetchData() {
+        try {
+          const query = `
+            query portfoliopost($slug: String!, $locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+              portfoliopost(filter: { slug: { eq: $slug } }, locale: $locale, fallbackLocales: $fallbackLocales) {
+                id
+                title
+                description
+                slug
+                gallery { url }
+                coverImage { url }
+              }
+            }
+          `;
+          const selectedLocale = Array.from(selectedKeys)[0] || "en";
+
+          const variables = {
+            slug: postId,
+            locale: selectedLocale,
+            fallbackLocales: ["en"],
+          };
+
+          const { data } = await performRequest({ query, variables });
+
+          if (data.portfoliopost) {
+            setOnePostData(data.portfoliopost);
+          } else {
+            console.error("Post not found");
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      fetchData();
+    }
+  }, [selectedKeys, postId]);
+
+  // ---------------------- portfolio
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const query = `
+        query allPortfolioposts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+          allPortfolioposts {    
+      
+          id
+          slug
+          title(fallbackLocales: $fallbackLocales, locale: $locale)
+          description(fallbackLocales: $fallbackLocales, locale: $locale)
+          coverImage {
+            url
+          }
+        }
+          }`;
+
+        const selectedLocale = Array.from(selectedKeys)[0];
+
+        const variables = {
+          locale: selectedLocale,
+          fallbackLocales: ["en"],
+        };
+
+        await performRequest({ query, variables }).then((response) => {
+          setPostsData(response?.data?.allPortfolioposts);
+          // console.log(response, "+++++++++++++++");
+        });
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+      }
+    }
+
+    fetchData();
+  }, [selectedKeys]);
+
   // ------------------------------------ services
   useEffect(() => {
     async function fetchData() {

@@ -19,12 +19,18 @@ export const SelectedKeysContext = createContext({
   setAboutData: () => {},
   servicesData: null,
   setServicesData: () => {},
+  postsData: null,
+  setPostsDataData: () => {},
+  onePostData: null,
+  setOnePostDataData: () => {},
 });
 
 export default function App({ Component, pageProps }) {
   const [selectedKeys, setSelectedKeys] = useState(new Set(["ru"]));
   const [contactsData, setContactsData] = useState(null);
   const [servicesData, setServicesData] = useState(null);
+  const [postsData, setPostsData] = useState(null);
+  const [onePostsData, setOnePostData] = useState(null);
 
   const [aboutData, setAboutData] = useState(null);
   return (
@@ -39,6 +45,10 @@ export default function App({ Component, pageProps }) {
           setAboutData,
           servicesData,
           setServicesData,
+          postsData,
+          setPostsData,
+          onePostsData,
+          setOnePostData,
         }}
       >
         <Component {...pageProps} />

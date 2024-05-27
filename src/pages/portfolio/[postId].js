@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { performRequest } from "../../lib/datocms";
 import Head from "next/head";
 import { Navbar } from "@nextui-org/react";
@@ -15,6 +15,7 @@ import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
 import Image from "next/image";
 import Footer from "@/components/footer";
+import { SelectedKeysContext } from "../_app";
 Modal.setAppElement("#__next");
 
 const Post = () => {
@@ -24,7 +25,7 @@ const Post = () => {
   const [loading, setLoading] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const { onePostsData } = useContext(SelectedKeysContext);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -38,51 +39,13 @@ const Post = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
   };
-
   useEffect(() => {
-    if (postId !== undefined) {
-      setLoading(true);
-      async function fetchData() {
-        try {
-          const query = `
-                        query {
-                            portfoliopost(filter: { slug: { eq: "${postId}" } }) {
-                                id
-                                title
-                                description
-                                slug
-                                gallery {url}
-                                coverImage {url}
-                            }
-                        }
-                    `;
-          const { data } = await performRequest({ query: query });
-          if (data.portfoliopost) {
-            setPost(data.portfoliopost);
-            console.log(data.portfoliopost);
-          } else {
-            console.error("Post not found");
-          }
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        } finally {
-          setLoading(false);
-        }
-      }
-
-      fetchData();
+    if (onePostsData) {
+      setPost(onePostsData);
     }
-  }, [postId]);
+  }, [onePostsData]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (!post) {
-    return <div>Post not found</div>;
-  }
-
-  const transformedGallery = post.gallery.map((item) => ({
+  const transformedGallery = post?.gallery?.map((item) => ({
     src: item.url,
 
     // thumbnail: item.url
@@ -94,8 +57,8 @@ const Post = () => {
         {/* <Container> */}
         <div className="block md:hidden">
           <img
-            key={post.coverImage.url}
-            src={post.coverImage.url}
+            key={post?.coverImage?.url}
+            src={post?.coverImage?.url}
             alt="Gallery item"
             className="cursor-pointer object-cover w-full"
             style={{ maxWidth: "auto", height: "auto" }}
@@ -104,12 +67,12 @@ const Post = () => {
 
         <div className="flex w-full">
           <div
-            style={{ backgroundImage: `url(${post.coverImage.url})` }}
+            style={{ backgroundImage: `url(${post?.coverImage?.url})` }}
             className="h-[100vh] flex-[30%] bg-cover relative hidden md:flex"
           >
             <div className="absolute top-[270px] left-[-165px]">
               <h1 className="transform -rotate-90 bg-dark-brown bg-opacity-50 w-full px-10 py-2 text-xl md:text-5xl">
-                {post.title}
+                {post?.title}
               </h1>
             </div>
           </div>
@@ -128,16 +91,16 @@ const Post = () => {
                   className="font-playfair text-[18px] my-16"
                   style={{ fontFamily: "Manrope" }}
                 >
-                  {post.description}
+                  {post?.description}
                 </p>
 
                 {/* <Gallery images={transformedGallery} /> */}
                 <div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 my-8">
-                    {transformedGallery.map((image, index) => (
+                    {transformedGallery?.map((image, index) => (
                       <img
-                        key={image.src}
-                        src={image.src}
+                        key={image?.src}
+                        src={image?.src}
                         alt="Gallery item"
                         onClick={() => handleImageClick({ image, index })}
                         className="cursor-pointer object-cover w-full"

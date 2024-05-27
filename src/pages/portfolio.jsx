@@ -1,56 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import Carousel from "@/components/Carousel/carousel";
 import Loader from "@/components/loader";
 import Navbar from "@/components/navbar";
 import Head from "next/head";
-import { performRequest } from '../lib/datocms';
-
-const PAGE_CONTENT_QUERY = `
-  query {
-    allPortfolioposts {
-        id
-        title
-        description
-        gallery {
-          url
-          id
-        }
-        coverImage {url}
-        slug
-        
-      }
-  }
-`;
+import { performRequest } from "../lib/datocms";
+import Layout from "@/components/layout";
+import { SelectedKeysContext } from "./_app";
 
 export default function Home() {
-    const [loading, setLoading] = useState(true);
-    const [portfolioPosts, setPortfolioPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [portfolioPosts, setPortfolioPosts] = useState([]);
+  const { postsData } = useContext(SelectedKeysContext);
 
-    useEffect(() => {
-        async function fetchData() {
-            try {
-                const { data } = await performRequest({ query: PAGE_CONTENT_QUERY });
-                setPortfolioPosts(data.allPortfolioposts);
-            } catch (error) {
-                console.error('Error fetching data:', error);
-            } finally {
-                setLoading(false);
-            }
-        }
+  useEffect(() => {
+    if (postsData) {
+      setPortfolioPosts(postsData);
+    }
+  }, [postsData]);
 
-        fetchData();
-    }, []);
+  return (
+    <>
+      <Layout>
+        <Head>
+          <title>Portfolio</title>
+        </Head>
 
-    return (
-        <>
-            <Head>
-                <title>Portfolio</title>
-            </Head>
+        <Loader />
 
-            <Loader />
-
-            <Navbar />
-            <Carousel portfolioPosts={portfolioPosts} />
-        </>
-    );
+        <Navbar />
+        <Carousel portfolioPosts={portfolioPosts} />
+      </Layout>
+    </>
+  );
 }
