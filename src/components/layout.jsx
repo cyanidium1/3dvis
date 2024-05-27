@@ -386,7 +386,6 @@ export default function Layout({ children }) {
           fallbackLocales: ["en"],
         };
         await performRequest({ query, variables }).then((response) => {
-          setContactsData(response?.data);
           setAboutData(response?.data?.allAbouts[0]);
         });
       } catch (error) {
@@ -404,15 +403,15 @@ export default function Layout({ children }) {
         const query = `
           query AllContacts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
             allContacts {
-              label(locale: $locale)
-              placeholderEmail(locale: $locale)
-              message
-              placeholderName(locale: $locale)
+              label(fallbackLocales: $fallbackLocales, locale: $locale)
+              placeholderEmail(fallbackLocales: $fallbackLocales, locale: $locale)
+              message(fallbackLocales: $fallbackLocales, locale: $locale)
+              placeholderName(fallbackLocales: $fallbackLocales, locale: $locale)
               placeholderPhone(fallbackLocales: $fallbackLocales, locale: $locale)
               socialText(fallbackLocales: $fallbackLocales, locale: $locale)
               btn(fallbackLocales: $fallbackLocales, locale: $locale)
-              _locales
-              header(locale: $locale)
+    
+              header(fallbackLocales: $fallbackLocales, locale: $locale)
             }
           }
         `;
@@ -425,8 +424,8 @@ export default function Layout({ children }) {
         };
 
         await performRequest({ query, variables }).then((response) => {
-          setContactsData(response?.data);
-          // console.log(response?.data?.allContacts[0], "+++++++++++++++");
+          setContactsData(response?.data?.allContacts?.[0]);
+          console.log(response?.data?.allContacts[0], "+++++++++++++++");
         });
       } catch (error) {
         console.error("Error fetching data:", error);

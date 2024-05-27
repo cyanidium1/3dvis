@@ -64,7 +64,7 @@ function Footer({ theme }) {
       setPageContent(footerData?.footer);
     }
   }, [footerData]);
-  console.log(pageContent, "pageContent");
+
   return (
     <Layout>
       <footer
