@@ -105,6 +105,7 @@ query allPortfolioposts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) 
     slug
     title(fallbackLocales: $fallbackLocales, locale: $locale)
     description(fallbackLocales: $fallbackLocales, locale: $locale)
+    btnReadMore(fallbackLocales: $fallbackLocales, locale: $locale)
     coverImage {
       url
     }
