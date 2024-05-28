@@ -18,11 +18,9 @@ module.exports = {
         linen: "#e5d9cf",
         "light-brown": "#b6a497",
         "dark-brown": "#261b11",
+        black: "black",
       },
-      fontSize: {
-        "mobile-lg": "56px", // Used for screens smaller than 375px
-        xxl: "112px", // Used for screens 375px and larger
-      },
+
       screens: {
         "custom-breakpoint": "375px",
       },

@@ -71,22 +71,22 @@ export default function Home() {
   ];
   return (
     <Layout>
-      <div className="bg-[#f9f1ec]">
+      <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">
         <div className="w-full mx-auto md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 "></div>
         </div>
 
         <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
-          <div className="flex flex-col pb-[80px] lg:pb-[128px]">
+          <div className="flex flex-col pb-[80px] lg:pb-[128px] ">
             <div
               className="flex items-center gap-[8px] justify-center md:justify-start"
               style={{ fontFamily: "Playfair Display" }}
             >
-              <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]">
+              <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]">
                 &mdash;
               </p>
-              <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]">
+              <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae]">
                 {pageContent?.label}
               </p>
             </div>
@@ -101,30 +101,30 @@ export default function Home() {
             <div className="flex flex-col gap-[20px] p-[20px]">
               <p
                 className="font-playfair font-bold text-[#4c4037] whitespace-normal 
-             lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px]"
+             lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae]"
                 style={{ fontFamily: "Playfair Display" }}
               >
                 {pageContent?.header}
               </p>
 
-              <p className="italic text-[#957f72] text-[20px]">
+              <p className="italic text-[#957f72] text-[20px] dark:text-[#f1ccae]">
                 {pageContent?.subtitle}
               </p>
               <p
-                className="text-[16px text-[#957f72] leading-[32px]"
+                className="text-[16px text-[#957f72] leading-[32px] dark:text-[#f1ccae]"
                 style={{ fontFamily: "Manrope" }}
               >
                 {pageContent?.description}
               </p>
               <div className="text-[#957f72]">
                 <ul>
-                  <li className="text-lg font-manrope leading-8mt-2">
+                  <li className="text-lg font-manrope leading-8mt-2 dark:text-[#f1ccae]">
                     {pageContent?.descriptionCopy1}
                   </li>
-                  <li className="text-lg font-manrope leading-8 mt-2">
+                  <li className="text-lg font-manrope leading-8 mt-2 dark:text-[#f1ccae]">
                     {pageContent?.descriptionCopy2}
                   </li>
-                  <li className="text-lg font-manrope leading-8 mt-2">
+                  <li className="text-lg font-manrope leading-8 mt-2 dark:text-[#f1ccae]">
                     {pageContent?.descriptionCopy3}
                   </li>
                 </ul>
@@ -138,7 +138,7 @@ export default function Home() {
                     target="_blank"
                     rel="noreferrer"
                     style={{ border: "1px solid #f1ccae", borderRadius: "50%" }}
-                    className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#4c4037] duration-300"
+                    className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#4c4037] duration-300 dark:text-[#f1ccae]"
                   >
                     {link.icon}
                   </a>
@@ -150,10 +150,10 @@ export default function Home() {
           <div className="flex flex-col justify-between py-[80px] lg:py-[128px]">
             <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
               <div className="flex flex-col w-1/2 max-w-[512px]">
-                <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037]">
+                <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae]">
                   {pageContent?.headerResults}
                 </h2>
-                <p className="text-[16px] font-manrope text-[#957f72] leading-[32px]">
+                <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]">
                   {pageContent?.descriptionResults}
                 </p>
               </div>
@@ -161,35 +161,35 @@ export default function Home() {
               <div className="flex flex-wrap gap-[60px] max-w-[387px]">
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">150+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
                     {pageContent?.labelResult1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">20+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">99%</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy2}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">15+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy3}
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <p className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037]">
+          <p className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae]">
             {pageContent?.headerFaq}
           </p>
           <Accordion>
@@ -207,9 +207,9 @@ export default function Home() {
                     )
                   }
                   style={{ borderBottom: "1px solid #957f72" }}
-                  className="text-[16px] sm:text-[18px] lg:text-[20px] py-[60px] lg:py-[80px] px-[8px] lg:px-[16px] text-left align-text-top text-[#4c4037] justify-start w-full font-manrope font-semibold"
+                  className="text-[16px] sm:text-[18px] dark:text-[#f1ccae] lg:text-[20px] py-[60px] lg:py-[80px] px-[8px] lg:px-[16px] text-left align-text-top text-[#4c4037] justify-start w-full font-manrope font-semibold"
                 >
-                  <div className="max-w-[768px] text-[1rem] text-[#957f72] pt-[32px] pb-[40px] px-[40px]">
+                  <div className="max-w-[768px] text-[1rem] text-[#957f72] pt-[32px] pb-[40px] px-[40px] dark:text-[#f1ccae]">
                     {faq.desc}
                   </div>
                 </AccordionItem>

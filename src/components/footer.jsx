@@ -69,7 +69,9 @@ function Footer({ theme }) {
     <Layout>
       <footer
         className={`${
-          theme === "dark" ? "bg-black " : "bg-[#f9f1ec]  text-[#4c4037]"
+          theme === "dark"
+            ? "bg-black "
+            : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
         } py-6 center px-2]`}
       >
         <Container>

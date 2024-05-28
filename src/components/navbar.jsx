@@ -205,7 +205,7 @@ export default function Navigation({ headerData }) {
             {pageContent?.link4}
           </p>
         </Link>
-        {/* <ThemeToggle /> */}
+
         <Dropdown>
           <DropdownTrigger>
             <Button className="capitalize text-2xl">{selectedKeys}</Button>
@@ -231,6 +231,7 @@ export default function Navigation({ headerData }) {
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
+      <ThemeToggle />
     </Navbar>
   );
 }

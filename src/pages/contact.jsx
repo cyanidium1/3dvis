@@ -5,9 +5,7 @@ import { performRequest } from "@/lib/datocms";
 import stylesWithCssVar from "@/utils/motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef } from "react";
-
 import { useState } from "react";
-
 import {
   FaTwitter,
   FaYoutube,
@@ -16,10 +14,10 @@ import {
   FaFacebookF,
 } from "react-icons/fa";
 import { SelectedKeysContext } from "./_app";
+import ThemeToggle from "@/components/themeToggle";
 
 export default function Services() {
   const { contactsData } = useContext(SelectedKeysContext);
-
   const targetRef = useRef(null);
   const container = useRef(null);
   const ref = useRef(null);
@@ -30,7 +28,6 @@ export default function Services() {
 
   const opacitySection = useTransform(scrollYProgress, [0.1, 0.5], [0, 1]);
   const scale = useTransform(scrollYProgress, [0.1, 0.7], [1, 0.7]);
-
   const opacityBorder = useTransform(
     scrollYProgress,
     [0.7, 0.71, 0.72],
@@ -44,31 +41,28 @@ export default function Services() {
     phoneNumber: "",
     message: "",
   });
-  // ----------------------------
+
   useEffect(() => {
     if (contactsData) {
       setPageContent(contactsData);
     }
   }, [contactsData]);
 
-  // ---------------------------------
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-
     const newValue = name === "phoneNumber" ? value.replace(/\D/g, "") : value;
-
     setFormData({ ...formData, [name]: newValue });
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
   };
-  console.log(pageContent, "____________");
+
   return (
     <Layout>
       <div
-        className="bg-[#f9f1ec] justify-center items-center px-2"
+        className="bg-[#f9f1ec] justify-center items-center px-2 dark:bg-black"
         ref={container}
       >
         <Container>
@@ -85,7 +79,7 @@ export default function Services() {
                   className="flex gap-[8px] items-center"
                 >
                   <motion.p
-                    className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037]"
+                    className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]"
                     initial={{ x: -500, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -98,7 +92,7 @@ export default function Services() {
                     &mdash;
                   </motion.p>
                   <motion.p
-                    className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037]"
+                    className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae]"
                     initial={{ x: -500, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -112,13 +106,13 @@ export default function Services() {
                   </motion.p>
                 </motion.section>
 
-                <p className="text-[#957f72] font-light text-[18px] max-w-[512px] mt-[20px]">
+                <p className="text-[#957f72] dark:text-[#f1ccae] font-light text-[18px] max-w-[512px] mt-[20px]">
                   {pageContent?.label}
                 </p>
               </div>
               <div className="justify-end flex flex-col gap-[8px]">
-                <div className="mt-5  md:mt-0 ">
-                  <p className="text-[#957f72] text-[16px]">
+                <div className="mt-5 md:mt-0">
+                  <p className="text-[#957f72] dark:text-[#f1ccae] text-[16px]">
                     {pageContent?.socialText}
                   </p>
                   <div className="flex gap-[8px] mt-[18px]">
@@ -127,7 +121,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.facebook.com/grafinia3dpl"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -139,7 +133,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.twitter.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -151,7 +145,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.youtube.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -163,7 +157,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className=" hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.linkedin.com"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -175,7 +169,7 @@ export default function Services() {
                         border: "1px solid #957f72",
                         borderRadius: "50%",
                       }}
-                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
+                      className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
                       href="https://www.instagram.com/grafinia.3d"
                       target="_blank"
                       rel="noopener noreferrer"
@@ -188,45 +182,44 @@ export default function Services() {
             </div>
           </div>
 
-          <form
-            className="p-5 sm:p-20 md:p-24 w-full h-auto bg-white flex flex-col justify-center items-center border border-gray-300 gap-12"
-            onSubmit={handleSubmit}
-          >
-            <input
-              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
-              type="text"
-              placeholder={pageContent?.placeholderName}
-              name="fullName"
-              onChange={handleInputChange}
-            />
-            <input
-              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497]"
-              type="email"
-              placeholder={pageContent?.placeholderEmail}
-              name="emailAddress"
-              onChange={handleInputChange}
-            />
-            <input
-              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] required"
-              type="tel"
-              placeholder={pageContent?.placeholderPhone}
-              name="phoneNumber"
-              onChange={handleInputChange}
-              value={formData.phoneNumber}
-            />
-            <textarea
-              className="px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] border border-solid border-[#e6e6e6] hover:border-[#b6a497] focus:border-[#b6a497] min-h-[176px]"
-              placeholder={pageContent?.message}
-              name="message"
-              onChange={handleInputChange}
-            ></textarea>
-            <div className="ml-auto">
-              <button
-                type="submit"
-                className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
-              >
-                {pageContent?.btn}
-              </button>
+          <form onSubmit={handleSubmit}>
+            <div className="p-5 sm:p-20 md:p-24 w-full h-auto bg-[#FFFFFF] dark:bg-[#e5d9cf] flex flex-col justify-center items-center border border-gray-300 dark:border-gray-700 gap-12">
+              <input
+                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
+                type="text"
+                placeholder={pageContent?.placeholderName}
+                name="fullName"
+                onChange={handleInputChange}
+              />
+              <input
+                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
+                type="email"
+                placeholder={pageContent?.placeholderEmail}
+                name="emailAddress"
+                onChange={handleInputChange}
+              />
+              <input
+                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 required"
+                type="tel"
+                placeholder={pageContent?.placeholderPhone}
+                name="phoneNumber"
+                onChange={handleInputChange}
+                value={formData.phoneNumber}
+              />
+              <textarea
+                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 min-h-[176px]"
+                placeholder={pageContent?.message}
+                name="message"
+                onChange={handleInputChange}
+              ></textarea>
+              <div className="ml-auto">
+                <button
+                  type="submit"
+                  className="btn justify-center bg-brown dark:bg-dark-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
+                >
+                  {pageContent?.btn}
+                </button>
+              </div>
             </div>
           </form>
         </Container>
