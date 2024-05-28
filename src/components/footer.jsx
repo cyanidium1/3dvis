@@ -124,10 +124,12 @@ function Footer({ theme }) {
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.1 }}
-                    className="link-container duration-300"
+                    className=""
                   >
                     <Link href={link.href}>
-                      <div>{link.name}</div>
+                      <div className="draw-underline duration-200 mt-4">
+                        {link.name}
+                      </div>
                     </Link>
                   </motion.div>
                 ))}

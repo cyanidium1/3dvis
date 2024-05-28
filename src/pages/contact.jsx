@@ -76,7 +76,7 @@ export default function Services() {
                   className="flex gap-[8px] items-center"
                 >
                   <motion.p
-                    className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]"
+                    className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                     initial={{ x: -500, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -89,7 +89,7 @@ export default function Services() {
                     &mdash;
                   </motion.p>
                   <motion.p
-                    className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae]"
+                    className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                     initial={{ x: -500, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{
@@ -103,7 +103,7 @@ export default function Services() {
                   </motion.p>
                 </motion.section>
 
-                <p className="text-[#957f72] dark:text-[#f1ccae] font-light text-[18px] max-w-[512px] mt-[20px]">
+                <p className="text-[#957f72] dark:text-[#f1ccae] font-light text-[18px] max-w-[512px] mt-[20px] playFairFont ">
                   {pageContent?.label}
                 </p>
               </div>

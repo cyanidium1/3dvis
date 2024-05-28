@@ -145,11 +145,8 @@ body {
   border-color: #f1ccae !important;
 }
 .hover-effect-about:hover {
-  border-color: #4c4037 !important;
+  border-color: #f1ccae !important;
 }
 .hover-effect-contacts:hover {
   border-color: #4c4037 !important;
-}
-.switch-custom .next-switch-handle {
-  background-color: red; /* Устанавливаем красный цвет фона */
 }

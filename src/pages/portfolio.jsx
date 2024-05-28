@@ -18,7 +18,7 @@ export default function Home() {
       setPortfolioPosts(postsData);
     }
   }, [postsData]);
-
+  console.log(postsData, "postsData");
   return (
     <>
       <Layout>

@@ -7,8 +7,10 @@ import "aos/dist/aos.css";
 import { motion } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
 import { SelectedKeysContext } from "./_app";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const { servicesData } = useContext(SelectedKeysContext);
   const [pageContent, setPageContent] = useState(null);
   const targetRef = useRef(null);
@@ -35,7 +37,7 @@ export default function Home() {
               className="flex gap-[8px] items-center"
             >
               <motion.p
-                className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]"
+                className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                 initial={{ x: -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{
@@ -48,7 +50,7 @@ export default function Home() {
                 &mdash;
               </motion.p>
               <motion.p
-                className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae]"
+                className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                 initial={{ x: -500, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{
@@ -108,11 +110,15 @@ export default function Home() {
                       {pageContent?.desc}
                     </p>
                     <p
-                      className="font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer dark:text-[#f1ccae]"
+                      className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
+                      }}
+                      onClick={() => {
+                        router.push("/contacts");
                       }}
                     >
                       {pageContent?.btn}
@@ -164,8 +170,12 @@ export default function Home() {
                       className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
+                      }}
+                      onClick={() => {
+                        router.push("/contacts");
                       }}
                     >
                       {pageContent?.btn2}
@@ -217,8 +227,12 @@ export default function Home() {
                       className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
+                      }}
+                      onClick={() => {
+                        router.push("/contacts");
                       }}
                     >
                       {pageContent?.btn3}

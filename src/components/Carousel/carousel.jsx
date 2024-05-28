@@ -62,7 +62,7 @@ const Carousel = ({ portfolioPosts }) => {
                   }}
                 >
                   <p className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 text-xs w-full md:w-fit">
-                    Read more
+                    {el?.btnReadMore}
                   </p>
                 </button>
                 {/* </Link> */}
