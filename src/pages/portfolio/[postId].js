@@ -1,28 +1,17 @@
-import { useRouter } from "next/router";
-import { useState, useEffect, useContext } from "react";
-import { performRequest } from "../../lib/datocms";
-import Head from "next/head";
-import { Navbar } from "@nextui-org/react";
-import Loader from "@/components/loader";
-import Layout from "@/components/layout";
 import Container from "@/components/container";
-import Link from "next/link";
-import ReactImageGallery from "react-image-gallery";
-import PhotoAlbum from "react-photo-album";
-import { Gallery } from "react-grid-gallery";
-import Modal from "react-modal";
+import Footer from "@/components/footer";
+import Layout from "@/components/layout";
+import { useRouter } from "next/router";
+import { useContext, useEffect, useState } from "react";
 import Lightbox from "react-image-lightbox";
 import "react-image-lightbox/style.css";
-import Image from "next/image";
-import Footer from "@/components/footer";
+import Modal from "react-modal";
 import { SelectedKeysContext } from "../_app";
 Modal.setAppElement("#__next");
 
 const Post = () => {
   const router = useRouter();
-  const { postId } = router.query;
   const [post, setPost] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const { onePostsData } = useContext(SelectedKeysContext);
@@ -47,9 +36,8 @@ const Post = () => {
 
   const transformedGallery = post?.gallery?.map((item) => ({
     src: item.url,
-
-    // thumbnail: item.url
   }));
+
   const theme = "dark";
   return (
     <Layout>

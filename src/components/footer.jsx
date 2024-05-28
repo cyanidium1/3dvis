@@ -18,8 +18,7 @@ import { SelectedKeysContext } from "@/pages/_app";
 function Footer({ theme }) {
   const { footerData } = useContext(SelectedKeysContext);
   const targetRef = useRef(null);
-  const container = useRef(null);
-  const ref = useRef(null);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start end", "end end"],

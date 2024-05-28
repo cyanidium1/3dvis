@@ -1,202 +1,92 @@
-import { useContext, useEffect, useState } from "react";
-import Footer from "./footer";
-import styles from "./layout.module.css";
-import Loader from "./loader";
-import Navbar from "./navbar";
 import { useRouter } from "next/router";
+import { useContext, useEffect } from "react";
+import Navbar from "./navbar";
 
 import { performRequest } from "@/lib/datocms";
 import { SelectedKeysContext } from "@/pages/_app";
-import { useParams } from "next/navigation";
+import {
+  allAboutsQuery,
+  allContactsQuery,
+  allPortfolioPostsQuery,
+  allServicesQuery,
+  footerQuery,
+  headerQuery,
+  homePageQuery,
+} from "@/services/services";
 
 export default function Layout({ children }) {
   const {
     selectedKeys,
     setSelectedKeys,
-    contactsData,
     setContactsData,
-    aboutData,
     setAboutData,
-    servicesData,
     setServicesData,
-    postsData,
     setPostsData,
-    onePostsData,
     setOnePostData,
-    homePageData,
     setHomePageData,
     headerData,
     setHeaderData,
-    footerData,
     setFooterData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
     setSelectedKeys(selectedKeys);
   }, [selectedKeys]);
-  // ------------------- footer
 
   useEffect(() => {
     async function fetchData() {
       try {
-        const query = `
-          query footer($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-            footer(fallbackLocales: $fallbackLocales, locale: $locale)  {
-              description
-              img1 {
-                alt
-                url
-              }
-              img2 {
-                alt
-                url
-              }
-              img3 {
-                alt
-                url
-              }
-              img4 {
-                alt
-                url
-              }
-              link1
-              link2
-              link3
-              link4
-              link5
-              title
-              title2
-            }
-          }
-        `;
-
         const selectedLocale = Array.from(selectedKeys)[0];
-
         const variables = {
           locale: selectedLocale,
           fallbackLocales: ["en"],
         };
 
-        await performRequest({ query, variables }).then((response) => {
-          setFooterData(response?.data);
+        const footerResponse = await performRequest({
+          query: footerQuery,
+          variables,
         });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
 
-    fetchData();
-  }, [selectedKeys]);
-
-  // ------------------- header
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-          query header($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-            header(fallbackLocales: $fallbackLocales, locale: $locale) {
-              link1
-              link2
-              link3
-              link4
-              link5
-            }
-          }
-        `;
-
-        const selectedLocale = Array.from(selectedKeys)[0];
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-
-        await performRequest({ query, variables }).then((response) => {
-          setHeaderData(response?.data);
+        const headerResponse = await performRequest({
+          query: headerQuery,
+          variables,
         });
+        const homePageResponse = await performRequest({
+          query: homePageQuery,
+          variables,
+        });
+        const allPostsResponse = await performRequest({
+          query: allPortfolioPostsQuery,
+          variables,
+        });
+        const allServicesResponse = await performRequest({
+          query: allServicesQuery,
+          variables,
+        });
+        const allAboutResponse = await performRequest({
+          query: allAboutsQuery,
+          variables,
+        });
+        const allContactsResponse = await performRequest({
+          query: allContactsQuery,
+          variables,
+        });
+
+        console.log(allContactsResponse, "allContactsResponse");
+        setFooterData(footerResponse?.data);
+        setHeaderData(headerResponse?.data);
+        setHomePageData(homePageResponse?.data?.homepage);
+        setPostsData(allPostsResponse?.data?.allPortfolioposts);
+        setServicesData(allServicesResponse?.data?.allServices[0]);
+        setAboutData(allAboutResponse?.data?.allAbouts[0]);
+        setContactsData(allContactsResponse?.data?.allContacts[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
 
     fetchData();
-  }, [selectedKeys]);
-
-  // -------------------------homePage
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-          query homepage($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-            homepage(locale: $locale, fallbackLocales: $fallbackLocales) {
-              btn1WhoI
-              btn2Who1
-              btnPortfolio
-              btnSectionPortfolio
-              btnServices
-              btonContacts
-              descPortfolio
-              descServices
-              descServices2
-              descServices3
-              descWhoI
-              description
-              header
-              headerPortfolio
-              headerServices
-              imgServices {
-                alt
-                url
-              }
-              imgServices2 {
-                alt
-                url
-              }
-              imgServices3 {
-                alt
-                url
-              }
-              subtitlePortfolio
-              subtitleServices
-              subtitleWhiI
-              titleServices
-              titleServices2
-              titleServices3
-              titleWhoI
-              galleryPortfolio {
-                alt
-                url
-              }
-              avatar {
-                alt
-                url
-              }
-            }
-          }
-        `;
-        const selectedLocale = Array.from(selectedKeys)[0] || "en";
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-
-        const { data } = await performRequest({ query, variables });
-
-        if (data && data.homepage) {
-          setHomePageData(data.homepage);
-        } else {
-          console.error("Data not found");
-        }
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [selectedKeys]);
+  }, [selectedKeys, setFooterData, setHeaderData]);
 
   // ----------------------post id
   const router = useRouter();
@@ -241,195 +131,6 @@ export default function Layout({ children }) {
       fetchData();
     }
   }, [selectedKeys, postId]);
-
-  // ---------------------- portfolio
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-        query allPortfolioposts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-          allPortfolioposts {    
-      
-          id
-          slug
-          title(fallbackLocales: $fallbackLocales, locale: $locale)
-          description(fallbackLocales: $fallbackLocales, locale: $locale)
-          coverImage {
-            url
-          }
-        }
-          }`;
-
-        const selectedLocale = Array.from(selectedKeys)[0];
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-
-        await performRequest({ query, variables }).then((response) => {
-          setPostsData(response?.data?.allPortfolioposts);
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-      }
-    }
-
-    fetchData();
-  }, [selectedKeys]);
-
-  // ------------------------------------ services
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-        query allServices($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-          allServices {                   
-                          btn(fallbackLocales: $fallbackLocales, locale: $locale)
-                          btn2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          btn3(fallbackLocales: $fallbackLocales, locale: $locale)
-                          desc(fallbackLocales: $fallbackLocales, locale: $locale)
-                          desc2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          desc3(fallbackLocales: $fallbackLocales, locale: $locale)
-                          description(fallbackLocales: $fallbackLocales, locale: $locale)
-                          header(fallbackLocales: $fallbackLocales, locale: $locale)
-                          horizontalTitle2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          horizontalTitle(fallbackLocales: $fallbackLocales, locale: $locale)
-                          horizontalTitle3(fallbackLocales: $fallbackLocales, locale: $locale)
-                          img {
-                            alt(fallbackLocales: $fallbackLocales, locale: $locale)
-                            url
-                            title(fallbackLocales: $fallbackLocales, locale: $locale)
-                            size
-                          }
-                          img2 {
-                            alt(fallbackLocales: en, locale: en)
-                            size
-                            url
-                            title(fallbackLocales: $fallbackLocales, locale: $locale)
-                          }
-                          img3 {
-                            alt(fallbackLocales: $fallbackLocales, locale: $locale)
-                            url
-                            title(fallbackLocales: $fallbackLocales, locale: $locale)
-                          }
-                          title(fallbackLocales: $fallbackLocales, locale: $locale)
-                          title2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          title3(fallbackLocales: $fallbackLocales, locale: $locale)
-                        }
-                      }
-                  `;
-        const selectedLocale = Array.from(selectedKeys)[0];
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-        await performRequest({ query, variables }).then((response) => {
-          setServicesData(response?.data?.allServices[0]);
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [selectedKeys]);
-
-  // -----------------------------about us
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-        query  AllAbouts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-          allAbouts{
-                    answerFaq1(locale: $locale)
-                          answerFaq1Copy2(locale: $locale)
-                          answerFaq1Copy3(locale: $locale)
-                          answerFaq1Copy4(locale: $locale)
-                          description(locale: $locale)
-                          avatar {
-                            _createdAt
-                            alt(fallbackLocales: en, locale: en)
-                            author
-                            filename
-                            url
-                          }
-                          header(fallbackLocales: $fallbackLocales, locale: $locale)
-                          headerFaq(fallbackLocales: $fallbackLocales, locale: $locale)
-                          headerResults(fallbackLocales: $fallbackLocales, locale: $locale)
-                          label(fallbackLocales: $fallbackLocales, locale: $locale)
-                          labelResult1(fallbackLocales: $fallbackLocales, locale: $locale)
-                          labelResult1Copy1(fallbackLocales: $fallbackLocales, locale: $locale)
-                          labelResult1Copy2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          labelResult1Copy3(fallbackLocales: $fallbackLocales, locale: $locale)
-                          questionFaq1(fallbackLocales: $fallbackLocales, locale: $locale)
-                          questionFaq1Copy1(fallbackLocales: $fallbackLocales, locale: $locale)
-                          questionFaq1Copy2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          questionFaq1Copy3(fallbackLocales: $fallbackLocales, locale: $locale)
-                          subtitle(fallbackLocales: $fallbackLocales, locale: $locale)
-                          descriptionResults(fallbackLocales: $fallbackLocales, locale: $locale)
-                          descriptionCopy1(fallbackLocales: $fallbackLocales, locale: $locale)
-                          descriptionCopy2(fallbackLocales: $fallbackLocales, locale: $locale)
-                          descriptionCopy3(fallbackLocales: $fallbackLocales, locale: $locale)
-                        }
-                      }
-                  `;
-        const selectedLocale = Array.from(selectedKeys)[0];
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-        await performRequest({ query, variables }).then((response) => {
-          setAboutData(response?.data?.allAbouts[0]);
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [selectedKeys]);
-
-  // ------------------------contacts
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const query = `
-          query AllContacts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
-            allContacts {
-              label(fallbackLocales: $fallbackLocales, locale: $locale)
-              placeholderEmail(fallbackLocales: $fallbackLocales, locale: $locale)
-              message(fallbackLocales: $fallbackLocales, locale: $locale)
-              placeholderName(fallbackLocales: $fallbackLocales, locale: $locale)
-              placeholderPhone(fallbackLocales: $fallbackLocales, locale: $locale)
-              socialText(fallbackLocales: $fallbackLocales, locale: $locale)
-              btn(fallbackLocales: $fallbackLocales, locale: $locale)
-    
-              header(fallbackLocales: $fallbackLocales, locale: $locale)
-            }
-          }
-        `;
-
-        const selectedLocale = Array.from(selectedKeys)[0];
-
-        const variables = {
-          locale: selectedLocale,
-          fallbackLocales: ["en"],
-        };
-
-        await performRequest({ query, variables }).then((response) => {
-          setContactsData(response?.data?.allContacts?.[0]);
-        });
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    }
-
-    fetchData();
-  }, [selectedKeys]);
 
   return (
     <div>

@@ -1,20 +1,17 @@
 import Container from "@/components/container";
 import Footer from "@/components/footer";
 import Layout from "@/components/layout";
-import { performRequest } from "@/lib/datocms";
 import stylesWithCssVar from "@/utils/motion";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useContext, useEffect, useRef } from "react";
-import { useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
   FaTwitter,
   FaYoutube,
-  FaLinkedinIn,
-  FaInstagram,
-  FaFacebookF,
 } from "react-icons/fa";
 import { SelectedKeysContext } from "./_app";
-import ThemeToggle from "@/components/themeToggle";
 
 export default function Services() {
   const { contactsData } = useContext(SelectedKeysContext);
