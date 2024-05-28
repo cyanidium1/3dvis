@@ -86,7 +86,7 @@ export default function Home() {
               <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]">
                 &mdash;
               </p>
-              <p className="text-mobile-lg sm:text-9xl lg:text-xxl text-[#4c4037] dark:text-[#f1ccae]">
+              <p className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae]">
                 {pageContent?.label}
               </p>
             </div>
@@ -100,8 +100,7 @@ export default function Home() {
             />
             <div className="flex flex-col gap-[20px] p-[20px]">
               <p
-                className="font-playfair font-bold text-[#4c4037] whitespace-normal 
-             lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae]"
+                className="font-bold text-[#4c4037] whitespace-normal  lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae]"
                 style={{ fontFamily: "Playfair Display" }}
               >
                 {pageContent?.header}
@@ -149,7 +148,7 @@ export default function Home() {
 
           <div className="flex flex-col justify-between py-[80px] lg:py-[128px]">
             <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
-              <div className="flex flex-col w-1/2 max-w-[512px]">
+              <div className="flex flex-col w-full md:w-1/2 max-w-[512px]">
                 <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae]">
                   {pageContent?.headerResults}
                 </h2>
@@ -161,28 +160,28 @@ export default function Home() {
               <div className="flex flex-wrap gap-[60px] max-w-[387px]">
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">150+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]">
                     {pageContent?.labelResult1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">20+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy1}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">99%</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px]  dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy2}
                   </span>
                 </div>
 
                 <div className="flex flex-col w-[calc(50%-35px)]">
                   <span className="text-[48px] text-[#4c4037]">15+</span>
-                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px] whitespace-nowrap dark:text-[#f1ccae]">
+                  <span className="text-[18px] font-manrope text-[#957f72] leading-[32px]  dark:text-[#f1ccae]">
                     {pageContent?.labelResult1Copy3}
                   </span>
                 </div>
