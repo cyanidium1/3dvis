@@ -61,6 +61,9 @@ export default function Navigation({ headerData }) {
       </NavbarContent>
 
       <NavbarMenu className="flex flex-col items-center ">
+        <div className=" block lg:hidden">
+          <ThemeToggle />
+        </div>
         <Link href="/">
           <p
             className={
@@ -235,7 +238,7 @@ export default function Navigation({ headerData }) {
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
-      <div>
+      <div className="hidden lg:block">
         <ThemeToggle />
       </div>
     </Navbar>
