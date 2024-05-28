@@ -51,27 +51,18 @@ const Post = () => {
             className="cursor-pointer object-cover w-full"
             style={{ maxWidth: "auto", height: "auto" }}
           />
-
-          <div className="absolute top-[160px] left-[0px]">
-            <h1 className="transform -rotate-90 bg-dark-brown bg-opacity-50 w-full px-10 py-2 text-xl md:text-5xl">
-              {post?.title}
-            </h1>
-          </div>
         </div>
 
         <div className="flex w-full">
           <div
             style={{ backgroundImage: `url(${post?.coverImage?.url})` }}
             className="h-[100vh] flex-[30%] bg-cover relative hidden md:flex"
-          >
-            <div className="absolute top-[270px] left-[-165px]">
-              <h1 className="transform -rotate-90 bg-dark-brown bg-opacity-50 w-full px-10 py-2 text-xl md:text-5xl">
-                {post?.title}
-              </h1>
-            </div>
-          </div>
+          ></div>
           <Container>
             <div className="flex-[70%] flex items-center  lg:mx-[66px]">
+              {/* <div className="absolute top-[160px] left-[0px]"> */}
+
+              {/* </div> */}
               <div>
                 <button
                   onClick={() => {
@@ -81,8 +72,13 @@ const Post = () => {
                 >
                   Back
                 </button>
+
+                <h1 className=" bg-opacity-50 w-full  pt-4 text-xl md:text-5xl">
+                  {post?.title}
+                </h1>
+
                 <p
-                  className="font-playfair text-[18px] my-16"
+                  className="font-playfair text-[18px] my-8 md:my-16"
                   style={{ fontFamily: "Manrope" }}
                 >
                   {post?.description}
@@ -90,7 +86,7 @@ const Post = () => {
 
                 {/* <Gallery images={transformedGallery} /> */}
                 <div>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3 my-8">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3  my-8">
                     {transformedGallery?.map((image, index) => (
                       <img
                         key={image?.src}
