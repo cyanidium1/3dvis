@@ -7,8 +7,10 @@ import "aos/dist/aos.css";
 import { motion } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
 import { SelectedKeysContext } from "./_app";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   const { servicesData } = useContext(SelectedKeysContext);
   const [pageContent, setPageContent] = useState(null);
   const targetRef = useRef(null);
@@ -115,6 +117,9 @@ export default function Home() {
                         display: "inline-block",
                         maxWidth: "105px",
                       }}
+                      onClick={() => {
+                        router.push("/contacts");
+                      }}
                     >
                       {pageContent?.btn}
                     </p>
@@ -169,6 +174,9 @@ export default function Home() {
                         display: "inline-block",
                         maxWidth: "105px",
                       }}
+                      onClick={() => {
+                        router.push("/contacts");
+                      }}
                     >
                       {pageContent?.btn2}
                     </p>
@@ -222,6 +230,9 @@ export default function Home() {
                         letterSpacing: "3px",
                         display: "inline-block",
                         maxWidth: "105px",
+                      }}
+                      onClick={() => {
+                        router.push("/contacts");
                       }}
                     >
                       {pageContent?.btn3}
