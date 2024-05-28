@@ -136,8 +136,8 @@ export default function Home() {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    style={{ border: "1px solid #f1ccae", borderRadius: "50%" }}
-                    className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#4c4037] duration-300 dark:text-[#f1ccae]"
+                    style={{ border: "1px solid #4c4037", borderRadius: "50%" }}
+                    className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae] duration-300 text-[#4c4037]"
                   >
                     {link.icon}
                   </a>
