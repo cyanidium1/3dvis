@@ -43,7 +43,7 @@ const Post = () => {
     <Layout>
       <div className="bg-black">
         {/* <Container> */}
-        <div className="block md:hidden">
+        <div className="block md:hidden relative">
           <img
             key={post?.coverImage?.url}
             src={post?.coverImage?.url}
@@ -51,6 +51,12 @@ const Post = () => {
             className="cursor-pointer object-cover w-full"
             style={{ maxWidth: "auto", height: "auto" }}
           />
+
+          <div className="absolute top-[160px] left-[0px]">
+            <h1 className="transform -rotate-90 bg-dark-brown bg-opacity-50 w-full px-10 py-2 text-xl md:text-5xl">
+              {post?.title}
+            </h1>
+          </div>
         </div>
 
         <div className="flex w-full">
