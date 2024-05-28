@@ -83,10 +83,10 @@ export default function Home() {
               className="flex items-center gap-[8px] justify-center md:justify-start"
               style={{ fontFamily: "Playfair Display" }}
             >
-              <p className="text-[32px] sm:text-[46px] md:text-[56px]  text-[#4c4037] dark:text-[#f1ccae]">
+              <p className="text-[32px] sm:text-[46px] md:text-[56px]  text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                 &mdash;
               </p>
-              <p className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae]">
+              <p className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                 {pageContent?.label}
               </p>
             </div>
@@ -100,13 +100,13 @@ export default function Home() {
             />
             <div className="flex flex-col gap-[20px] p-[20px]">
               <p
-                className="font-bold text-[#4c4037] whitespace-normal  lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae]"
+                className="font-bold text-[#4c4037] whitespace-normal  lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae] playFairFont "
                 style={{ fontFamily: "Playfair Display" }}
               >
                 {pageContent?.header}
               </p>
 
-              <p className="italic text-[#957f72] text-[20px] dark:text-[#f1ccae]">
+              <p className="italic text-[#957f72] text-[20px] dark:text-[#f1ccae] ">
                 {pageContent?.subtitle}
               </p>
               <p
@@ -149,7 +149,7 @@ export default function Home() {
           <div className="flex flex-col justify-between py-[80px] lg:py-[128px]">
             <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
               <div className="flex flex-col w-full md:w-1/2 max-w-[512px]">
-                <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae]">
+                <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                   {pageContent?.headerResults}
                 </h2>
                 <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]">
@@ -188,7 +188,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <p className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae]">
+          <p className="text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
             {pageContent?.headerFaq}
           </p>
           <Accordion>
