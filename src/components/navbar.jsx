@@ -40,7 +40,7 @@ export default function Navigation({ headerData }) {
   if (typeof window !== "undefined") {
     // console.log(window.innerWidth);
   }
-
+  console.log(pageContent, "pageContent");
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
@@ -84,7 +84,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            {pageContent?.link2}
+            {pageContent?.link1}
           </p>
         </Link>
 
@@ -96,7 +96,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            {pageContent?.link3}
+            {pageContent?.link2}
           </p>
         </Link>
 
@@ -108,7 +108,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            {pageContent?.link4}
+            {pageContent?.link3}
           </p>
         </Link>
 
@@ -120,7 +120,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            {pageContent?.link5}
+            {pageContent?.link4}
           </p>
         </Link>
 

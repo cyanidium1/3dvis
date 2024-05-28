@@ -68,6 +68,7 @@ export default function Home() {
       desc: pageContent?.answerFaq1Copy4,
     },
   ];
+  console.log(pageContent, "pageContent");
   return (
     <Layout>
       <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">
@@ -90,11 +91,11 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <div className="flex flex-col xl:flex-row gap-20 p-2 ">
+          <div className="flex flex-col xl:flex-row gap-20 ">
             <Image
               alt="author"
               src={Designer.src}
-              className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px]"
+              className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px] px-4"
               style={{ maxWidth: "608px" }}
             />
             <div className="flex flex-col gap-[20px] p-[20px]">
