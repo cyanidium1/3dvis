@@ -108,11 +108,12 @@ export default function Home() {
                       {pageContent?.desc}
                     </p>
                     <p
-                      className="font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer dark:text-[#f1ccae]"
+                      className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
                       }}
                     >
                       {pageContent?.btn}
@@ -164,8 +165,9 @@ export default function Home() {
                       className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
                       }}
                     >
                       {pageContent?.btn2}
@@ -217,8 +219,9 @@ export default function Home() {
                       className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
-                        maxWidth: "105px",
                         letterSpacing: "3px",
+                        display: "inline-block",
+                        maxWidth: "105px",
                       }}
                     >
                       {pageContent?.btn3}
