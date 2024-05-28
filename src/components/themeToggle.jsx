@@ -55,8 +55,8 @@ export default function ThemeToggle() {
       color="success"
       className={
         theme === "dark"
-          ? "bg-[#e5d9cf] rounded-3xl"
-          : "bg-[#e5d9cf] rounded-3xl"
+          ? "bg-[#e5d9cf] rounded-3xl max-w-[55px]"
+          : "bg-[#e5d9cf] rounded-3xl max-w-[55px]"
       }
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
