@@ -35,7 +35,7 @@ export default function Navigation({ headerData }) {
       setPageContent(headerData?.header);
     }
   }, [headerData]);
-
+  console.log(pageContent, "....................");
   // ---------------------------------
   return (
     <Navbar
@@ -65,7 +65,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-5xl mt-4"
             }
           >
-            {pageContent?.link1}
+            {pageContent?.link5}
           </p>
         </Link>
 
@@ -154,7 +154,7 @@ export default function Navigation({ headerData }) {
                 : "draw-underline duration-200 text-2xl"
             }
           >
-            {pageContent?.link0}
+            {pageContent?.link5}
           </p>
         </Link>
 

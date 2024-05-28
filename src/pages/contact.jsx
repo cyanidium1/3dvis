@@ -67,7 +67,7 @@ export default function Services() {
       >
         <Container>
           <div className="py-[96px] justify-between items-center h-[100%] w-[100%]">
-            <div className="flex flex-col md:flex-row justify-between w-full">
+            <div className="flex flex-col lg:flex-row justify-between w-full">
               <div className="flex flex-col">
                 <motion.section
                   style={stylesWithCssVar({
