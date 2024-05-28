@@ -83,7 +83,7 @@ export default function Home() {
               className="flex items-center gap-[8px] justify-center md:justify-start"
               style={{ fontFamily: "Playfair Display" }}
             >
-              <p className="text-mobile-lg sm:text-7xl lg:text-9xl text-[#4c4037] dark:text-[#f1ccae]">
+              <p className="text-[32px] sm:text-[46px] md:text-[56px]  text-[#4c4037] dark:text-[#f1ccae]">
                 &mdash;
               </p>
               <p className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae]">
