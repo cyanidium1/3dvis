@@ -38,9 +38,8 @@ export default function Navigation({ headerData }) {
   // ---------------------------------
 
   if (typeof window !== "undefined") {
-    // console.log(window.innerWidth);
   }
-  console.log(pageContent, "pageContent");
+
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
