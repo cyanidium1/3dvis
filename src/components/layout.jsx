@@ -79,7 +79,6 @@ export default function Layout({ children }) {
 
         await performRequest({ query, variables }).then((response) => {
           setFooterData(response?.data);
-          // console.log(response?.data, "+++++++++++++++");
         });
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -115,7 +114,6 @@ export default function Layout({ children }) {
 
         await performRequest({ query, variables }).then((response) => {
           setHeaderData(response?.data);
-          // console.log(response?.data, "+++++++++++++++");
         });
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -271,7 +269,6 @@ export default function Layout({ children }) {
 
         await performRequest({ query, variables }).then((response) => {
           setPostsData(response?.data?.allPortfolioposts);
-          // console.log(response, "+++++++++++++++");
         });
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -425,7 +422,6 @@ export default function Layout({ children }) {
 
         await performRequest({ query, variables }).then((response) => {
           setContactsData(response?.data?.allContacts?.[0]);
-          console.log(response?.data?.allContacts[0], "+++++++++++++++");
         });
       } catch (error) {
         console.error("Error fetching data:", error);

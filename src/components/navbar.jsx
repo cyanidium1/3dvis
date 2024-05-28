@@ -35,8 +35,13 @@ export default function Navigation({ headerData }) {
       setPageContent(headerData?.header);
     }
   }, [headerData]);
-  console.log(pageContent, "....................");
+
   // ---------------------------------
+
+  if (typeof window !== "undefined") {
+    // console.log(window.innerWidth);
+  }
+
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
@@ -145,7 +150,7 @@ export default function Navigation({ headerData }) {
         </Dropdown>
       </NavbarMenu>
 
-      <NavbarContent className="hidden lg:flex gap-[20px]">
+      <NavbarContent className="hidden lg:flex gap-[15px]">
         <Link href="/">
           <p
             className={
@@ -231,7 +236,9 @@ export default function Navigation({ headerData }) {
           </DropdownMenu>
         </Dropdown>
       </NavbarContent>
-      <ThemeToggle />
+      <div>
+        <ThemeToggle />
+      </div>
     </Navbar>
   );
 }

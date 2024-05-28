@@ -41,7 +41,6 @@ export default function Home() {
   const [pageContent, setPageContent] = useState(null);
   // -------------------------------
   useEffect(() => {
-    console.log(aboutData, "aboutData");
     if (aboutData) {
       setPageContent(aboutData);
     }

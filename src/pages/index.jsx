@@ -49,7 +49,6 @@ export default function Home() {
   const [selectedImage, setSelectedImage] = useState(null);
 
   const handleImageClick = (image, index) => {
-    console.log(image?.src);
     setSelectedImage(image);
     setCurrentImageIndex(index);
     setIsLightboxOpen(true);

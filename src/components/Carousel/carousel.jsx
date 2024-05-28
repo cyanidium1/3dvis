@@ -6,7 +6,6 @@ import Layout from "../layout";
 import { useRouter } from "next/navigation";
 
 const Carousel = ({ portfolioPosts }) => {
-  // console.log(portfolioPosts);
   const router = useRouter();
   const [activeIndex, setActiveIndex] = useState(0);
   const sliderRef = useRef(null);
