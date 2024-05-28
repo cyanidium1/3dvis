@@ -150,3 +150,6 @@ body {
 .hover-effect-contacts:hover {
   border-color: #4c4037 !important;
 }
+.switch-custom .next-switch-handle {
+  background-color: red; /* Устанавливаем красный цвет фона */
+}
