@@ -72,7 +72,6 @@ export default function Layout({ children }) {
           variables,
         });
 
-        console.log(allContactsResponse, "allContactsResponse");
         setFooterData(footerResponse?.data);
         setHeaderData(headerResponse?.data);
         setHomePageData(homePageResponse?.data?.homepage);

@@ -120,13 +120,13 @@ function Footer({ theme }) {
                 ref={targetRef}
                 className="flex flex-row flex-wrap md:flex-col gap-[10px] md:gap-[20px]"
               >
-                {navigationLinks.map((link) => (
+                {navigationLinks.map((link, index) => (
                   <motion.div
-                    key={link.id}
+                    key={index}
                     whileHover={{ scale: 1.1 }}
                     className="link-container duration-300"
                   >
-                    <Link href={link.href} passHref>
+                    <Link href={link.href}>
                       <div>{link.name}</div>
                     </Link>
                   </motion.div>
