@@ -39,7 +39,8 @@ query header($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
     }
   }
 `;
-export const homePageQuery = `     query homepage($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+export const homePageQuery = `
+     query homepage($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
     homepage(locale: $locale, fallbackLocales: $fallbackLocales) {
       btn1WhoI
       btn2Who1
