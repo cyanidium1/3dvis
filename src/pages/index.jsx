@@ -108,12 +108,35 @@ export default function Home() {
           </Head>
           <main>
             {/* 360 gallery */}
-            <div className="block md:hidden mt-[100px]">
+            <div className="block md:hidden pt-[100px] bg-[#f9f1ec] dark:bg-black">
               <Marquee />
             </div>
             <div className="hidden md:block">
               <DGalery />
             </div>
+            <section className="block md:hidden bg-[#f9f1ec] dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
+              <Container>
+                <div className="w-full ">
+                  <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
+                    <h2 className="playFairFont text-5xl md:text-8xl my-1 md:my-0 text-white">
+                      {pageContent?.header}
+                    </h2>
+                    <p className="font-extralight text-xs md:text-2xl uppercase tracking-widest flex items-center text-white my-4 max-w-[250px]">
+                      {pageContent?.description}
+                    </p>
+                    <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
+                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
+                        {pageContent?.btnPortfolio}
+                      </button>
+                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
+                        {pageContent?.btonContacts}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </Container>
+            </section>
+
             <section className="hidden md:block h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
