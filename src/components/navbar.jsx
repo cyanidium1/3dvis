@@ -174,7 +174,7 @@ export default function Navigation({ headerData }) {
         </div>
       </NavbarMenu>
 
-      <NavbarContent className="hidden lg:flex gap-[15px]">
+      <NavbarContent className="hidden lg:flex gap-[20px] text-nowrap">
         <Link href="/">
           <p
             className={

@@ -14,6 +14,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import stylesWithCssVar from "@/utils/motion";
 import Layout from "./layout";
 import { SelectedKeysContext } from "@/pages/_app";
+import SocialMediaLinks from "./SocialMediaLinks";
 
 function Footer({ theme }) {
   const { footerData } = useContext(SelectedKeysContext);
@@ -89,20 +90,7 @@ function Footer({ theme }) {
               >
                 {pageContent?.description}
               </p>
-              <div className="flex space-x-4 my-4 items-center">
-                {socialMediaLinks.map((link, index) => (
-                  <a
-                    key={index}
-                    href={link.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className=" w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae]"
-                    style={{ border: "1px solid #4c4037", borderRadius: "50%" }}
-                  >
-                    {link.icon}
-                  </a>
-                ))}
-              </div>
+              <SocialMediaLinks data={socialMediaLinks} />
             </div>
             <div>
               <p

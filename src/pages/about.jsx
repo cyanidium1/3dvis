@@ -18,6 +18,7 @@ import { performRequest } from "@/lib/datocms";
 import Footer from "@/components/footer";
 import { SelectedKeysContext } from "./_app";
 import Loader from "@/components/loader";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
 
 const socialMediaLinks = [
   {
@@ -144,24 +145,7 @@ export default function Home() {
                     </li>
                   </ul>
                 </div>
-
-                <div className="flex space-x-4 my-4 items-center">
-                  {socialMediaLinks.map((link, index) => (
-                    <a
-                      key={index}
-                      href={link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{
-                        border: "1px solid #4c4037",
-                        borderRadius: "50%",
-                      }}
-                      className="hover-effect-about w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae] duration-300 text-[#4c4037]"
-                    >
-                      {link.icon}
-                    </a>
-                  ))}
-                </div>
+                <SocialMediaLinks data={socialMediaLinks} />
               </div>
             </div>
 

@@ -113,7 +113,7 @@ export default function Home() {
                         maxWidth: "105px",
                       }}
                       onClick={() => {
-                        router.push("/contacts");
+                        router.push("/contact");
                       }}
                     >
                       {pageContent?.btn}
@@ -170,7 +170,7 @@ export default function Home() {
                         maxWidth: "105px",
                       }}
                       onClick={() => {
-                        router.push("/contacts");
+                        router.push("/contact");
                       }}
                     >
                       {pageContent?.btn2}
@@ -227,7 +227,7 @@ export default function Home() {
                         maxWidth: "105px",
                       }}
                       onClick={() => {
-                        router.push("/contacts");
+                        router.push("/contact");
                       }}
                     >
                       {pageContent?.btn3}
