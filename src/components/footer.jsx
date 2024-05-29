@@ -106,7 +106,7 @@ function Footer({ theme }) {
             </div>
             <div>
               <p
-                className="mb-[46px] md:mb-[30px] text-[20px] font-semibold"
+                className="mb-[36px] md:mb-[30px] text-[20px] font-semibold"
                 style={{ fontFamily: "Manrope" }}
               >
                 {pageContent?.title}
@@ -123,7 +123,7 @@ function Footer({ theme }) {
                 {navigationLinks.map((link, index) => (
                   <motion.div key={index} className="">
                     <Link href={link.href}>
-                      <div className="draw-underline duration-200 mt-4">
+                      <div className="draw-underline duration-200 ">
                         {link.name}
                       </div>
                     </Link>
@@ -133,7 +133,7 @@ function Footer({ theme }) {
             </div>
             <div>
               <p
-                className="mb-[46px] md:mb-[30px] text-[20px] font-semibold"
+                className="mb-[36px] md:mb-[30px] text-[20px] font-semibold"
                 style={{ fontFamily: "Manrope" }}
               >
                 {pageContent?.title2}

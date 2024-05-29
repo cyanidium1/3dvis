@@ -150,3 +150,8 @@ body {
 .hover-effect-contacts:hover {
   border-color: #4c4037 !important;
 }
+.border-faq {
+  width: 52px !important;
+  height: 52px !important;
+  border: 1px solid #b6a497 !important;
+}

@@ -80,9 +80,6 @@ export default function Navigation({ headerData }) {
       </NavbarContent>
 
       <NavbarMenu className="flex flex-col items-center ">
-        <div className=" block lg:hidden">
-          <ThemeToggle />
-        </div>
         <Link href="/">
           <p
             className={
@@ -142,35 +139,39 @@ export default function Navigation({ headerData }) {
             {pageContent?.link4}
           </p>
         </Link>
-
-        {selectedKeys ? (
-          <Dropdown>
-            <DropdownTrigger>
-              <Button className="capitalize text-2xl  p-0">
-                {Array.from(selectedKeys)[0]}
-              </Button>
-            </DropdownTrigger>
-            <DropdownMenu
-              aria-label="Single selection example"
-              variant="flat"
-              disallowEmptySelection
-              selectionMode="single"
-              selectedKeys={selectedKeys}
-              onSelectionChange={setSelectedKeys}
-              className="bg-[white] bg-opacity-50"
-            >
-              <DropdownItem className="text-[#4c4037]" key="en">
-                English
-              </DropdownItem>
-              <DropdownItem className="text-[#4c4037]" key="pl">
-                Polska
-              </DropdownItem>
-              <DropdownItem className="text-[#4c4037]" key="ru">
-                Русский
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        ) : null}
+        <div className="flex gap-[20px] items-center mt-[20px]">
+          {selectedKeys ? (
+            <Dropdown>
+              <DropdownTrigger>
+                <Button className="capitalize text-2xl text-[#261b11] p-0">
+                  {Array.from(selectedKeys)[0]}
+                </Button>
+              </DropdownTrigger>
+              <DropdownMenu
+                aria-label="Single selection example"
+                variant="flat"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={selectedKeys}
+                onSelectionChange={setSelectedKeys}
+                className="bg-[white] bg-opacity-50"
+              >
+                <DropdownItem className="text-[#f1ccae]" key="en">
+                  English
+                </DropdownItem>
+                <DropdownItem className="text-[#f1ccae]" key="pl">
+                  Polska
+                </DropdownItem>
+                <DropdownItem className="text-[#f1ccae]" key="ru">
+                  Русский
+                </DropdownItem>
+              </DropdownMenu>
+            </Dropdown>
+          ) : null}{" "}
+          <div className=" block lg:hidden">
+            <ThemeToggle />
+          </div>
+        </div>
       </NavbarMenu>
 
       <NavbarContent className="hidden lg:flex gap-[15px]">

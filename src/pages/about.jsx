@@ -93,7 +93,7 @@ export default function Home() {
                 className="flex gap-[8px] items-center"
               >
                 <motion.p
-                  className="text-left text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont "
+                  className="text-left text-[56px] md:text-[112px] text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                   initial={{ x: -500, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{
@@ -171,7 +171,7 @@ export default function Home() {
                   <h2 className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                     {pageContent?.headerResults}
                   </h2>
-                  <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]  pt-4">
+                  <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae] leading-6 pt-4">
                     {pageContent?.descriptionResults}
                   </p>
                 </div>
@@ -219,13 +219,21 @@ export default function Home() {
                     title={faq.title}
                     indicator={({ isOpen }) =>
                       isOpen ? (
-                        <IoClose size="36px" color="#957f72" />
+                        <IoClose
+                          size="36px"
+                          className="border-faq"
+                          color="#957f72"
+                        />
                       ) : (
-                        <LuPlus size="36px" color="#957f72" />
+                        <LuPlus
+                          size="36px"
+                          className="border-faq"
+                          color="#957f72"
+                        />
                       )
                     }
                     style={{ borderBottom: "1px solid #957f72" }}
-                    className="text-[16px] sm:text-[18px] dark:text-[#f1ccae] lg:text-[20px] py-[60px] lg:py-[80px] px-[8px] lg:px-[16px] text-left align-text-top text-[#4c4037] justify-start w-full font-manrope font-semibold"
+                    className="text-[16px] sm:text-[18px] dark:text-[#f1ccae] lg:text-[20px] py-[60px] px-[8px] lg:px-[16px] text-left align-text-top text-[#4c4037] justify-start w-full font-manrope font-semibold"
                   >
                     <div className="max-w-[768px] text-[1rem] text-[#957f72] pt-[32px] pb-[40px] px-[40px] dark:text-[#f1ccae]">
                       {faq.desc}
