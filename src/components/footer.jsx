@@ -74,7 +74,7 @@ function Footer({ theme }) {
         } py-6 center px-2]`}
       >
         <Container>
-          <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between">
+          <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between px-2">
             <div className="flex flex-col ">
               <div className="mb-[30px]">
                 <Link href="/">
@@ -96,7 +96,7 @@ function Footer({ theme }) {
                     href={link.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="hover-effect w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae] duration-300"
+                    className=" w-[36px] h-[36px] flex justify-center items-center hover:text-[#f1ccae]"
                     style={{ border: "1px solid #4c4037", borderRadius: "50%" }}
                   >
                     {link.icon}
@@ -121,11 +121,7 @@ function Footer({ theme }) {
                 className="flex flex-row flex-wrap md:flex-col gap-[10px] md:gap-[20px]"
               >
                 {navigationLinks.map((link, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.1 }}
-                    className=""
-                  >
+                  <motion.div key={index} className="">
                     <Link href={link.href}>
                       <div className="draw-underline duration-200 mt-4">
                         {link.name}

@@ -215,7 +215,7 @@ export default function Navigation({ headerData }) {
 
         <Dropdown>
           <DropdownTrigger>
-            <Button className="capitalize text-2xl">{selectedKeys}</Button>
+            <Button className="capitalize text-2xl  p-0">{selectedKeys}</Button>
           </DropdownTrigger>
           <DropdownMenu
             aria-label="Single selection example"
@@ -224,7 +224,7 @@ export default function Navigation({ headerData }) {
             selectionMode="single"
             selectedKeys={selectedKeys}
             onSelectionChange={setSelectedKeys}
-            className="bg-[white] bg-opacity-50 "
+            className="bg-[white] bg-opacity-50"
           >
             <DropdownItem className="text-[#4c4037]" key="en">
               English

@@ -39,9 +39,10 @@ const Post = () => {
   }));
 
   const theme = "dark";
+
   return (
     <Layout>
-      <div className="bg-black">
+      <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">
         {/* <Container> */}
         <div className="block md:hidden relative">
           <img
@@ -73,12 +74,12 @@ const Post = () => {
                   Back
                 </button>
 
-                <h1 className=" bg-opacity-50 w-full  pt-4 text-xl md:text-5xl">
+                <h1 className="text-[#4c4037] dark:text-[#f1ccae]  bg-opacity-50 w-full  pt-4 text-xl md:text-5xl">
                   {post?.title}
                 </h1>
 
                 <p
-                  className="font-playfair text-[18px] my-8 md:my-16"
+                  className="font-playfair text-[#4c4037] dark:text-[#f1ccae] text-[18px] my-8 md:my-16"
                   style={{ fontFamily: "Manrope" }}
                 >
                   {post?.description}

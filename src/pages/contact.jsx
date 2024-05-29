@@ -180,23 +180,23 @@ export default function Services() {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <div className="p-5 sm:p-20 md:p-24 w-full h-auto bg-[#FFFFFF] dark:bg-[#e5d9cf] flex flex-col justify-center items-center border border-gray-300 dark:border-gray-700 gap-12">
+            <div className="p-5 sm:p-20 md:p-24 w-full h-auto bg-[#FFFFFF] dark:bg-[#261b11] flex flex-col justify-center items-center border border-gray-300 dark:border-gray-700 gap-12">
               <input
-                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
+                className="dark:bg-[#b6a497] px-8 py-4 w-full placeholder-gray-400 dark:placeholder-[#261b11] text-18px text-[#b6a497] dark:text-[#261b11] border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
                 type="text"
                 placeholder={pageContent?.placeholderName}
                 name="fullName"
                 onChange={handleInputChange}
               />
               <input
-                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
+                className="dark:bg-[#b6a497] px-8 py-4 w-full placeholder-gray-400 dark:placeholder-[#261b11] text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300"
                 type="email"
                 placeholder={pageContent?.placeholderEmail}
                 name="emailAddress"
                 onChange={handleInputChange}
               />
               <input
-                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 required"
+                className="dark:bg-[#b6a497] px-8 py-4 w-full placeholder-gray-400 dark:placeholder-[#261b11] text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 required"
                 type="tel"
                 placeholder={pageContent?.placeholderPhone}
                 name="phoneNumber"
@@ -204,7 +204,7 @@ export default function Services() {
                 value={formData.phoneNumber}
               />
               <textarea
-                className="dark:bg-[#f9f1ec] px-8 py-4 w-full placeholder-gray-400 text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 min-h-[176px]"
+                className="dark:bg-[#b6a497] px-8 py-4 w-full placeholder-gray-400 dark:placeholder-[#261b11] text-18px text-[#b6a497] dark:text-gray-600 border border-solid border-[#e6e6e6] dark:border-linen hover:border-[#b6a497] dark:hover:border-gray-400 focus:border-[#b6a497] dark:focus:border-gray-300 min-h-[176px]"
                 placeholder={pageContent?.message}
                 name="message"
                 onChange={handleInputChange}
@@ -212,7 +212,7 @@ export default function Services() {
               <div className="ml-auto">
                 <button
                   type="submit"
-                  className="btn justify-center bg-brown dark:bg-dark-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6"
+                  className="btn justify-center bg-brown dark:bg-dark-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6 dark:bg-[#b6a497]"
                 >
                   {pageContent?.btn}
                 </button>

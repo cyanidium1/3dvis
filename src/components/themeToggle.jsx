@@ -1,5 +1,6 @@
 import { Switch } from "@nextui-org/react";
 import { useState, useEffect } from "react";
+
 const MoonIcon = (props) => (
   <svg
     aria-hidden="true"
@@ -16,6 +17,7 @@ const MoonIcon = (props) => (
     />
   </svg>
 );
+
 const SunIcon = (props) => (
   <svg
     aria-hidden="true"
@@ -37,27 +39,38 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
+    // Check if window and localStorage are available
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+      // Get the initial theme from localStorage if available
+      const storedTheme = localStorage.getItem("theme");
+      if (storedTheme) {
+        setTheme(storedTheme);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
+    // Save the theme to localStorage
+    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+      localStorage.setItem("theme", theme);
+    }
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
   return (
     <Switch
-      defaultSelected
+      checked={theme === "dark"}
       size="lg"
       color="success"
-      className={
-        theme === "dark"
-          ? "bg-[#e5d9cf] rounded-3xl max-w-[55px]"
-          : "bg-[#e5d9cf] rounded-3xl max-w-[55px]"
-      }
+      className="bg-[#e5d9cf] rounded-3xl max-w-[55px]"
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
           <SunIcon className={className} />
@@ -65,8 +78,7 @@ export default function ThemeToggle() {
           <MoonIcon className={className} />
         )
       }
-      style={{ "--thumb-background": "red" }}
       onChange={toggleTheme}
-    ></Switch>
+    />
   );
 }
