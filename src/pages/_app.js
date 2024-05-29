@@ -45,8 +45,9 @@ export default function App({ Component, pageProps }) {
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      if (localStorage.getItem("locale")) {
-        setSelectedKeys(new Set([localStorage.getItem("locale")]));
+      const storedLocale = localStorage.getItem("locale");
+      if (storedLocale) {
+        setSelectedKeys(new Set(JSON.parse(storedLocale)));
       } else {
         setSelectedKeys(new Set(["en"]));
       }

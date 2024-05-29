@@ -36,7 +36,7 @@ export default function Navigation({ headerData }) {
   }, [headerData]);
 
   useEffect(() => {
-    const storedLocale = localStorage.getItem("locale");
+    const storedLocale = JSON.parse(localStorage.getItem("locale"));
     console.log(storedLocale, "storedLocale");
     if (storedLocale) {
       setSelectedKeys(storedLocale);
@@ -46,7 +46,7 @@ export default function Navigation({ headerData }) {
   useEffect(() => {
     if (selectedKeys) {
       const selectedLocale = Array.from(selectedKeys)[0];
-      localStorage.setItem("locale", selectedLocale);
+      localStorage.setItem("locale", JSON.stringify(Array.from(selectedKeys)));
     }
   }, [selectedKeys]);
   const toggleMenu = () => {
