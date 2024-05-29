@@ -37,7 +37,7 @@ export default function Navigation({ headerData }) {
 
   useEffect(() => {
     const storedLocale = JSON.parse(localStorage.getItem("locale"));
-    console.log(storedLocale, "storedLocale");
+
     if (storedLocale) {
       setSelectedKeys(storedLocale);
     }
@@ -174,7 +174,7 @@ export default function Navigation({ headerData }) {
         </div>
       </NavbarMenu>
 
-      <NavbarContent className="hidden lg:flex gap-[15px]">
+      <NavbarContent className="hidden lg:flex gap-[20px] text-nowrap">
         <Link href="/">
           <p
             className={

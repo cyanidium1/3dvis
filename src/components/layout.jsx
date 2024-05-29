@@ -9,12 +9,13 @@ import {
   allContactsQuery,
   allPortfolioPostsQuery,
   allServicesQuery,
+  allSlidesQuery,
   footerQuery,
   headerQuery,
   homePageQuery,
 } from "@/services/services";
 
-export default function Layout({ children }) {
+export default function Layout({ children, slider }) {
   const {
     selectedKeys,
     setSelectedKeys,
@@ -28,6 +29,8 @@ export default function Layout({ children }) {
     setHeaderData,
     setFooterData,
     onePostData,
+    sliderData,
+    setSliderData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
@@ -73,6 +76,10 @@ export default function Layout({ children }) {
           query: allContactsQuery,
           variables,
         });
+        const allSliderResponse = await performRequest({
+          query: allSlidesQuery,
+          variables,
+        });
 
         setFooterData(footerResponse?.data);
         setHeaderData(headerResponse?.data);
@@ -81,6 +88,7 @@ export default function Layout({ children }) {
         setServicesData(allServicesResponse?.data?.allServices[0]);
         setAboutData(allAboutResponse?.data?.allAbouts[0]);
         setContactsData(allContactsResponse?.data?.allContacts[0]);
+        setSliderData(allSliderResponse?.data?.slider?.slider);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -92,7 +100,7 @@ export default function Layout({ children }) {
   // ----------------------post id
   const router = useRouter();
   const { postId } = router.query;
-  console.log(postId);
+
   useEffect(() => {
     if (postId !== undefined) {
       async function fetchData() {
@@ -118,10 +126,9 @@ export default function Layout({ children }) {
           };
 
           const { data } = await performRequest({ query, variables });
-          console.log(data?.portfoliopost, "data");
+
           if (data.portfoliopost) {
             setOnePostDataData(data.portfoliopost);
-            console.log(onePostData, "onePostData");
           } else {
             console.error("Post not found");
           }
@@ -137,7 +144,7 @@ export default function Layout({ children }) {
   return (
     <section>
       <div className="block">
-        <Navbar headerData={headerData} />
+        {!slider && <Navbar headerData={headerData} />}
       </div>
 
       {children}

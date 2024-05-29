@@ -30,6 +30,8 @@ export const SelectedKeysContext = createContext({
   setHeaderData: () => {},
   footerData: null,
   setFooterData: () => {},
+  sliderData: null,
+  setSliderData: () => {},
 });
 
 export default function App({ Component, pageProps }) {
@@ -42,6 +44,7 @@ export default function App({ Component, pageProps }) {
   const [headerData, setHeaderData] = useState(null);
   const [footerData, setFooterData] = useState(null);
   const [aboutData, setAboutData] = useState(null);
+  const [sliderData, setSliderData] = useState(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -76,6 +79,8 @@ export default function App({ Component, pageProps }) {
           setHeaderData,
           footerData,
           setFooterData,
+          sliderData,
+          setSliderData,
         }}
       >
         <Component {...pageProps} />

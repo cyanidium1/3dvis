@@ -198,3 +198,13 @@ query AllContacts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
     }
   }
 `;
+export const allSlidesQuery = `
+query slider {
+  slider {
+    slider {
+      alt
+      url
+    }
+  }
+  }
+`;
