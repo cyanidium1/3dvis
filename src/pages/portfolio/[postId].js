@@ -15,7 +15,7 @@ const Post = () => {
   const [post, setPost] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
+  const [theme, setTheme] = useState("dark");
   const { onePostData } = useContext(SelectedKeysContext);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -44,7 +44,12 @@ const Post = () => {
     src: item.url,
   }));
 
-  const theme = "dark";
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
 
   return (
     <Layout>
@@ -53,7 +58,7 @@ const Post = () => {
           <Loader />
         </div>
       ) : (
-        <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">
+        <div className="bg-[#f9f1ec] dark:bg-black  dark:text-[#f1ccae]">
           <div className="block md:hidden relative">
             <img
               key={post?.coverImage?.url}

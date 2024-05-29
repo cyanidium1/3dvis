@@ -49,6 +49,7 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [theme, setTheme] = useState("dark");
 
   const handleImageClick = (image, index) => {
     setSelectedImage(image);
@@ -68,43 +69,6 @@ export default function Home() {
     }
   }, [homePageData]);
 
-  const images2 = [
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1018/1000/600/",
-      thumbnail: "https://picsum.photos/id/1018/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1015/1000/600/",
-      thumbnail: "https://picsum.photos/id/1015/250/150/",
-    },
-    {
-      original: "https://picsum.photos/id/1019/1000/600/",
-      thumbnail: "https://picsum.photos/id/1019/250/150/",
-    },
-  ];
-  const images = images2.map((item) => ({
-    src: item.original,
-  }));
   const services = [
     {
       title: pageContent?.titleServices,
@@ -122,7 +86,12 @@ export default function Home() {
       image: pageContent?.imgServices3?.url,
     },
   ];
-  const theme = "dark";
+  useEffect(() => {
+    const storedTheme = localStorage.getItem("theme");
+    if (storedTheme) {
+      setTheme(storedTheme);
+    }
+  }, []);
 
   return (
     <Layout>
@@ -140,7 +109,7 @@ export default function Home() {
             <DGalery />
             <section className="h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
               <Container>
-                <div className="w-full">
+                <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
                     <h2 className="playFairFont text-5xl md:text-8xl my-1 md:my-0 text-white">
                       {pageContent?.header}
@@ -161,7 +130,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
+            <section className="bg-[#f9f1ec] dark:bg-gradient-to-b from-transparent via-black via-20% to-black text-[#4c4037] dark:text-[#f1ccae]  ">
               <Container>
                 <div className="md:flex md:space-x-10 px-[24px]">
                   <div className="h-full flex flex-col justify-between">
@@ -203,7 +172,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-black px-[24px]">
+            <section className="bg-[#f9f1ec] dark:bg-black px-[24px] text-[#4c4037] dark:text-[#f1ccae]">
               <Container>
                 <div className="">
                   <p className="mt-20 font-extralight text-lg uppercase tracking-widest flex items-center">
@@ -250,11 +219,11 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-black px-[24px]">
+            <section className="bg-[#f9f1ec] dark:bg-black px-[24px] text-[#4c4037] dark:text-[#f1ccae]">
               <Container>
                 <div className="md:flex md:space-x-4">
                   <div className=" md:w-2/5">
-                    <p className=" font-extralight text-lg uppercase tracking-widest flex items-center">
+                    <p className=" font-extralight text-lg uppercase tracking-widest flex items-center ">
                       <FaCube className="mr-2" /> {pageContent?.headerPortfolio}
                     </p>
                     <h3 className="playFairFont text-4xl md:text-6xl mt-4 mb-6">
@@ -285,7 +254,7 @@ export default function Home() {
                       />
                     ))}
                   </div>
-                  {/* <ReactImageGallery items={images} /> */}
+
                   <Link
                     className="block md:hidden  hover:text-white duration-300 btn justify-center bg-brown text-white text-center uppercase px-6 py-4 mt-4"
                     href="/portfolio"
