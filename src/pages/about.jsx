@@ -3,7 +3,7 @@ import Container from "@/components/container";
 import Layout from "@/components/layout";
 import Slider from "@/components/Slider/slider";
 
-import Head from "next/head";
+import { motion } from "framer-motion";
 import Designer from "../../public/images/about/hero.jpg";
 import { FaInstagram } from "react-icons/fa";
 import { FaBehance } from "react-icons/fa";
@@ -12,7 +12,7 @@ import { FaTiktok } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { LuPlus } from "react-icons/lu";
 import { Accordion, AccordionItem, Image } from "@nextui-org/react";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { useEffect } from "react";
 import { performRequest } from "@/lib/datocms";
 import Footer from "@/components/footer";
@@ -68,37 +68,44 @@ export default function Home() {
       desc: pageContent?.answerFaq1Copy4,
     },
   ];
-
+  const targetRef = useRef(null);
   return (
     <Layout>
-      <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">
+      <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae] ">
         <div className="w-full mx-auto md:px-0 py-4 sm:py-16">
           <Slider />
           <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 "></div>
         </div>
 
-        <div className="mx-auto max-w-[1280px] px-4 md:px-0 py-4 sm:py-16">
+        <div className="mx-auto max-w-[1280px] px-4  py-4 sm:py-16">
           <div className="flex flex-col pb-[80px] lg:pb-[128px] ">
-            <div
-              className="flex items-center gap-[8px] justify-center md:justify-start"
-              style={{ fontFamily: "Playfair Display" }}
+            <motion.section
+              ref={targetRef}
+              className="flex gap-[8px] items-center"
             >
-              <p className="text-[32px] sm:text-[46px] md:text-[56px]  text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
-                &mdash;
-              </p>
-              <p className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
-                {pageContent?.label}
-              </p>
-            </div>
+              <motion.p
+                className="text-left text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont "
+                initial={{ x: -500, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{
+                  type: "spring",
+                  stiffness: 50,
+                  damping: 20,
+                  duration: 3,
+                }}
+              >
+                <span> &mdash;</span> {pageContent?.label}
+              </motion.p>
+            </motion.section>
           </div>
           <div className="flex flex-col xl:flex-row gap-20 ">
             <Image
               alt="author"
               src={Designer.src}
-              className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px] px-4"
+              className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px] "
               style={{ maxWidth: "608px" }}
             />
-            <div className="flex flex-col gap-[20px] p-[20px]">
+            <div className="flex flex-col gap-[20px] ">
               <p
                 className="font-bold text-[#4c4037] whitespace-normal  lg:whitespace-nowrap text-[32px] sm:text-[46px] md:text-[56px] lg:text-[64px] dark:text-[#f1ccae] playFairFont "
                 style={{ fontFamily: "Playfair Display" }}
@@ -148,11 +155,11 @@ export default function Home() {
 
           <div className="flex flex-col justify-between py-[80px] lg:py-[128px]">
             <div className="w-full flex flex-col xl:flex-row gap-20 justify-between">
-              <div className="flex flex-col w-full md:w-1/2 max-w-[512px]">
-                <h2 className="text-[46px] sm:text-[64px] font-playfair font-bold text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
+              <div className="flex flex-col w-full md:w-1/2 xl:max-w-[512px]">
+                <h2 className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                   {pageContent?.headerResults}
                 </h2>
-                <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]">
+                <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae]  pt-4">
                   {pageContent?.descriptionResults}
                 </p>
               </div>

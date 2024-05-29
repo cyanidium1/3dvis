@@ -71,10 +71,10 @@ function Footer({ theme }) {
           theme === "dark"
             ? "bg-black "
             : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
-        } py-6 center px-2]`}
+        } py-6 center ]`}
       >
         <Container>
-          <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between px-2">
+          <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between ">
             <div className="flex flex-col ">
               <div className="mb-[30px]">
                 <Link href="/">
