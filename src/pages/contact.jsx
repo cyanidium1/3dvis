@@ -4,17 +4,34 @@ import Layout from "@/components/layout";
 import stylesWithCssVar from "@/utils/motion";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useContext, useEffect, useRef, useState } from "react";
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-  FaYoutube,
-} from "react-icons/fa";
+
+import { FaInstagram } from "react-icons/fa";
+import { FaBehance } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaTiktok } from "react-icons/fa";
 import { SelectedKeysContext } from "./_app";
 import Loader from "@/components/loader";
+import SocialMediaLinks from "@/components/SocialMediaLinks";
 
 export default function Services() {
+  const socialMediaLinks = [
+    {
+      href: "https://www.facebook.com/grafinia3dpl",
+      icon: <FaFacebookSquare />,
+    },
+    {
+      href: "https://www.behance.net/helenakaraliok",
+      icon: <FaBehance size={20} />,
+    },
+    {
+      href: "https://www.instagram.com/grafinia.3d",
+      icon: <FaInstagram size={20} />,
+    },
+    {
+      href: "https://www.tiktok.com/@grafinia3d",
+      icon: <FaTiktok size={20} />,
+    },
+  ];
   const { contactsData } = useContext(SelectedKeysContext);
   const targetRef = useRef(null);
   const container = useRef(null);
@@ -102,68 +119,7 @@ export default function Services() {
                     <p className="text-[#957f72] dark:text-[#f1ccae] text-[16px]">
                       {pageContent?.socialText}
                     </p>
-                    <div className="flex gap-[8px] mt-[18px]">
-                      <a
-                        style={{
-                          border: "1px solid #957f72",
-                          borderRadius: "50%",
-                        }}
-                        className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
-                        href="https://www.facebook.com/grafinia3dpl"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaFacebookF />
-                      </a>
-                      <a
-                        style={{
-                          border: "1px solid #957f72",
-                          borderRadius: "50%",
-                        }}
-                        className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
-                        href="https://www.twitter.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaTwitter />
-                      </a>
-                      <a
-                        style={{
-                          border: "1px solid #957f72",
-                          borderRadius: "50%",
-                        }}
-                        className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
-                        href="https://www.youtube.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaYoutube />
-                      </a>
-                      <a
-                        style={{
-                          border: "1px solid #957f72",
-                          borderRadius: "50%",
-                        }}
-                        className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
-                        href="https://www.linkedin.com"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaLinkedinIn />
-                      </a>
-                      <a
-                        style={{
-                          border: "1px solid #957f72",
-                          borderRadius: "50%",
-                        }}
-                        className="hover-effect-contacts w-9 h-9 rounded-full text-[#957f72] dark:text-gray-300 flex justify-center items-center cursor-pointer hover:text-[#4c4037]"
-                        href="https://www.instagram.com/grafinia.3d"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaInstagram />
-                      </a>
-                    </div>
+                    <SocialMediaLinks data={socialMediaLinks} />
                   </div>
                 </div>
               </div>

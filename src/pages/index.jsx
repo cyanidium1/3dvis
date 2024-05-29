@@ -121,7 +121,7 @@ export default function Home() {
                     <h2 className="playFairFont text-5xl md:text-8xl my-1 md:my-0 text-white">
                       {pageContent?.header}
                     </h2>
-                    <p className="font-extralight text-xs md:text-2xl uppercase tracking-widest flex items-center text-white my-4 max-w-[250px]">
+                    <p className="font-extralight text-xs md:text-2xl uppercase tracking-widest flex items-center text-white my-4 max-w-[250px] ">
                       {pageContent?.description}
                     </p>
                     <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
@@ -137,7 +137,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="hidden md:block h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
+            <section className="hidden md:block h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
@@ -196,7 +196,7 @@ export default function Home() {
                   <img
                     src={pageContent?.avatar?.url}
                     alt="Gallery item"
-                    className="rounded-full mx-auto w-[400px] h-[400px]"
+                    className="rounded-full mx-auto w-[250px] md:w-[400px] h-[250px] md:h-[400px] mt-[20px] "
                   />
                 </div>
               </Container>
