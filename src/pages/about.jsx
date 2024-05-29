@@ -68,7 +68,7 @@ export default function Home() {
       desc: pageContent?.answerFaq1Copy4,
     },
   ];
-  console.log(pageContent, "pageContent");
+
   return (
     <Layout>
       <div className="bg-[#f9f1ec] dark:bg-black dark:text-[#f1ccae]">

@@ -132,12 +132,12 @@ export default function Layout({ children }) {
   }, [selectedKeys, postId]);
 
   return (
-    <div>
+    <section>
       <div className="block">
         <Navbar headerData={headerData} />
       </div>
 
       {children}
-    </div>
+    </section>
   );
 }

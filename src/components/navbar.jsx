@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Dropdown,
   DropdownItem,
@@ -35,13 +37,14 @@ export default function Navigation({ headerData }) {
 
   useEffect(() => {
     const storedLocale = localStorage.getItem("locale");
+    console.log(storedLocale, "storedLocale");
     if (storedLocale) {
-      setSelectedKeys(new Set([storedLocale]));
+      setSelectedKeys(storedLocale);
     }
-  }, [setSelectedKeys]);
+  }, [selectedKeys]);
 
   useEffect(() => {
-    if (selectedKeys.size > 0) {
+    if (selectedKeys) {
       const selectedLocale = Array.from(selectedKeys)[0];
       localStorage.setItem("locale", selectedLocale);
     }
@@ -130,32 +133,34 @@ export default function Navigation({ headerData }) {
           </p>
         </Link>
 
-        <Dropdown>
-          <DropdownTrigger>
-            <Button className="capitalize text-3xl mt-4 w-fit">
-              {Array.from(selectedKeys)[0]}
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu
-            className="bg-white opacity-65"
-            aria-label="Single selection example"
-            variant="flat"
-            disallowEmptySelection
-            selectionMode="single"
-            selectedKeys={selectedKeys}
-            onSelectionChange={setSelectedKeys}
-          >
-            <DropdownItem className="text-2xl" key="en">
-              English
-            </DropdownItem>
-            <DropdownItem className="text-2xl" key="pl">
-              Polska
-            </DropdownItem>
-            <DropdownItem className="text-2xl" key="ru">
-              Русский
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+        {selectedKeys ? (
+          <Dropdown>
+            <DropdownTrigger>
+              <Button className="capitalize text-3xl mt-4 w-fit">
+                {Array.from(selectedKeys)[0]}
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              className="bg-white opacity-65"
+              aria-label="Single selection example"
+              variant="flat"
+              disallowEmptySelection
+              selectionMode="single"
+              selectedKeys={selectedKeys}
+              onSelectionChange={setSelectedKeys}
+            >
+              <DropdownItem className="text-2xl" key="en">
+                English
+              </DropdownItem>
+              <DropdownItem className="text-2xl" key="pl">
+                Polska
+              </DropdownItem>
+              <DropdownItem className="text-2xl" key="ru">
+                Русский
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        ) : null}
       </NavbarMenu>
 
       <NavbarContent className="hidden lg:flex gap-[15px]">
@@ -219,32 +224,34 @@ export default function Navigation({ headerData }) {
           </p>
         </Link>
 
-        <Dropdown>
-          <DropdownTrigger>
-            <Button className="capitalize text-2xl  p-0">
-              {Array.from(selectedKeys)[0]}
-            </Button>
-          </DropdownTrigger>
-          <DropdownMenu
-            aria-label="Single selection example"
-            variant="flat"
-            disallowEmptySelection
-            selectionMode="single"
-            selectedKeys={selectedKeys}
-            onSelectionChange={setSelectedKeys}
-            className="bg-[white] bg-opacity-50"
-          >
-            <DropdownItem className="text-[#4c4037]" key="en">
-              English
-            </DropdownItem>
-            <DropdownItem className="text-[#4c4037]" key="pl">
-              Polska
-            </DropdownItem>
-            <DropdownItem className="text-[#4c4037]" key="ru">
-              Русский
-            </DropdownItem>
-          </DropdownMenu>
-        </Dropdown>
+        {selectedKeys ? (
+          <Dropdown>
+            <DropdownTrigger>
+              <Button className="capitalize text-2xl  p-0">
+                {Array.from(selectedKeys)[0]}
+              </Button>
+            </DropdownTrigger>
+            <DropdownMenu
+              aria-label="Single selection example"
+              variant="flat"
+              disallowEmptySelection
+              selectionMode="single"
+              selectedKeys={selectedKeys}
+              onSelectionChange={setSelectedKeys}
+              className="bg-[white] bg-opacity-50"
+            >
+              <DropdownItem className="text-[#4c4037]" key="en">
+                English
+              </DropdownItem>
+              <DropdownItem className="text-[#4c4037]" key="pl">
+                Polska
+              </DropdownItem>
+              <DropdownItem className="text-[#4c4037]" key="ru">
+                Русский
+              </DropdownItem>
+            </DropdownMenu>
+          </Dropdown>
+        ) : null}
       </NavbarContent>
       <div className="hidden lg:block">
         <ThemeToggle />

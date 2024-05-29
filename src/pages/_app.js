@@ -1,3 +1,4 @@
+"use client";
 import "../styles/global.css";
 
 // additional
@@ -8,7 +9,7 @@ import "../components/3DCloud/3DCloud.css";
 import "../components/3DGalery/3DGalery.css";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const SelectedKeysContext = createContext({
   selectedKeys: "en",
@@ -32,16 +33,25 @@ export const SelectedKeysContext = createContext({
 });
 
 export default function App({ Component, pageProps }) {
-  const [selectedKeys, setSelectedKeys] = useState(new Set(["en"]));
+  const [selectedKeys, setSelectedKeys] = useState(null);
   const [contactsData, setContactsData] = useState(null);
   const [servicesData, setServicesData] = useState(null);
   const [postsData, setPostsData] = useState(null);
-  const [onePostsData, setOnePostData] = useState(null);
+  const [onePostData, setOnePostData] = useState(null);
   const [homePageData, setHomePageData] = useState(null);
   const [headerData, setHeaderData] = useState(null);
   const [footerData, setFooterData] = useState(null);
-
   const [aboutData, setAboutData] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      if (localStorage.getItem("locale")) {
+        setSelectedKeys(new Set([localStorage.getItem("locale")]));
+      } else {
+        setSelectedKeys(new Set(["en"]));
+      }
+    }
+  }, []);
 
   return (
     <NextUIProvider>
@@ -57,7 +67,7 @@ export default function App({ Component, pageProps }) {
           setServicesData,
           postsData,
           setPostsData,
-          onePostsData,
+          onePostData,
           setOnePostData,
           homePageData,
           setHomePageData,
