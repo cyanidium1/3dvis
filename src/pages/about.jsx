@@ -86,8 +86,8 @@ export default function Home() {
             <div className="w-full max-w-[1280px] mx-auto px-4 md:px-2 "></div>
           </div>
 
-          <div className="mx-auto max-w-[1280px] px-4  py-4 sm:py-16">
-            <div className="flex flex-col pb-[80px] lg:pb-[128px] ">
+          <div className="mx-auto max-w-[1280px] px-4  py-4 sm:py-4">
+            <div className="flex flex-col pb-[60px] ">
               <motion.section
                 ref={targetRef}
                 className="flex gap-[8px] items-center"

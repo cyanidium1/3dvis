@@ -36,25 +36,26 @@ const SunIcon = (props) => (
 );
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState(null);
 
   useEffect(() => {
     if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme) {
         setTheme(storedTheme);
+      } else {
+        setTheme("light");
       }
     }
   }, []);
 
   useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-    // Save the theme to localStorage
-    if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
+    if (theme) {
+      if (theme === "dark") {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
       localStorage.setItem("theme", theme);
     }
   }, [theme]);
@@ -63,11 +64,12 @@ export default function ThemeToggle() {
     setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
   };
 
+  if (theme === null) return null;
+
   return (
     <Switch
       checked={theme === "dark"}
       size="lg"
-      color="success"
       className="bg-[#e5d9cf] rounded-3xl max-w-[55px]"
       thumbIcon={({ isSelected, className }) =>
         isSelected ? (
