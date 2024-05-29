@@ -130,7 +130,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-[#f9f1ec] dark:bg-gradient-to-b from-transparent via-black via-20% to-black text-[#4c4037] dark:text-[#f1ccae]  ">
+            <section className="bg-[#f9f1ec] dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-black text-[#4c4037] dark:text-[#f1ccae]">
               <Container>
                 <div className="md:flex md:space-x-10 px-[24px]">
                   <div className="h-full flex flex-col justify-between">
