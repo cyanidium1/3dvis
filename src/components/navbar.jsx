@@ -37,7 +37,7 @@ export default function Navigation({ headerData }) {
 
   useEffect(() => {
     const storedLocale = JSON.parse(localStorage.getItem("locale"));
-    console.log(storedLocale, "storedLocale");
+
     if (storedLocale) {
       setSelectedKeys(storedLocale);
     }
