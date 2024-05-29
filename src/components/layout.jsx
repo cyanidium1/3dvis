@@ -14,6 +14,7 @@ import {
   headerQuery,
   homePageQuery,
 } from "@/services/services";
+import Head from "next/head";
 
 export default function Layout({ children, slider }) {
   const {
@@ -142,12 +143,18 @@ export default function Layout({ children, slider }) {
   }, [selectedKeys, postId]);
 
   return (
-    <section>
-      <div className="block">
-        {!slider && <Navbar headerData={headerData} />}
-      </div>
+    <>
+      <Head>
+        <title>3DGrapher</title>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+      </Head>
+      <section>
+        <div className="block">
+          {!slider && <Navbar headerData={headerData} />}
+        </div>
+        {children}
+      </section>
+    </>
 
-      {children}
-    </section>
   );
 }

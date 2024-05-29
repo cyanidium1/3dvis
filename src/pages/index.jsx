@@ -104,7 +104,8 @@ export default function Home() {
       ) : (
         <>
           <Head>
-            <title>{pageContent?.header}</title>
+            <link rel="icon" href="/favicon.ico" sizes="any" />
+            <title>3DGrapher</title>
           </Head>
           <main>
             {/* 360 gallery */}
@@ -326,7 +327,7 @@ export default function Home() {
                 nextSrc={
                   pageContent?.galleryPortfolio[
                     (currentImageIndex + 1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   ].url
                 }
                 prevSrc={
@@ -334,7 +335,7 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   ].url
                 }
                 onCloseRequest={() => {
@@ -346,13 +347,13 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   )
                 }
                 onMoveNextRequest={() =>
                   setCurrentImageIndex(
                     (currentImageIndex + 1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   )
                 }
               />
