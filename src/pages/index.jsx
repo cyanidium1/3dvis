@@ -37,12 +37,12 @@ import "react-image-lightbox/style.css";
 import { useContext, useEffect, useState } from "react";
 import { SelectedKeysContext } from "./_app";
 import Loader from "@/components/loader";
+import Marquee from "@/components/Marquee ";
 Modal.setAppElement("#__next");
 
 export default function Home() {
   const router = useRouter();
   const { homePageData } = useContext(SelectedKeysContext);
-
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [pageContent, setPageContent] = useState(null);
@@ -62,6 +62,7 @@ export default function Home() {
     setIsModalOpen(false);
     setSelectedImage(null);
   };
+
   useEffect(() => {
     if (homePageData) {
       setPageContent(homePageData);
@@ -86,6 +87,7 @@ export default function Home() {
       image: pageContent?.imgServices3?.url,
     },
   ];
+
   useEffect(() => {
     const storedTheme = localStorage.getItem("theme");
     if (storedTheme) {
@@ -106,8 +108,13 @@ export default function Home() {
           </Head>
           <main>
             {/* 360 gallery */}
-            <DGalery />
-            <section className="h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
+            <div className="block md:hidden mt-[100px]">
+              <Marquee />
+            </div>
+            <div className="hidden md:block">
+              <DGalery />
+            </div>
+            <section className="hidden md:block h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">

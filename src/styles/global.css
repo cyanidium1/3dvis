@@ -155,3 +155,30 @@ body {
   height: 52px !important;
   border: 1px solid #b6a497 !important;
 }
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 270px;
+}
+
+.marquee-content {
+  display: flex;
+  width: calc(270px * 2 * 12);
+  animation: marquee 25s linear infinite;
+}
+
+.image-container {
+  flex: 0 0 270px;
+  height: 270px;
+  margin: 0 8px;
+}

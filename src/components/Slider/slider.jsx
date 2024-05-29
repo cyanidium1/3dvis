@@ -48,7 +48,6 @@ export default function Slider() {
     <Layout slider={slider}>
       <div className="slides">
         {images?.map((slide, index) => {
-          console.log(slide, "slide");
           return (
             <div key={index} className={`slide slide-${index + 1}`}>
               <img src={slide?.url} alt={`Slide ${index + 1}`} />
