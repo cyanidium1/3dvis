@@ -27,7 +27,7 @@ export default function Navigation({ headerData }) {
   const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     if (headerData) {
@@ -49,7 +49,17 @@ export default function Navigation({ headerData }) {
       localStorage.setItem("locale", selectedLocale);
     }
   }, [selectedKeys]);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+    if (!isMenuOpen) {
+      setIsMenuOpen(false);
+    }
+  };
 
+  const handleMenuItemClick = (locale) => {
+    setSelectedKeys(new Set([locale]));
+    setIsMenuOpen(false);
+  };
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
@@ -136,26 +146,26 @@ export default function Navigation({ headerData }) {
         {selectedKeys ? (
           <Dropdown>
             <DropdownTrigger>
-              <Button className="capitalize text-3xl mt-4 w-fit">
+              <Button className="capitalize text-2xl  p-0">
                 {Array.from(selectedKeys)[0]}
               </Button>
             </DropdownTrigger>
             <DropdownMenu
-              className="bg-white opacity-65"
               aria-label="Single selection example"
               variant="flat"
               disallowEmptySelection
               selectionMode="single"
               selectedKeys={selectedKeys}
               onSelectionChange={setSelectedKeys}
+              className="bg-[white] bg-opacity-50"
             >
-              <DropdownItem className="text-2xl" key="en">
+              <DropdownItem className="text-[#4c4037]" key="en">
                 English
               </DropdownItem>
-              <DropdownItem className="text-2xl" key="pl">
+              <DropdownItem className="text-[#4c4037]" key="pl">
                 Polska
               </DropdownItem>
-              <DropdownItem className="text-2xl" key="ru">
+              <DropdownItem className="text-[#4c4037]" key="ru">
                 Русский
               </DropdownItem>
             </DropdownMenu>

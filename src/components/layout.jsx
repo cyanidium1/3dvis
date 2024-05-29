@@ -22,11 +22,12 @@ export default function Layout({ children }) {
     setAboutData,
     setServicesData,
     setPostsData,
-    setOnePostData,
+    setOnePostDataData,
     setHomePageData,
     headerData,
     setHeaderData,
     setFooterData,
+    onePostData,
   } = useContext(SelectedKeysContext);
 
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function Layout({ children }) {
   }, [selectedKeys]);
 
   useEffect(() => {
+    if (!selectedKeys || !selectedKeys.size) return;
     async function fetchData() {
       try {
         const selectedLocale = Array.from(selectedKeys)[0];
@@ -90,7 +92,7 @@ export default function Layout({ children }) {
   // ----------------------post id
   const router = useRouter();
   const { postId } = router.query;
-
+  console.log(postId);
   useEffect(() => {
     if (postId !== undefined) {
       async function fetchData() {
@@ -116,9 +118,10 @@ export default function Layout({ children }) {
           };
 
           const { data } = await performRequest({ query, variables });
-
+          console.log(data?.portfoliopost, "data");
           if (data.portfoliopost) {
-            setOnePostData(data.portfoliopost);
+            setOnePostDataData(data.portfoliopost);
+            console.log(onePostData, "onePostData");
           } else {
             console.error("Post not found");
           }

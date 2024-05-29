@@ -14,7 +14,9 @@ const Post = () => {
   const [post, setPost] = useState(null);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const { onePostsData } = useContext(SelectedKeysContext);
+
+  const { onePostData } = useContext(SelectedKeysContext);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
 
@@ -28,11 +30,12 @@ const Post = () => {
     setIsModalOpen(false);
     setSelectedImage(null);
   };
+
   useEffect(() => {
-    if (onePostsData) {
-      setPost(onePostsData);
+    if (onePostData) {
+      setPost(onePostData);
     }
-  }, [onePostsData]);
+  }, [onePostData]);
 
   const transformedGallery = post?.gallery?.map((item) => ({
     src: item.url,

@@ -37,7 +37,7 @@ export default function App({ Component, pageProps }) {
   const [contactsData, setContactsData] = useState(null);
   const [servicesData, setServicesData] = useState(null);
   const [postsData, setPostsData] = useState(null);
-  const [onePostData, setOnePostData] = useState(null);
+  const [onePostData, setOnePostDataData] = useState(null);
   const [homePageData, setHomePageData] = useState(null);
   const [headerData, setHeaderData] = useState(null);
   const [footerData, setFooterData] = useState(null);
@@ -68,7 +68,7 @@ export default function App({ Component, pageProps }) {
           postsData,
           setPostsData,
           onePostData,
-          setOnePostData,
+          setOnePostDataData,
           homePageData,
           setHomePageData,
           headerData,
