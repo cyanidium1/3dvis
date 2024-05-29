@@ -32,7 +32,7 @@ export const SelectedKeysContext = createContext({
 });
 
 export default function App({ Component, pageProps }) {
-  const [selectedKeys, setSelectedKeys] = useState(new Set(["ru"]));
+  const [selectedKeys, setSelectedKeys] = useState(new Set(["en"]));
   const [contactsData, setContactsData] = useState(null);
   const [servicesData, setServicesData] = useState(null);
   const [postsData, setPostsData] = useState(null);

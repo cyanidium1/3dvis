@@ -23,24 +23,30 @@ import ThemeToggle from "./themeToggle";
 export default function Navigation({ headerData }) {
   const [pageContent, setPageContent] = useState(null);
   const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
-
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
-
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  // ----------------------------
+
   useEffect(() => {
     if (headerData) {
       setPageContent(headerData?.header);
     }
   }, [headerData]);
 
-  // ---------------------------------
+  useEffect(() => {
+    const storedLocale = localStorage.getItem("locale");
+    if (storedLocale) {
+      setSelectedKeys(new Set([storedLocale]));
+    }
+  }, [setSelectedKeys]);
 
-  if (typeof window !== "undefined") {
-    // console.log(window.innerWidth);
-  }
-  console.log(pageContent, "pageContent");
+  useEffect(() => {
+    if (selectedKeys.size > 0) {
+      const selectedLocale = Array.from(selectedKeys)[0];
+      localStorage.setItem("locale", selectedLocale);
+    }
+  }, [selectedKeys]);
+
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
@@ -127,7 +133,7 @@ export default function Navigation({ headerData }) {
         <Dropdown>
           <DropdownTrigger>
             <Button className="capitalize text-3xl mt-4 w-fit">
-              {selectedKeys}
+              {Array.from(selectedKeys)[0]}
             </Button>
           </DropdownTrigger>
           <DropdownMenu
@@ -215,7 +221,9 @@ export default function Navigation({ headerData }) {
 
         <Dropdown>
           <DropdownTrigger>
-            <Button className="capitalize text-2xl  p-0">{selectedKeys}</Button>
+            <Button className="capitalize text-2xl  p-0">
+              {Array.from(selectedKeys)[0]}
+            </Button>
           </DropdownTrigger>
           <DropdownMenu
             aria-label="Single selection example"

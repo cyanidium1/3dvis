@@ -39,9 +39,7 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState("light");
 
   useEffect(() => {
-    // Check if window and localStorage are available
     if (typeof window !== "undefined" && typeof localStorage !== "undefined") {
-      // Get the initial theme from localStorage if available
       const storedTheme = localStorage.getItem("theme");
       if (storedTheme) {
         setTheme(storedTheme);
