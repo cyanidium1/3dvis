@@ -8,7 +8,7 @@ import Layout from "@/components/layout";
 import { SelectedKeysContext } from "./_app";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
   const [portfolioPosts, setPortfolioPosts] = useState([]);
   const { postsData, headerData, setHeaderData } =
     useContext(SelectedKeysContext);
@@ -16,20 +16,26 @@ export default function Home() {
   useEffect(() => {
     if (postsData) {
       setPortfolioPosts(postsData);
+      setIsLoading(false);
     }
   }, [postsData]);
-  console.log(postsData, "postsData");
+
   return (
     <>
       <Layout>
-        <Head>
-          <title>Portfolio</title>
-        </Head>
-
-        <Loader />
-
-        <Navbar headerData={headerData} />
-        <Carousel portfolioPosts={portfolioPosts} />
+        {isLoading ? (
+          <div className="loader-wrapper">
+            <Loader />
+          </div>
+        ) : (
+          <>
+            <Head>
+              <title>Portfolio</title>
+            </Head>
+            <Navbar headerData={headerData} />
+            <Carousel portfolioPosts={portfolioPosts} />
+          </>
+        )}
       </Layout>
     </>
   );
