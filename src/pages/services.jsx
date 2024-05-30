@@ -105,12 +105,13 @@ export default function Home() {
                       {pageContent?.desc}
                     </p>
                     <p
-                      className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
+                      className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
                         letterSpacing: "3px",
                         display: "inline-block",
                         maxWidth: "105px",
+                        borderBottom: "none",
                       }}
                       onClick={() => {
                         router.push("/contact");
@@ -162,12 +163,13 @@ export default function Home() {
                       {pageContent?.desc2}
                     </p>
                     <p
-                      className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
+                      className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
                         letterSpacing: "3px",
                         display: "inline-block",
                         maxWidth: "105px",
+                        borderBottom: "none",
                       }}
                       onClick={() => {
                         router.push("/contact");
@@ -219,12 +221,13 @@ export default function Home() {
                       {pageContent?.desc3}
                     </p>
                     <p
-                      className="dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] border-b border-solid border-black py-[16px] mt-6 cursor-pointer"
+                      className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
                       style={{
                         fontFamily: "Manrope",
                         letterSpacing: "3px",
                         display: "inline-block",
                         maxWidth: "105px",
+                        borderBottom: "none",
                       }}
                       onClick={() => {
                         router.push("/contact");
