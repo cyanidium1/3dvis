@@ -137,9 +137,9 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="hidden md:block h-screen flex justify-center pb-8 md:pb-0 items-end md:items-center relative">
+            <section className="hidden h-screen md:flex justify-center pb-8 md:pb-0 items-end md:items-center relative ">
               <Container>
-                <div className="w-full ">
+                <div className="w-full">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
                     <h2 className="playFairFont text-5xl md:text-8xl my-1 md:my-0 text-white">
                       {pageContent?.header}
@@ -160,7 +160,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-[#f9f1ec] dark:bg-gradient-to-b dark:from-black dark:via-black dark:to-black text-[#4c4037] dark:text-[#f1ccae]">
+            <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
               <Container>
                 <div className="md:flex md:space-x-10 px-[24px]">
                   <div className="h-full flex flex-col justify-between">
