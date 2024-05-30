@@ -14,6 +14,7 @@ import {
   headerQuery,
   homePageQuery,
 } from "@/services/services";
+import Head from "next/head";
 
 export default function Layout({ children, slider }) {
   const {
@@ -142,12 +143,21 @@ export default function Layout({ children, slider }) {
   }, [selectedKeys, postId]);
 
   return (
-    <section>
-      <div className="block">
-        {!slider && <Navbar headerData={headerData} />}
-      </div>
+    <>
+      <Head>
+        <title>3DGrapher</title>
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+      </Head>
+      <section>
+        <div className="block">
+          {!slider && <Navbar headerData={headerData} />}
+        </div>
+        {children}
+      </section>
+    </>
 
-      {children}
-    </section>
   );
 }

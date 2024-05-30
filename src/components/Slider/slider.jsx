@@ -1,10 +1,10 @@
 import { SelectedKeysContext } from "@/pages/_app";
 import { useContext } from "react";
 import Layout from "@/components/layout";
-import img1 from "../../../public/images/slider/1.jpg";
-import img2 from "../../../public/images/slider/2.jpg";
-import img3 from "../../../public/images/slider/3.jpg";
-import img4 from "../../../public/images/slider/4.png";
+import img1 from "../../../public/images/slider/1A.png";
+import img2 from "../../../public/images/slider/2A.png";
+import img3 from "../../../public/images/slider/3A.jpg";
+import img4 from "../../../public/images/slider/4A.png";
 import img5 from "../../../public/images/slider/5.png";
 import img6 from "../../../public/images/slider/6.png";
 import img7 from "../../../public/images/slider/7.png";

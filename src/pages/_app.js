@@ -10,28 +10,29 @@ import "../components/3DGalery/3DGalery.css";
 
 import { NextUIProvider } from "@nextui-org/react";
 import { createContext, useEffect, useState } from "react";
+import Head from "next/head";
 
 export const SelectedKeysContext = createContext({
   selectedKeys: "en",
-  setSelectedKeys: () => {},
+  setSelectedKeys: () => { },
   contactsData: null,
-  setContactsData: () => {},
+  setContactsData: () => { },
   aboutData: null,
-  setAboutData: () => {},
+  setAboutData: () => { },
   servicesData: null,
-  setServicesData: () => {},
+  setServicesData: () => { },
   postsData: null,
-  setPostsDataData: () => {},
+  setPostsDataData: () => { },
   onePostData: null,
-  setOnePostDataData: () => {},
+  setOnePostDataData: () => { },
   homePageData: null,
-  setHomePageData: () => {},
+  setHomePageData: () => { },
   headerData: null,
-  setHeaderData: () => {},
+  setHeaderData: () => { },
   footerData: null,
-  setFooterData: () => {},
+  setFooterData: () => { },
   sliderData: null,
-  setSliderData: () => {},
+  setSliderData: () => { },
 });
 
 export default function App({ Component, pageProps }) {
@@ -59,6 +60,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <NextUIProvider>
+
       <SelectedKeysContext.Provider
         value={{
           selectedKeys,

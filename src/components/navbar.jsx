@@ -84,8 +84,8 @@ export default function Navigation({ headerData }) {
           <p
             className={
               isActive("/")
-                ? "underlined text-5xl mt-4"
-                : "draw-underline duration-200 text-5xl mt-4"
+                ? "underlined text-3xl mt-4"
+                : "draw-underline duration-200 text-3xl mt-4"
             }
           >
             {pageContent?.link5}
@@ -96,8 +96,8 @@ export default function Navigation({ headerData }) {
           <p
             className={
               isActive("/portfolio")
-                ? "underlined text-5xl mt-4"
-                : "draw-underline duration-200 text-5xl mt-4"
+                ? "underlined text-3xl mt-4"
+                : "draw-underline duration-200 text-3xl mt-4"
             }
           >
             {pageContent?.link1}
@@ -108,8 +108,8 @@ export default function Navigation({ headerData }) {
           <p
             className={
               isActive("/services")
-                ? "underlined text-5xl mt-4"
-                : "draw-underline duration-200 text-5xl mt-4"
+                ? "underlined text-3xl mt-4"
+                : "draw-underline duration-200 text-3xl mt-4"
             }
           >
             {pageContent?.link2}
@@ -120,8 +120,8 @@ export default function Navigation({ headerData }) {
           <p
             className={
               isActive("/about")
-                ? "underlined text-5xl mt-4"
-                : "draw-underline duration-200 text-5xl mt-4"
+                ? "underlined text-3xl mt-4"
+                : "draw-underline duration-200 text-3xl mt-4"
             }
           >
             {pageContent?.link3}
@@ -132,8 +132,8 @@ export default function Navigation({ headerData }) {
           <p
             className={
               isActive("/contact")
-                ? "underlined text-5xl mt-4"
-                : "draw-underline duration-200 text-5xl mt-4"
+                ? "underlined text-3xl mt-4"
+                : "draw-underline duration-200 text-3xl mt-4"
             }
           >
             {pageContent?.link4}
