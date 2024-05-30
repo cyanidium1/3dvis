@@ -186,8 +186,8 @@ body {
   content: "";
   display: block;
   width: 0;
-  height: 1px;
-  background: black;
+  height: 2px;
+  background: #4c4037;
   transition: width 0.3s ease;
   margin-top: 8px;
 }
