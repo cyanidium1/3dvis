@@ -47,7 +47,9 @@ export default function Home() {
   useEffect(() => {
     if (aboutData) {
       setPageContent(aboutData);
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [aboutData]);
 

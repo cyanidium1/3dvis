@@ -66,7 +66,9 @@ export default function Home() {
   useEffect(() => {
     if (homePageData) {
       setPageContent(homePageData);
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [homePageData]);
 

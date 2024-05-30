@@ -25,7 +25,9 @@ export default function Home() {
   useEffect(() => {
     if (servicesData) {
       setPageContent(servicesData);
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [servicesData]);
 

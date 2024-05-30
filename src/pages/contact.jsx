@@ -61,7 +61,9 @@ export default function Services() {
   useEffect(() => {
     if (contactsData) {
       setPageContent(contactsData);
-      setIsLoading(false);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, [contactsData]);
 
