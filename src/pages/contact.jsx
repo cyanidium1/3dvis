@@ -158,7 +158,7 @@ export default function Services() {
                 <div className="ml-auto">
                   <button
                     type="submit"
-                    className="btn justify-center bg-brown dark:bg-dark-brown text-white text-center uppercase px-6 py-4 my-12 lg:my-6 dark:bg-[#b6a497]"
+                    className="btn justify-center bg-brown dark:bg-[#b6a497] text-white text-center uppercase px-6 py-4 my-12 lg:my-6 dark:bg-[#b6a497]"
                   >
                     {pageContent?.btn}
                   </button>
