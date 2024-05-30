@@ -104,9 +104,23 @@ export default function Home() {
       ) : (
         <>
           <Head>
-            <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-            <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-            <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+            <link
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/apple-touch-icon.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/favicon-32x32.png"
+            />
+            <link
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/favicon-16x16.png"
+            />
             <link rel="manifest" href="/site.webmanifest" />
             <title>3DGrapher</title>
           </Head>
@@ -115,7 +129,7 @@ export default function Home() {
             <div className="block md:hidden pt-[100px] bg-[#f9f1ec] dark:bg-black">
               <Marquee />
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block bg-[#f9f1ec] dark:bg-black">
               <DGalery />
             </div>
             <section className="block md:hidden bg-[#f9f1ec] dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
@@ -164,7 +178,7 @@ export default function Home() {
               </Container>
             </section>
 
-            <section className="bg-gradient-to-b from-transparent via-black via-20% to-black">
+            <section className=" pt-[20px] bg-gradient-to-b from-transparent via-[#f9f1ec] via-20% to-[#f9f1ec]  dark:via-black dark:to-black text-[#4c4037] dark:text-[#f1ccae]">
               <Container>
                 <div className="md:flex md:space-x-10 px-[24px]">
                   <div className="h-full flex flex-col justify-between">
@@ -330,7 +344,7 @@ export default function Home() {
                 nextSrc={
                   pageContent?.galleryPortfolio[
                     (currentImageIndex + 1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   ].url
                 }
                 prevSrc={
@@ -338,7 +352,7 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   ].url
                 }
                 onCloseRequest={() => {
@@ -350,13 +364,13 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   )
                 }
                 onMoveNextRequest={() =>
                   setCurrentImageIndex(
                     (currentImageIndex + 1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   )
                 }
               />
