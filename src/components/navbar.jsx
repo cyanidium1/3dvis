@@ -143,7 +143,7 @@ export default function Navigation({ headerData }) {
           {selectedKeys ? (
             <Dropdown>
               <DropdownTrigger>
-                <Button className="capitalize text-2xl text-[#261b11] p-0">
+                <Button className="capitalize text-2xl text-[#f1ccae] p-0">
                   {Array.from(selectedKeys)[0]}
                 </Button>
               </DropdownTrigger>
@@ -156,7 +156,7 @@ export default function Navigation({ headerData }) {
                 onSelectionChange={setSelectedKeys}
                 className="bg-[white] bg-opacity-50"
               >
-                <DropdownItem className="text-[#f1ccae]" key="en">
+                <DropdownItem className="text-[#f1ccae] " key="en">
                   English
                 </DropdownItem>
                 <DropdownItem className="text-[#f1ccae]" key="pl">

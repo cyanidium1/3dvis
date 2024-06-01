@@ -49,7 +49,9 @@ const Marquee = () => {
             />
           </div>
         ))}
+
       </div>
+
     </div>
   );
 };

@@ -126,15 +126,16 @@ export default function Home() {
             <link rel="manifest" href="/site.webmanifest" />
             <title>3DGrapher</title>
           </Head>
-          <main>
+          <main className="dark:bg-black md:dark:bg-transparent">
             {/* 360 gallery */}
             <div className="block md:hidden pt-[100px] bg-[#f9f1ec] dark:bg-black">
               <Marquee />
+
             </div>
             <div className="hidden md:block bg-[#f9f1ec] dark:bg-black">
               <DGalery />
             </div>
-            <section className="block md:hidden bg-[#f9f1ec] dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
+            <section className="md:hidden bg-[#f9f1ec] dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
@@ -346,7 +347,7 @@ export default function Home() {
                 nextSrc={
                   pageContent?.galleryPortfolio[
                     (currentImageIndex + 1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   ].url
                 }
                 prevSrc={
@@ -354,7 +355,7 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   ].url
                 }
                 onCloseRequest={() => {
@@ -366,13 +367,13 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   )
                 }
                 onMoveNextRequest={() =>
                   setCurrentImageIndex(
                     (currentImageIndex + 1) %
-                      pageContent?.galleryPortfolio.length
+                    pageContent?.galleryPortfolio.length
                   )
                 }
               />
