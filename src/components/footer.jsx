@@ -68,11 +68,10 @@ function Footer({ theme }) {
   return (
     <Layout>
       <footer
-        className={`${
-          theme === "dark"
+        className={`${theme === "dark"
             ? "bg-black "
             : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
-        } py-6 center ]`}
+          } py-6 center ]`}
       >
         <Container>
           <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between ">
@@ -128,7 +127,7 @@ function Footer({ theme }) {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/grafinia.3d"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -139,7 +138,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/grafinia.3d"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -150,7 +149,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/grafinia.3d"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -161,7 +160,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/grafinia.3d"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
