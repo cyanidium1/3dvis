@@ -66,7 +66,7 @@ export default function Home() {
                                 className="flex gap-[8px] items-center"
                             >
                                 <motion.p
-                                    className="text-left text-[56px] md:text-[112px] text-[#4c4037] dark:text-[#f1ccae] playFairFont "
+                                    className="text-left text-[40px] md:text-[112px] text-[#4c4037] dark:text-[#f1ccae] playFairFont "
                                     initial={{ x: -500, opacity: 0 }}
                                     animate={{ x: 0, opacity: 1 }}
                                     transition={{

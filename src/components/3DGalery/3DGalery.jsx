@@ -3,7 +3,7 @@ export default function DGalery() {
         <div className="perspective bg-black ">
 
             {[...Array(3)].map((_, indexMain) => (
-                <div className="img-cylinder" style={{ top: `${indexMain * 820}px` }} key={indexMain}>
+                <div className="img-cylinder" style={{ top: `${indexMain * 820}px` }} key={Math.random()}>
                     {[...Array(12)].map((_, index) => {
                         const imageIndex = index + indexMain * 12 + 1;
                         return (

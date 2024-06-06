@@ -15,6 +15,8 @@ import { FaFileCode } from "react-icons/fa";
 import DGalery from "@/components/3DGalery/3DGalery";
 import Container from "@/components/container";
 import Footer from "@/components/footer";
+import InfiniteScroll from "@/components/infiniteScroll";
+
 
 // lib components
 import ReactImageGallery from "react-image-gallery";
@@ -77,16 +79,19 @@ export default function Home() {
       title: pageContent?.titleServices,
       description: pageContent?.descServices,
       image: pageContent?.imgServices?.url,
+      link: '/3d-visualization'
     },
     {
       title: pageContent?.titleServices2,
       description: pageContent?.descServices2,
       image: pageContent?.imgServices2?.url,
+      link: '/furniture-planning'
     },
     {
       title: pageContent?.titleServices3,
       description: pageContent?.descServices3,
       image: pageContent?.imgServices3?.url,
+      link: '/interior-design'
     },
   ];
 
@@ -126,16 +131,16 @@ export default function Home() {
             <link rel="manifest" href="/site.webmanifest" />
             <title>3DGrapher</title>
           </Head>
-          <main className="dark:bg-black md:dark:bg-transparent">
+          <main className="md:dark:bg-black md:dark:bg-transparent">
             {/* 360 gallery */}
-            <div className="block md:hidden pt-[100px] bg-[#f9f1ec] dark:bg-black">
-              <Marquee />
-
+            <div className="-z-10 absolute -top-24 block md:hidden pt-[100px] ">
+              {/* <Marquee /> */}
+              <InfiniteScroll />
             </div>
             <div className="hidden md:block bg-[#f9f1ec] dark:bg-black">
               <DGalery />
             </div>
-            <section className="md:hidden bg-[#f9f1ec] dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
+            <section className="mt-96 md:mt-0 md:hidden md:bg-[#f9f1ec] md:dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
@@ -258,7 +263,7 @@ export default function Home() {
                         <button
                           className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 "
                           onClick={() => {
-                            router.push("/services");
+                            router.push(data.link);
                           }}
                         >
                           {pageContent?.btnServices}
