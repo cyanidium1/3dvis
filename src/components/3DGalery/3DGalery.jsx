@@ -10,7 +10,7 @@ export default function DGalery() {
                             <div
                                 key={imageIndex}
                                 className="image"
-                                style={{ '--i': imageIndex, '--url': `url('/images/3dCar/${imageIndex}.png')`, width: '800px', height: '800px' }}
+                                style={{ '--i': imageIndex, '--url': `url('/images/3dCar/${imageIndex}.jpg')`, width: '800px', height: '800px' }}
                             ></div>
                         );
                     })}

@@ -13,6 +13,9 @@ import {
   footerQuery,
   headerQuery,
   homePageQuery,
+  threeDVisualizationQuery,
+  interiorDesignQuery,
+  furniturePlanningQuery
 } from "@/services/services";
 import Head from "next/head";
 
@@ -23,6 +26,9 @@ export default function Layout({ children, slider }) {
     setContactsData,
     setAboutData,
     setServicesData,
+    setServices1Data,
+    setServices2Data,
+
     setPostsData,
     setOnePostDataData,
     setHomePageData,
@@ -86,7 +92,11 @@ export default function Layout({ children, slider }) {
         setHeaderData(headerResponse?.data);
         setHomePageData(homePageResponse?.data?.homepage);
         setPostsData(allPostsResponse?.data?.allPortfolioposts);
-        setServicesData(allServicesResponse?.data?.allServices[0]);
+        setServicesData(allServicesResponse?.data?.allServices[1]);
+
+        setServices1Data(allServicesResponse?.data?.allServices[2]);
+        setServices2Data(allServicesResponse?.data?.allServices[0]);
+
         setAboutData(allAboutResponse?.data?.allAbouts[0]);
         setContactsData(allContactsResponse?.data?.allContacts[0]);
         setSliderData(allSliderResponse?.data?.slider?.slider);
@@ -136,6 +146,33 @@ export default function Layout({ children, slider }) {
         } catch (error) {
           console.error("Error fetching data:", error);
         }
+
+
+        // new
+
+        let serviceResponse;
+        if (pathname === '/3d-visualization') {
+          serviceResponse = await performRequest({
+            query: threeDVisualizationQuery,
+            variables,
+          });
+        } else if (pathname === '/interior-design') {
+          serviceResponse = await performRequest({
+            query: interiorDesignQuery,
+            variables,
+          });
+        } else if (pathname === '/furniture-planning') {
+          serviceResponse = await performRequest({
+            query: furniturePlanningQuery,
+            variables,
+          });
+        }
+
+        if (serviceResponse) {
+          setServicesData(serviceResponse.data);
+        }
+
+        // finished new
       }
 
       fetchData();

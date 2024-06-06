@@ -25,9 +25,13 @@ import ThemeToggle from "./themeToggle";
 export default function Navigation({ headerData }) {
   const [pageContent, setPageContent] = useState(null);
   const { selectedKeys, setSelectedKeys } = useContext(SelectedKeysContext);
+  const { selectedKeys1, setSelectedKeys1 } = useContext(SelectedKeysContext);
   const router = useRouter();
   const isActive = (href) => router.pathname == href;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // немного внезапных костылей
+
 
   useEffect(() => {
     if (headerData) {
@@ -49,17 +53,7 @@ export default function Navigation({ headerData }) {
       localStorage.setItem("locale", JSON.stringify(Array.from(selectedKeys)));
     }
   }, [selectedKeys]);
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-    if (!isMenuOpen) {
-      setIsMenuOpen(false);
-    }
-  };
 
-  const handleMenuItemClick = (locale) => {
-    setSelectedKeys(new Set([locale]));
-    setIsMenuOpen(false);
-  };
   return (
     <Navbar
       className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
@@ -104,7 +98,65 @@ export default function Navigation({ headerData }) {
           </p>
         </Link>
 
-        <Link href="/services">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button flat>
+              {pageContent?.link2}
+            </Button>
+
+          </DropdownTrigger>
+          <DropdownMenu
+            aria-label="Service selection"
+            variant="flat"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={selectedKeys1}
+            onSelectionChange={setSelectedKeys1}
+            className="bg-[white] bg-opacity-50"
+          >
+            <DropdownItem className="text-[#f1ccae]" key="3v">
+              <Link href="/3d-visualization">
+                <p
+                  className={
+                    isActive("/3d-visualization")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link6}
+                </p>
+              </Link>
+            </DropdownItem>
+            <DropdownItem className="text-[#f1ccae]" key="FP">
+              <Link href="/furniture-planning">
+                <p
+                  className={
+                    isActive("/furniture-planning")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link7}
+                </p>
+              </Link>
+            </DropdownItem>
+            <DropdownItem className="text-[#f1ccae]" key="ID">
+              <Link href="/interior-design">
+                <p
+                  className={
+                    isActive("/interior-design")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link8}
+                </p>
+              </Link>
+            </DropdownItem>
+          </DropdownMenu>
+        </Dropdown>
+
+        {/* <Link href="/services">
           <p
             className={
               isActive("/services")
@@ -114,7 +166,7 @@ export default function Navigation({ headerData }) {
           >
             {pageContent?.link2}
           </p>
-        </Link>
+        </Link> */}
 
         <Link href="/about">
           <p
@@ -199,7 +251,68 @@ export default function Navigation({ headerData }) {
           </p>
         </Link>
 
-        <Link href="/services">
+        <Dropdown>
+          <DropdownTrigger>
+            <Button >
+              <p className="draw-underline duration-200 text-2xl text-nowrap">
+                {pageContent?.link2}
+              </p>
+            </Button>
+          </DropdownTrigger>
+          <DropdownMenu
+            aria-label="Service selection"
+            variant="flat"
+            disallowEmptySelection
+            selectionMode="single"
+            selectedKeys={selectedKeys1}
+            onSelectionChange={setSelectedKeys1}
+            className="bg-[white] bg-opacity-50"
+          >
+            <DropdownItem className="text-[#f1ccae]" key="3v">
+              <Link href="/3d-visualization">
+                <p
+                  className={
+                    isActive("/3d-visualization")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link6}
+                </p>
+              </Link>
+            </DropdownItem>
+            <DropdownItem className="text-[#f1ccae]" key="FP">
+              <Link href="/furniture-planning">
+                <p
+                  className={
+                    isActive("/furniture-planning")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link7}
+                </p>
+              </Link>
+            </DropdownItem>
+            <DropdownItem className="text-[#f1ccae]" key="ID">
+              <Link href="/interior-design">
+                <p
+                  className={
+                    isActive("/interior-design")
+                      ? "underlined text-xl"
+                      : "draw-underline duration-200 text-xl text-nowrap"
+                  }
+                >
+                  {pageContent?.link8}
+                </p>
+              </Link>
+            </DropdownItem>
+
+          </DropdownMenu>
+        </Dropdown>
+
+
+        {/* <Link href="/services">
           <p
             className={
               isActive("/services")
@@ -209,7 +322,7 @@ export default function Navigation({ headerData }) {
           >
             {pageContent?.link2}
           </p>
-        </Link>
+        </Link> */}
 
         <Link href="/about">
           <p

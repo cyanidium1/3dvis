@@ -1,10 +1,10 @@
 import React from "react";
 import Image from "next/image";
-import img1 from "../../public/images/slider/10.png";
-import img2 from "../../public/images/slider/11.jpg";
-import img3 from "../../public/images/slider/12.png";
-import img4 from "../../public/images/slider/7.png";
-import img5 from "../../public/images/slider/6.png";
+import img1 from "../../public/images/3dCar/1.jpg";
+import img2 from "../../public/images/3dCar/6.jpg";
+import img3 from "../../public/images/3dCar/11.jpg";
+import img4 from "../../public/images/3dCar/17.jpg";
+import img5 from "../../public/images/3dCar/22.jpg";
 
 const images = [
   img1,

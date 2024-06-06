@@ -14,6 +14,8 @@ import Head from "next/head";
 
 export const SelectedKeysContext = createContext({
   selectedKeys: "en",
+  selectedKeys1: "en",
+
   setSelectedKeys: () => { },
   contactsData: null,
   setContactsData: () => { },
@@ -21,6 +23,12 @@ export const SelectedKeysContext = createContext({
   setAboutData: () => { },
   servicesData: null,
   setServicesData: () => { },
+
+  services1Data: null,
+  setServices1Data: () => { },
+  services2Data: null,
+  setServices2Data: () => { },
+
   postsData: null,
   setPostsDataData: () => { },
   onePostData: null,
@@ -39,6 +47,10 @@ export default function App({ Component, pageProps }) {
   const [selectedKeys, setSelectedKeys] = useState(null);
   const [contactsData, setContactsData] = useState(null);
   const [servicesData, setServicesData] = useState(null);
+
+  const [services1Data, setServices1Data] = useState(null);
+  const [services2Data, setServices2Data] = useState(null);
+
   const [postsData, setPostsData] = useState(null);
   const [onePostData, setOnePostDataData] = useState(null);
   const [homePageData, setHomePageData] = useState(null);
@@ -71,6 +83,12 @@ export default function App({ Component, pageProps }) {
           setAboutData,
           servicesData,
           setServicesData,
+
+          services1Data,
+          setServices1Data,
+          services2Data,
+          setServices2Data,
+
           postsData,
           setPostsData,
           onePostData,

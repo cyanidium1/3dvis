@@ -36,6 +36,9 @@ query header($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
       link3
       link4
       link5
+      link6
+      link7
+      link8
     }
   }
 `;
@@ -149,6 +152,69 @@ query allServices($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
                   }
                 }
 `;
+
+// new
+
+export const threeDVisualizationQuery = `
+query threeDVisualization($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+    threeDVisualization(locale: $locale, fallbackLocales: $fallbackLocales) {
+        btn
+        desc
+        description
+        header
+        horizontalTitle
+        img {
+            alt
+            url
+            title
+            size
+        }
+        title
+    }
+}
+`;
+
+export const interiorDesignQuery = `
+query interiorDesign($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+    interiorDesign(locale: $locale, fallbackLocales: $fallbackLocales) {
+        btn
+        desc
+        description
+        header
+        horizontalTitle
+        img {
+            alt
+            url
+            title
+            size
+        }
+        title
+    }
+}
+`;
+
+export const furniturePlanningQuery = `
+query furniturePlanning($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
+    furniturePlanning(locale: $locale, fallbackLocales: $fallbackLocales) {
+        btn
+        desc
+        description
+        header
+        horizontalTitle
+        img {
+            alt
+            url
+            title
+            size
+        }
+        title
+    }
+}
+`;
+
+
+// 
+
 export const allAboutsQuery = `
 query  AllAbouts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
     allAbouts{
