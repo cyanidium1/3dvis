@@ -140,7 +140,7 @@ export default function Home() {
             <div className="hidden md:block bg-[#f9f1ec] dark:bg-black">
               <DGalery />
             </div>
-            <section className="mt-96 md:mt-0 md:hidden md:bg-[#f9f1ec] md:dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
+            <section className="z mt-96 md:mt-0 md:hidden md:bg-[#f9f1ec] md:dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
@@ -151,12 +151,19 @@ export default function Home() {
                       {pageContent?.description}
                     </p>
                     <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
-                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
+                      <button
+                        className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full md:w-fit"
+                        onClick={() => router.push("/portfolio")}
+                      >
                         {pageContent?.btnPortfolio}
                       </button>
-                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
+                      <button
+                        className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full md:w-fit"
+                        onClick={() => router.push("/contact")}
+                      >
                         {pageContent?.btonContacts}
                       </button>
+
                     </div>
                   </div>
                 </div>
