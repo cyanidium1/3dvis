@@ -98,7 +98,43 @@ export default function Navigation({ headerData }) {
           </p>
         </Link>
 
-        <Dropdown>
+        <Link href="/3d-visualization">
+          <p
+            className={
+              isActive("/3d-visualization")
+                ? "underlined text-3xl pt-3"
+                : "draw-underline duration-200 text-3xl pt-3 text-nowrap"
+            }
+          >
+            {pageContent?.link6}
+          </p>
+        </Link>
+
+        <Link href="/furniture-planning">
+          <p
+            className={
+              isActive("/furniture-planning")
+                ? "underlined text-3xl pt-3"
+                : "draw-underline duration-200 text-3xl pt-3 text-nowrap"
+            }
+          >
+            {pageContent?.link7}
+          </p>
+        </Link>
+
+        <Link href="/interior-design">
+          <p
+            className={
+              isActive("/interior-design")
+                ? "underlined text-3xl pt-3"
+                : "draw-underline duration-200 text-3xl pt-3 text-nowrap"
+            }
+          >
+            {pageContent?.link8}
+          </p>
+        </Link>
+
+        {/* <Dropdown>
           <DropdownTrigger>
             <Button flat>
               {pageContent?.link2}
@@ -115,46 +151,16 @@ export default function Navigation({ headerData }) {
             className="bg-[white] bg-opacity-50"
           >
             <DropdownItem className="text-[#f1ccae]" key="3v">
-              <Link href="/3d-visualization">
-                <p
-                  className={
-                    isActive("/3d-visualization")
-                      ? "underlined text-xl"
-                      : "draw-underline duration-200 text-xl text-nowrap"
-                  }
-                >
-                  {pageContent?.link6}
-                </p>
-              </Link>
+
             </DropdownItem>
             <DropdownItem className="text-[#f1ccae]" key="FP">
-              <Link href="/furniture-planning">
-                <p
-                  className={
-                    isActive("/furniture-planning")
-                      ? "underlined text-xl"
-                      : "draw-underline duration-200 text-xl text-nowrap"
-                  }
-                >
-                  {pageContent?.link7}
-                </p>
-              </Link>
+
             </DropdownItem>
             <DropdownItem className="text-[#f1ccae]" key="ID">
-              <Link href="/interior-design">
-                <p
-                  className={
-                    isActive("/interior-design")
-                      ? "underlined text-xl"
-                      : "draw-underline duration-200 text-xl text-nowrap"
-                  }
-                >
-                  {pageContent?.link8}
-                </p>
-              </Link>
+
             </DropdownItem>
           </DropdownMenu>
-        </Dropdown>
+        </Dropdown> */}
 
         {/* <Link href="/services">
           <p

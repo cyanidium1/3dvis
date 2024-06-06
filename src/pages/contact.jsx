@@ -7,7 +7,7 @@ import SocialMediaLinks from "@/components/SocialMediaLinks";
 import { SelectedKeysContext } from "./_app";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { FaInstagram, FaBehance, FaFacebookSquare, FaTiktok } from "react-icons/fa";
-import ContactForm from "@/components/ContactForm";
+import ContactForm from "@/components/contactForm";
 
 export default function Services() {
   const socialMediaLinks = [
