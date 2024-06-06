@@ -9,6 +9,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { FaInstagram, FaBehance, FaFacebookSquare, FaTiktok } from "react-icons/fa";
 import ContactForm from "@/components/contactForm";
 
+import { FaWhatsapp } from "react-icons/fa";
+import { FaTelegram } from "react-icons/fa";
+import { FaViber } from "react-icons/fa";
+
 export default function Services() {
   const socialMediaLinks = [
     {
@@ -95,11 +99,17 @@ export default function Services() {
                     <p>
                       {pageContent?.label}
                     </p>
+                    <div className="flex space-x-2 mt-8">
+                      <FaWhatsapp size={28} />
+                      <FaTelegram size={28} />
+                      <FaViber size={28} />
+                    </div>
+
                     <p className="pt-2 font-semibold text-xl hover:text-light-brown transition-colors duration-300">
-                      <a href="mailto:graph3dpro@gmail.com">graph3dpro@gmail.com</a>
+                      <a href="tel:+48660966375">+48 66 096 6375</a>
                     </p>
                     <p className="pt-2 font-semibold text-xl hover:text-light-brown transition-colors duration-300">
-                      <a href="tel:+48660966375">+48 (66) 096 6375</a>
+                      <a href="mailto:graph3dpro@gmail.com">graph3dpro@gmail.com</a>
                     </p>
                   </div>
                 </div>

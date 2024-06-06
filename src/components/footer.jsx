@@ -16,6 +16,8 @@ import Layout from "./layout";
 import { SelectedKeysContext } from "@/pages/_app";
 import SocialMediaLinks from "./SocialMediaLinks";
 
+import { FaPhoneAlt } from "react-icons/fa";
+
 function Footer({ theme }) {
   const { footerData } = useContext(SelectedKeysContext);
   const targetRef = useRef(null);
@@ -69,8 +71,8 @@ function Footer({ theme }) {
     <Layout>
       <footer
         className={`${theme === "dark"
-            ? "bg-black "
-            : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
+          ? "bg-black "
+          : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
           } py-6 center ]`}
       >
         <Container>
@@ -90,6 +92,11 @@ function Footer({ theme }) {
                 {pageContent?.description}
               </p>
               <SocialMediaLinks data={socialMediaLinks} />
+
+
+              <p className="mt-4 text-xl hover:text-light-brown transition-colors duration-300">
+                <a href="tel:+48660966375"><FaPhoneAlt size={20} className="inline mb-1" /> +48 66 096 6375</a>
+              </p>
             </div>
             <div>
               <p

@@ -121,6 +121,12 @@ query allServices($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
                     btn(fallbackLocales: $fallbackLocales, locale: $locale)
                     btn2(fallbackLocales: $fallbackLocales, locale: $locale)
                     btn3(fallbackLocales: $fallbackLocales, locale: $locale)
+
+                    price1(fallbackLocales: $fallbackLocales, locale: $locale)
+                    price2(fallbackLocales: $fallbackLocales, locale: $locale)
+                    price3(fallbackLocales: $fallbackLocales, locale: $locale)
+                    formaction(fallbackLocales: $fallbackLocales, locale: $locale)
+
                     desc(fallbackLocales: $fallbackLocales, locale: $locale)
                     desc2(fallbackLocales: $fallbackLocales, locale: $locale)
                     desc3(fallbackLocales: $fallbackLocales, locale: $locale)

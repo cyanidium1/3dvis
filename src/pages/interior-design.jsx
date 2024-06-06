@@ -124,8 +124,11 @@ export default function Home() {
                                         >
                                             {pageContent?.desc}
                                         </p>
+                                        <p className="mt-4 text-xl">
+                                            {pageContent?.price1}
+                                        </p>
                                         <p
-                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
+                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-3 cursor-pointer"
                                             style={{
                                                 fontFamily: "Manrope",
                                                 letterSpacing: "3px",
@@ -182,8 +185,11 @@ export default function Home() {
                                         >
                                             {pageContent?.desc2}
                                         </p>
+                                        <p className="mt-4 text-xl">
+                                            {pageContent?.price2}
+                                        </p>
                                         <p
-                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
+                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-3 cursor-pointer"
                                             style={{
                                                 fontFamily: "Manrope",
                                                 letterSpacing: "3px",
@@ -240,8 +246,11 @@ export default function Home() {
                                         >
                                             {pageContent?.desc3}
                                         </p>
+                                        <p className="mt-4 text-xl">
+                                            {pageContent?.price3}
+                                        </p>
                                         <p
-                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-6 cursor-pointer"
+                                            className="hover-border dark:text-[#f1ccae] font-playfair text-[10px] text-[#4c4037] py-[16px] mt-3 cursor-pointer"
                                             style={{
                                                 fontFamily: "Manrope",
                                                 letterSpacing: "3px",
@@ -257,6 +266,14 @@ export default function Home() {
                                         </p>
                                     </div>
                                 </div>
+                            </div>
+                            <div className="col-span-1 flex flex-col justify-center ml-8 md:ml-0 ">
+                                <span
+                                    style={{ fontFamily: "Playfair Display" }}
+                                    className="dark:text-[#f1ccae] font-normal tracking-wider self-center text-[32px] sm:text-[46px] font-playfair text-[#4c4037] whitespace-nowrap mb-6"
+                                >
+                                    {pageContent?.formaction}
+                                </span>
                             </div>
                             <ContactForm pageContent={pageContent1} type="интерьерный диз." />
                         </div>

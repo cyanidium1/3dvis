@@ -56,7 +56,7 @@ export default function Navigation({ headerData }) {
 
   return (
     <Navbar
-      className="flex justify-between items-center max-w-[1280px] mx-auto absolute "
+      className="flex justify-between items-center max-w-[1280px] mx-auto absolute"
       maxWidth="xl"
       onMenuOpenChange={setIsMenuOpen}
     >
