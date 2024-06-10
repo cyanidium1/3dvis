@@ -267,10 +267,10 @@ export default function Home() {
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-span-1 flex flex-col justify-center ml-8 md:ml-0 ">
+                            <div className="text-center mb-8">
                                 <span
                                     style={{ fontFamily: "Playfair Display" }}
-                                    className="dark:text-[#f1ccae] font-normal tracking-wider self-center text-[32px] sm:text-[46px] font-playfair text-[#4c4037] whitespace-nowrap mb-6"
+                                    className="dark:text-[#f1ccae] font-normal tracking-wider self-center text-[32px] sm:text-[46px] font-playfair text-[#4c4037] whitespace-nowrap "
                                 >
                                     {pageContent?.formaction}
                                 </span>

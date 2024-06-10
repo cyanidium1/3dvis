@@ -92,10 +92,25 @@ export default function Layout({ children, slider }) {
         setHeaderData(headerResponse?.data);
         setHomePageData(homePageResponse?.data?.homepage);
         setPostsData(allPostsResponse?.data?.allPortfolioposts);
-        setServicesData(allServicesResponse?.data?.allServices[1]);
 
-        setServices1Data(allServicesResponse?.data?.allServices[2]);
-        setServices2Data(allServicesResponse?.data?.allServices[0]);
+        console.log(allServicesResponse?.data)
+
+        const servicesData = allServicesResponse?.data?.allServices;
+
+        if (servicesData) {
+          servicesData.forEach(service => {
+            const header = service.header;
+
+            if (header.startsWith('3')) {
+              setServicesData(service);
+            } else if (header.startsWith('F') || header.startsWith('П')) {
+              setServices1Data(service);
+            } else if (header.startsWith('I') || header.startsWith('И')) {
+              setServices2Data(service);
+            }
+          });
+        }
+
 
         setAboutData(allAboutResponse?.data?.allAbouts[0]);
         setContactsData(allContactsResponse?.data?.allContacts[0]);

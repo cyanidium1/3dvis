@@ -61,7 +61,7 @@ export default function Navigation({ headerData }) {
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="">
-        <NavbarBrand className="flex items-center space-x-2">
+        <NavbarBrand className="flex items-center space-x-2 sm:text-gray-500">
           <Link href="/">
             <FaCube size={27} />
             <p className="text-inherit text-3xl ml-2">3DGrapher.PRO</p>
