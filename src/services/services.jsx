@@ -228,6 +228,14 @@ query  AllAbouts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
                     answerFaq1Copy2(locale: $locale)
                     answerFaq1Copy3(locale: $locale)
                     answerFaq1Copy4(locale: $locale)
+
+                    answerFaq1Copy5(locale: $locale)
+                    answerFaq1Copy6(locale: $locale)
+                    answerFaq1Copy7(locale: $locale)
+                    answerFaq1Copy8(locale: $locale)
+                    answerFaq1Copy9(locale: $locale)
+                    answerFaq1Copy10(locale: $locale)
+
                     description(locale: $locale)
                     avatar {
                       _createdAt
@@ -248,6 +256,14 @@ query  AllAbouts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
                     questionFaq1Copy1(fallbackLocales: $fallbackLocales, locale: $locale)
                     questionFaq1Copy2(fallbackLocales: $fallbackLocales, locale: $locale)
                     questionFaq1Copy3(fallbackLocales: $fallbackLocales, locale: $locale)
+
+                    questionFaq1Copy4(fallbackLocales: $fallbackLocales, locale: $locale)
+                    questionFaq1Copy5(fallbackLocales: $fallbackLocales, locale: $locale)
+                    questionFaq1Copy6(fallbackLocales: $fallbackLocales, locale: $locale)
+                    questionFaq1Copy7(fallbackLocales: $fallbackLocales, locale: $locale)
+                    questionFaq1Copy8(fallbackLocales: $fallbackLocales, locale: $locale)
+                    questionFaq1Copy9(fallbackLocales: $fallbackLocales, locale: $locale)
+                    
                     subtitle(fallbackLocales: $fallbackLocales, locale: $locale)
                     descriptionResults(fallbackLocales: $fallbackLocales, locale: $locale)
                     descriptionCopy1(fallbackLocales: $fallbackLocales, locale: $locale)

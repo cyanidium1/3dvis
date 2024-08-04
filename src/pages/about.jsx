@@ -54,27 +54,58 @@ export default function Home() {
   }, [aboutData]);
 
   const dataFAQ = [
-    {
-      key: "1",
-      title: pageContent?.questionFaq1,
-      desc: pageContent?.answerFaq1,
-    },
-    {
-      key: "2",
-      title: pageContent?.questionFaq1Copy1,
-      desc: pageContent?.answerFaq1Copy2,
-    },
-    {
-      key: "3",
-      title: pageContent?.questionFaq1Copy2,
-      desc: pageContent?.answerFaq1Copy3,
-    },
-    {
-      key: "4",
-      title: pageContent?.questionFaq1Copy3,
-      desc: pageContent?.answerFaq1Copy4,
-    },
-  ];
+  {
+    key: "1",
+    title: pageContent?.questionFaq1,
+    desc: pageContent?.answerFaq1,
+  },
+  {
+    key: "2",
+    title: pageContent?.questionFaq1Copy1,
+    desc: pageContent?.answerFaq1Copy2,
+  },
+  {
+    key: "3",
+    title: pageContent?.questionFaq1Copy2,
+    desc: pageContent?.answerFaq1Copy3,
+  },
+  {
+    key: "4",
+    title: pageContent?.questionFaq1Copy3,
+    desc: pageContent?.answerFaq1Copy4,
+  },
+  {
+    key: "5",
+    title: pageContent?.questionFaq1Copy4,
+    desc: pageContent?.answerFaq1Copy5,
+  },
+  {
+    key: "6",
+    title: pageContent?.questionFaq1Copy5,
+    desc: pageContent?.answerFaq1Copy6,
+  },
+  {
+    key: "7",
+    title: pageContent?.questionFaq1Copy6,
+    desc: pageContent?.answerFaq1Copy7,
+  },
+  {
+    key: "8",
+    title: pageContent?.questionFaq1Copy7,
+    desc: pageContent?.answerFaq1Copy8,
+  },
+  {
+    key: "9",
+    title: pageContent?.questionFaq1Copy8,
+    desc: pageContent?.answerFaq1Copy9,
+  },
+  {
+    key: "10",
+    title: pageContent?.questionFaq1Copy9,
+    desc: pageContent?.answerFaq1Copy10,
+  },
+];
+
   const targetRef = useRef(null);
   return (
     <Layout>
