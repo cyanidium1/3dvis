@@ -1,5 +1,3 @@
-import Cloud from "@/components/3DCloud/3DCloud";
-import Container from "@/components/container";
 import Layout from "@/components/layout";
 import Slider from "@/components/Slider/slider";
 
@@ -14,7 +12,6 @@ import { LuPlus } from "react-icons/lu";
 import { Accordion, AccordionItem, Image } from "@nextui-org/react";
 import { useContext, useRef, useState } from "react";
 import { useEffect } from "react";
-import { performRequest } from "@/lib/datocms";
 import Footer from "@/components/footer";
 import { SelectedKeysContext } from "./_app";
 import Loader from "@/components/loader";
@@ -53,58 +50,60 @@ export default function Home() {
     }
   }, [aboutData]);
 
+  console.log("kek", pageContent);
+
   const dataFAQ = [
-  {
-    key: "1",
-    title: pageContent?.questionFaq1,
-    desc: pageContent?.answerFaq1,
-  },
-  {
-    key: "2",
-    title: pageContent?.questionFaq1Copy1,
-    desc: pageContent?.answerFaq1Copy2,
-  },
-  {
-    key: "3",
-    title: pageContent?.questionFaq1Copy2,
-    desc: pageContent?.answerFaq1Copy3,
-  },
-  {
-    key: "4",
-    title: pageContent?.questionFaq1Copy3,
-    desc: pageContent?.answerFaq1Copy4,
-  },
-  {
-    key: "5",
-    title: pageContent?.questionFaq1Copy4,
-    desc: pageContent?.answerFaq1Copy5,
-  },
-  {
-    key: "6",
-    title: pageContent?.questionFaq1Copy5,
-    desc: pageContent?.answerFaq1Copy6,
-  },
-  {
-    key: "7",
-    title: pageContent?.questionFaq1Copy6,
-    desc: pageContent?.answerFaq1Copy7,
-  },
-  {
-    key: "8",
-    title: pageContent?.questionFaq1Copy7,
-    desc: pageContent?.answerFaq1Copy8,
-  },
-  {
-    key: "9",
-    title: pageContent?.questionFaq1Copy8,
-    desc: pageContent?.answerFaq1Copy9,
-  },
-  {
-    key: "10",
-    title: pageContent?.questionFaq1Copy9,
-    desc: pageContent?.answerFaq1Copy10,
-  },
-];
+    {
+      key: "1",
+      title: pageContent?.questionFaq1,
+      desc: pageContent?.answerFaq1,
+    },
+    {
+      key: "2",
+      title: pageContent?.questionFaq1Copy1,
+      desc: pageContent?.answerFaq1Copy2,
+    },
+    {
+      key: "3",
+      title: pageContent?.questionFaq1Copy2,
+      desc: pageContent?.answerFaq1Copy3,
+    },
+    {
+      key: "4",
+      title: pageContent?.questionFaq1Copy3,
+      desc: pageContent?.answerFaq1Copy4,
+    },
+    {
+      key: "5",
+      title: pageContent?.questionFaq1Copy4,
+      desc: pageContent?.answerFaq1Copy5,
+    },
+    {
+      key: "6",
+      title: pageContent?.questionFaq1Copy5,
+      desc: pageContent?.answerFaq1Copy6,
+    },
+    {
+      key: "7",
+      title: pageContent?.questionFaq1Copy6,
+      desc: pageContent?.answerFaq1Copy7,
+    },
+    {
+      key: "8",
+      title: pageContent?.questionFaq1Copy7,
+      desc: pageContent?.answerFaq1Copy8,
+    },
+    {
+      key: "9",
+      title: pageContent?.questionFaq1Copy8,
+      desc: pageContent?.answerFaq1Copy9,
+    },
+    {
+      key: "10",
+      title: pageContent?.questionFaq1Copy9,
+      desc: pageContent?.answerFaq1Copy10,
+    },
+  ];
 
   const targetRef = useRef(null);
   return (
@@ -144,7 +143,7 @@ export default function Home() {
             <div className="flex flex-col xl:flex-row gap-20 ">
               <Image
                 alt="author"
-                src={Designer.src}
+                src={pageContent?.avatar?.url}
                 className="mx-auto xl:mx-0 object-contain w-[100%] lg:w-[608px] "
                 style={{ maxWidth: "608px" }}
               />
@@ -188,7 +187,7 @@ export default function Home() {
                   <h2 className="text-[32px] sm:text-[46px] md:text-[56px] text-[#4c4037] dark:text-[#f1ccae] playFairFont ">
                     {pageContent?.headerResults}
                   </h2>
-                  <p className="text-[16px] font-manrope text-[#957f72] leading-[32px] dark:text-[#f1ccae] leading-6 pt-4">
+                  <p className="text-[16px] font-manrope text-[#957f72]  dark:text-[#f1ccae] leading-6 pt-4">
                     {pageContent?.descriptionResults}
                   </p>
                 </div>
