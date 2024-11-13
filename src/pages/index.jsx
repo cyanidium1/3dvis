@@ -17,7 +17,6 @@ import Container from "@/components/container";
 import Footer from "@/components/footer";
 import InfiniteScroll from "@/components/infiniteScroll";
 
-
 // lib components
 import ReactImageGallery from "react-image-gallery";
 import Link from "next/link";
@@ -79,19 +78,19 @@ export default function Home() {
       title: pageContent?.titleServices,
       description: pageContent?.descServices,
       image: pageContent?.imgServices?.url,
-      link: '/3d-visualization'
+      link: "/3d-visualization",
     },
     {
       title: pageContent?.titleServices2,
       description: pageContent?.descServices2,
       image: pageContent?.imgServices2?.url,
-      link: '/furniture-planning'
+      link: "/furniture-planning",
     },
     {
       title: pageContent?.titleServices3,
       description: pageContent?.descServices3,
       image: pageContent?.imgServices3?.url,
-      link: '/interior-design'
+      link: "/interior-design",
     },
   ];
 
@@ -140,7 +139,7 @@ export default function Home() {
             <div className="hidden md:block bg-[#f9f1ec] dark:bg-black">
               <DGalery />
             </div>
-            <section className="z mt-96 md:mt-0 md:hidden md:bg-[#f9f1ec] md:dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
+            <section className="z-10 mt-96 md:mt-0 md:hidden md:bg-[#f9f1ec] md:dark:bg-black flex justify-center pt-6 md:pb-0 items-end md:items-center relative ">
               <Container>
                 <div className="w-full ">
                   <div className="mx-auto md:mx-0 w-fit  bg-dark-brown bg-opacity-50 p-4 md:p-6">
@@ -150,21 +149,16 @@ export default function Home() {
                     <p className="font-extralight text-xs md:text-2xl uppercase tracking-widest flex items-center text-white my-4 max-w-[250px] ">
                       {pageContent?.description}
                     </p>
-                    <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
-                      <button
-                        className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full md:w-fit"
-                        onClick={() => router.push("/portfolio")}
-                      >
+                    <Link href="/portfolio" passHref>
+                      <button className="btn justify-center bg-red-500 text-white text-center uppercase px-6 py-4 w-full">
                         {pageContent?.btnPortfolio}
                       </button>
-                      <button
-                        className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full md:w-fit"
-                        onClick={() => router.push("/contact")}
-                      >
+                    </Link>
+                    <Link href="/contact" passHref>
+                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full">
                         {pageContent?.btonContacts}
                       </button>
-
-                    </div>
+                    </Link>
                   </div>
                 </div>
               </Container>
@@ -217,6 +211,9 @@ export default function Home() {
                         {pageContent?.btn1WhoI}
                       </button>
                       <button
+                        onClick={() => {
+                          router.push("/about");
+                        }}
                         className="justify-center hover:text-light-brown hover:shadow-lg duration-300 text-brown text-center uppercase px-6 py-4"
                         style={{
                           boxShadow: "inset -1px -1px rgba(76, 64, 55, .25)",
@@ -359,7 +356,7 @@ export default function Home() {
                 nextSrc={
                   pageContent?.galleryPortfolio[
                     (currentImageIndex + 1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   ].url
                 }
                 prevSrc={
@@ -367,7 +364,7 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   ].url
                 }
                 onCloseRequest={() => {
@@ -379,13 +376,13 @@ export default function Home() {
                     (currentImageIndex +
                       pageContent?.galleryPortfolio.length -
                       1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   )
                 }
                 onMoveNextRequest={() =>
                   setCurrentImageIndex(
                     (currentImageIndex + 1) %
-                    pageContent?.galleryPortfolio.length
+                      pageContent?.galleryPortfolio.length
                   )
                 }
               />

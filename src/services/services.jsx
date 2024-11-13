@@ -122,9 +122,9 @@ query allServices($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
                     btn2(fallbackLocales: $fallbackLocales, locale: $locale)
                     btn3(fallbackLocales: $fallbackLocales, locale: $locale)
 
-                    price1(fallbackLocales: $fallbackLocales, locale: $locale)
-                    price2(fallbackLocales: $fallbackLocales, locale: $locale)
-                    price3(fallbackLocales: $fallbackLocales, locale: $locale)
+                    price1
+                    price2
+                    price3
                     formaction(fallbackLocales: $fallbackLocales, locale: $locale)
 
                     desc(fallbackLocales: $fallbackLocales, locale: $locale)
@@ -218,8 +218,7 @@ query furniturePlanning($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) 
 }
 `;
 
-
-// 
+//
 
 export const allAboutsQuery = `
 query  AllAbouts($locale: SiteLocale!, $fallbackLocales: [SiteLocale!]!) {
