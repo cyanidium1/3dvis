@@ -175,12 +175,16 @@ export default function Home() {
                       {pageContent?.description}
                     </p>
                     <div className="md:flex md:space-x-2 space-y-2 md:space-y-0">
-                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
-                        {pageContent?.btnPortfolio}
-                      </button>
-                      <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4  w-full md:w-fit">
-                        {pageContent?.btonContacts}
-                      </button>
+                      <Link href="/portfolio" passHref>
+                        <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full">
+                          {pageContent?.btnPortfolio}
+                        </button>
+                      </Link>
+                      <Link href="/contact" passHref>
+                        <button className="btn justify-center bg-brown text-white text-center uppercase px-6 py-4 w-full">
+                          {pageContent?.btonContacts}
+                        </button>
+                      </Link>
                     </div>
                   </div>
                 </div>
