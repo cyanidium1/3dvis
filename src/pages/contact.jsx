@@ -33,7 +33,7 @@ export default function Services() {
       icon: <FaInstagram size={20} />,
     },
     {
-      href: "www.tiktok.com/@graph3d.pro",
+      href: "https://www.tiktok.com/@graph3d.pro",
       icon: <FaTiktok size={20} />,
     },
   ];
