@@ -101,11 +101,19 @@ export default function Layout({ children, slider }) {
           servicesData.forEach((service) => {
             const header = service.header;
 
-            if (header.startsWith("3")) {
+            if (header.startsWith("3") || header.startsWith("Wiz")) {
               setServicesData(service);
-            } else if (header.startsWith("F") || header.startsWith("П")) {
+            } else if (
+              header.startsWith("F") ||
+              header.startsWith("П") ||
+              header.startsWith("Meble")
+            ) {
               setServices1Data(service);
-            } else if (header.startsWith("I") || header.startsWith("И")) {
+            } else if (
+              header.startsWith("I") ||
+              header.startsWith("И") ||
+              header.startsWith("Projektowanie wnętrz")
+            ) {
               setServices2Data(service);
             }
           });
@@ -195,7 +203,7 @@ export default function Layout({ children, slider }) {
   return (
     <>
       <Head>
-        <title>Graph3D</title>
+        <title>3DGrapher</title>
         <link
           rel="apple-touch-icon"
           sizes="180x180"
