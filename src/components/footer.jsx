@@ -38,7 +38,7 @@ function Footer({ theme }) {
 
   const socialMediaLinks = [
     {
-      href: "https://www.facebook.com/grafinia3dpl",
+      href: "https://www.facebook.com/graph3d.pro",
       icon: <FaFacebookSquare />,
     },
     {
@@ -46,11 +46,11 @@ function Footer({ theme }) {
       icon: <FaBehance size={20} />,
     },
     {
-      href: "https://www.instagram.com/grafinia.3d",
+      href: "https://www.Instagram.com/graph3d.pro",
       icon: <FaInstagram size={20} />,
     },
     {
-      href: "https://www.tiktok.com/@grafinia3d",
+      href: "www.tiktok.com/@graph3d.pro",
       icon: <FaTiktok size={20} />,
     },
   ];
@@ -70,10 +70,11 @@ function Footer({ theme }) {
   return (
     <Layout>
       <footer
-        className={`${theme === "dark"
-          ? "bg-black "
-          : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
-          } py-6 center ]`}
+        className={`${
+          theme === "dark"
+            ? "bg-black "
+            : "bg-[#f9f1ec] dark:bg-black text-[#4c4037] dark:text-[#f1ccae]"
+        } py-6 center ]`}
       >
         <Container>
           <div className="flex-col md:flex-row flex gap-[30px] w-[100%] justify-between ">
@@ -81,7 +82,7 @@ function Footer({ theme }) {
               <div className="mb-[30px]">
                 <Link href="/">
                   <FaCube size={27} />
-                  <p className="text-inherit text-3xl ml-2 ">3DGrapher.PRO</p>
+                  <p className="text-inherit text-3xl ml-2 ">Graph3D.PRO</p>
                 </Link>
               </div>
 
@@ -93,9 +94,11 @@ function Footer({ theme }) {
               </p>
               <SocialMediaLinks data={socialMediaLinks} />
 
-
               <p className="mt-4 text-xl hover:text-light-brown transition-colors duration-300">
-                <a href="tel:+48660966375"><FaPhoneAlt size={20} className="inline mb-1" /> +48 66 096 6375</a>
+                <a href="tel:+48660966375">
+                  <FaPhoneAlt size={20} className="inline mb-1" /> +48 66 096
+                  6375
+                </a>
               </p>
             </div>
             <div>
@@ -134,7 +137,7 @@ function Footer({ theme }) {
               </p>
               <div className="grid grid-cols-2 gap-4">
                 <a
-                  href="https://www.instagram.com/grafinia.3d"
+                  href="https://www.Instagram.com/graph3d.pro"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -145,7 +148,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://www.instagram.com/grafinia.3d"
+                  href="https://www.Instagram.com/graph3d.pro"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -156,7 +159,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://www.instagram.com/grafinia.3d"
+                  href="https://www.Instagram.com/graph3d.pro"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -167,7 +170,7 @@ function Footer({ theme }) {
                   />
                 </a>
                 <a
-                  href="https://www.instagram.com/grafinia.3d"
+                  href="https://www.Instagram.com/graph3d.pro"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -182,7 +185,7 @@ function Footer({ theme }) {
           </div>
 
           <p className="mt-[30px] text-xs">
-            © 2024 3DGrapher Inc. All rights reserved.
+            © 2024 Graph3D Inc. All rights reserved.
           </p>
         </Container>
       </footer>

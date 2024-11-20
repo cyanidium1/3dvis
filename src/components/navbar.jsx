@@ -32,7 +32,6 @@ export default function Navigation({ headerData }) {
 
   // немного внезапных костылей
 
-
   useEffect(() => {
     if (headerData) {
       setPageContent(headerData?.header);
@@ -64,7 +63,7 @@ export default function Navigation({ headerData }) {
         <NavbarBrand className="flex items-center space-x-2 text-gray-950 dark:text-gray-100">
           <Link href="/">
             <FaCube size={27} />
-            <p className="text-inherit text-3xl ml-2">3DGrapher.PRO</p>
+            <p className="text-inherit text-3xl ml-2">Graph3D.PRO</p>
           </Link>
         </NavbarBrand>
         <NavbarMenuToggle
@@ -259,7 +258,7 @@ export default function Navigation({ headerData }) {
 
         <Dropdown>
           <DropdownTrigger>
-            <Button >
+            <Button>
               <p className="draw-underline duration-200 text-2xl text-nowrap">
                 {pageContent?.link2}
               </p>
@@ -313,10 +312,8 @@ export default function Navigation({ headerData }) {
                 </p>
               </Link>
             </DropdownItem>
-
           </DropdownMenu>
         </Dropdown>
-
 
         {/* <Link href="/services">
           <p

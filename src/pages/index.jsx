@@ -128,7 +128,7 @@ export default function Home() {
               href="/favicon-16x16.png"
             />
             <link rel="manifest" href="/site.webmanifest" />
-            <title>3DGrapher</title>
+            <title>Graph3D</title>
           </Head>
           <main className="md:dark:bg-black md:dark:bg-transparent">
             {/* 360 gallery */}

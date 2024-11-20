@@ -15,7 +15,7 @@ import {
   homePageQuery,
   threeDVisualizationQuery,
   interiorDesignQuery,
-  furniturePlanningQuery
+  furniturePlanningQuery,
 } from "@/services/services";
 import Head from "next/head";
 
@@ -93,24 +93,23 @@ export default function Layout({ children, slider }) {
         setHomePageData(homePageResponse?.data?.homepage);
         setPostsData(allPostsResponse?.data?.allPortfolioposts);
 
-        console.log(allServicesResponse?.data)
+        console.log(allServicesResponse?.data);
 
         const servicesData = allServicesResponse?.data?.allServices;
 
         if (servicesData) {
-          servicesData.forEach(service => {
+          servicesData.forEach((service) => {
             const header = service.header;
 
-            if (header.startsWith('3')) {
+            if (header.startsWith("3")) {
               setServicesData(service);
-            } else if (header.startsWith('F') || header.startsWith('П')) {
+            } else if (header.startsWith("F") || header.startsWith("П")) {
               setServices1Data(service);
-            } else if (header.startsWith('I') || header.startsWith('И')) {
+            } else if (header.startsWith("I") || header.startsWith("И")) {
               setServices2Data(service);
             }
           });
         }
-
 
         setAboutData(allAboutResponse?.data?.allAbouts[0]);
         setContactsData(allContactsResponse?.data?.allContacts[0]);
@@ -162,21 +161,20 @@ export default function Layout({ children, slider }) {
           console.error("Error fetching data:", error);
         }
 
-
         // new
 
         let serviceResponse;
-        if (pathname === '/3d-visualization') {
+        if (pathname === "/3d-visualization") {
           serviceResponse = await performRequest({
             query: threeDVisualizationQuery,
             variables,
           });
-        } else if (pathname === '/interior-design') {
+        } else if (pathname === "/interior-design") {
           serviceResponse = await performRequest({
             query: interiorDesignQuery,
             variables,
           });
-        } else if (pathname === '/furniture-planning') {
+        } else if (pathname === "/furniture-planning") {
           serviceResponse = await performRequest({
             query: furniturePlanningQuery,
             variables,
@@ -197,10 +195,24 @@ export default function Layout({ children, slider }) {
   return (
     <>
       <Head>
-        <title>3DGrapher</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <title>Graph3D</title>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
+        />
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <section>
@@ -210,6 +222,5 @@ export default function Layout({ children, slider }) {
         {children}
       </section>
     </>
-
   );
 }

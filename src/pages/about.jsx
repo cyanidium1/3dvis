@@ -19,7 +19,7 @@ import SocialMediaLinks from "@/components/SocialMediaLinks";
 
 const socialMediaLinks = [
   {
-    href: "https://www.facebook.com/grafinia3dpl",
+    href: "https://www.facebook.com/graph3d.pro",
     icon: <FaFacebookSquare />,
   },
   {
@@ -27,11 +27,11 @@ const socialMediaLinks = [
     icon: <FaBehance size={20} />,
   },
   {
-    href: "https://www.instagram.com/grafinia.3d",
+    href: "https://www.Instagram.com/graph3d.pro",
     icon: <FaInstagram size={20} />,
   },
   {
-    href: "https://www.tiktok.com/@grafinia3d",
+    href: "www.tiktok.com/@graph3d.pro",
     icon: <FaTiktok size={20} />,
   },
 ];

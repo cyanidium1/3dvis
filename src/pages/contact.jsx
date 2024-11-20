@@ -6,7 +6,12 @@ import Loader from "@/components/loader";
 import SocialMediaLinks from "@/components/SocialMediaLinks";
 import { SelectedKeysContext } from "./_app";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { FaInstagram, FaBehance, FaFacebookSquare, FaTiktok } from "react-icons/fa";
+import {
+  FaInstagram,
+  FaBehance,
+  FaFacebookSquare,
+  FaTiktok,
+} from "react-icons/fa";
 import ContactForm from "@/components/contactForm";
 
 import { FaWhatsapp } from "react-icons/fa";
@@ -16,7 +21,7 @@ import { FaViber } from "react-icons/fa";
 export default function Services() {
   const socialMediaLinks = [
     {
-      href: "https://www.facebook.com/grafinia3dpl",
+      href: "https://www.facebook.com/graph3d.pro",
       icon: <FaFacebookSquare />,
     },
     {
@@ -24,11 +29,11 @@ export default function Services() {
       icon: <FaBehance size={20} />,
     },
     {
-      href: "https://www.instagram.com/grafinia.3d",
+      href: "https://www.Instagram.com/graph3d.pro",
       icon: <FaInstagram size={20} />,
     },
     {
-      href: "https://www.tiktok.com/@grafinia3d",
+      href: "www.tiktok.com/@graph3d.pro",
       icon: <FaTiktok size={20} />,
     },
   ];
@@ -96,9 +101,7 @@ export default function Services() {
                   </motion.section>
 
                   <div className="text-[#957f72] dark:text-[#f1ccae] font-light text-[18px] max-w-[512px] mt-[20px] playFairFont ">
-                    <p>
-                      {pageContent?.label}
-                    </p>
+                    <p>{pageContent?.label}</p>
                     <div className="flex space-x-2 mt-8">
                       <FaWhatsapp size={28} />
                       <FaTelegram size={28} />
@@ -109,7 +112,9 @@ export default function Services() {
                       <a href="tel:+48660966375">+48 66 096 6375</a>
                     </p>
                     <p className="pt-2 font-semibold text-xl hover:text-light-brown transition-colors duration-300">
-                      <a href="mailto:graph3dpro@gmail.com">graph3dpro@gmail.com</a>
+                      <a href="mailto:graph3dpro@gmail.com">
+                        graph3dpro@gmail.com
+                      </a>
                     </p>
                   </div>
                 </div>
@@ -117,7 +122,6 @@ export default function Services() {
                   <div className="mt-5 md:mt-0">
                     <p className="text-[#957f72] dark:text-[#f1ccae] text-[16px]">
                       {pageContent?.socialText}
-
                     </p>
                     <SocialMediaLinks data={socialMediaLinks} />
                   </div>
@@ -126,7 +130,6 @@ export default function Services() {
             </div>
 
             <ContactForm pageContent={pageContent} />
-
           </Container>
         </div>
       )}
