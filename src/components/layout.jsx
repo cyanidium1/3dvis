@@ -203,7 +203,7 @@ export default function Layout({ children, slider }) {
   return (
     <>
       <Head>
-        <title>3DGrapher</title>
+        <title>Graph3D</title>
         <link
           rel="icon"
           type="image/png"
